@@ -1,0 +1,109 @@
+
+/* FLOATING PETALS CONTAINER */
+.petal-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* PETAL DESIGN */
+.floating-petal {
+    position: absolute;
+    top: -35px;
+    color: #b58ae0;
+    font-size: 20px;
+    opacity: 0;
+    animation: floatingPetals 7s linear infinite;
+}
+
+/* DIFFERENT PETAL POSITIONS */
+.petal-1 {
+    left: 5%;
+    animation-delay: 0s;
+    font-size: 17px;
+}
+
+.petal-2 {
+    left: 18%;
+    animation-delay: 2s;
+    color: #ffffff;
+    font-size: 23px;
+}
+
+.petal-3 {
+    left: 32%;
+    animation-delay: 4s;
+    color: #d9b8f5;
+    font-size: 16px;
+}
+
+.petal-4 {
+    left: 45%;
+    animation-delay: 1s;
+    color: #9362bd;
+    font-size: 21px;
+}
+
+.petal-5 {
+    left: 60%;
+    animation-delay: 3s;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.petal-6 {
+    left: 72%;
+    animation-delay: 5s;
+    color: #c7a1ed;
+    font-size: 24px;
+}
+
+.petal-7 {
+    left: 85%;
+    animation-delay: 1.5s;
+    color: #9362bd;
+    font-size: 17px;
+}
+
+.petal-8 {
+    left: 95%;
+    animation-delay: 3.5s;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+/* PETALS FALL AND SWAY */
+@keyframes floatingPetals {
+    0% {
+        transform: translate(0, -10px) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate(20px, 45px) rotate(180deg);
+        opacity: 0.8;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate(-15px, 110px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    .floating-petal {
+        animation: none;
+        display: none;
+    }
+}
