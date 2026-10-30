@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Sa’adatulDIY</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+<header class="top-banner">
+    <a class="brand" href="#">
+        <span class="brand-script">Sa’adatul</span>
+        <span class="brand-diy">DIY</span>
+    </a>
+
+    <a class="bag-icon" href="#">▢</a>
+</header>
+
+    <!-- Main Checkout -->
+    <main class="checkout-layout">
+
+        <!-- Order Information -->
+        <section class="panel order-info">
+
+            <h1>Order Information</h1>
+
+            <form id="checkoutForm">
+
+                <label for="email">Email address *</label>
+                <input type="email" id="email" required>
+
+                <div class="section-rule"></div>
+
+                <h2>Delivery / Pickup</h2>
+
+                <div class="choice-switch">
+                    <button type="button"
+                        class="switch-option active"
+                        data-method="delivery">
+                        Delivery
+                    </button>
+
+                    <button type="button"
+                        class="switch-option"
+                        data-method="pickup">
+                        Pickup
+                    </button>
+                </div>
+
+                <label for="fullname">Full name *</label>
+                <input type="text" id="fullname" required>
+
+                <div class="two-fields">
+
+                    <div>
+                        <label for="phone">Phone number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+
+                    <div>
+                        <label for="country">Country / Region *</label>
+                        <input type="text" id="country"
+                            value="Brunei Darussalam" required>
+                    </div>
+
+                </div>
+
+                <!-- Delivery Address -->
+                <div id="addressFields">
+
+                    <label for="address">Address *</label>
+                    <input type="text" id="address" required>
+
+                    <div class="two-fields">
+
+                        <div>
+                            <label for="city">City *</label>
+                            <input type="text" id="city" required>
+                        </div>
+
+                        <div>
+                            <label for="postcode">Postcode *</label>
+                            <input type="text" id="postcode" required>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="section-rule"></div>
+
+                <h2>Shipping method</h2>
+
+                <div class="shipping-options" id="shippingOptions">
+
+                    <label>
+                        <input type="radio" name="shipping"
+                            value="5" checked>
+                        <span>Delivery Brunei Muara</span>
+                        <strong>$5.00</strong>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="shipping"
+                            value="7">
+                        <span>Delivery Tutong</span>
+                        <strong>$7.00</strong>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="shipping"
+                            value="9">
+                        <span>Delivery Belait</span>
+                        <strong>$9.00</strong>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="shipping"
+                            value="10">
+                        <span>Delivery Temburong</span>
+                        <strong>$10.00</strong>
+                    </label>
+
+                </div>
+
+                <div class="section-rule"></div>
+
+                <!-- Payment -->
+                <h2>Payment</h2>
+
+                <p class="small-note">
+                    All transactions are secure and encrypted.
+                </p>
+
+                <div class="payment-box">
+
+                    <div class="payment-heading">
+                        BIBD Bank Transfer
+                    </div>
+
+                    <div class="payment-details">
+
+                        <strong>SAADATUL DIY</strong><br>
+                        <strong>00-001-01-018364</strong>
+
+                        <p>
+                            Upload the successful bank transfer
+                            screenshot to confirm your order.
+                        </p>
+
+                        <label class="upload-button" for="proof">
+                            Upload file
+                        </label>
+
+                        <input type="file" id="proof"
+                            class="file-input"
+                            accept="image/*,.pdf">
+
+                        <span id="fileName" class="file-name">
+                            No file selected
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button class="place-order mobile-place"
+                    type="submit">
+                    ▣ Place Order
+                </button>
+
+            </form>
+
+        </section>
+
+        <!--  Order Summary -->
+        <aside class="panel summary-panel">
+
+
+<h2 class="summary-title">Your Order</h2>
+
+<div id="emptyOrder" class="empty-order"
+
+<div class="summary-rule"></div>
+
+<div class="summary-line">
+    <span>Subtotal</span>
+    <span>BND <b id="subtotal">0.00</b></span>
+</div>
+
+<div class="summary-line">
+    <span>Delivery</span>
+    <span>BND <b id="deliveryFee">0.00</b></span>
+</div>
+
+<div class="total-line">
+    <span>Total</span>
+    <strong>
+        BND <span id="total">0.00</span>
+    </strong>
+</div>
+
+
+            <button class="place-order desktop-place"
+                type="submit" form="checkoutForm">
+                Place Order
+            </button>
+
+            <a href="cart.html" class="back-button">
+                Back to Cart
+            </a>
+
+        </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-column">
+            <strong>Sa’adatulDIY</strong>
+            <a href="tel:+6738282379">+673 828 2379</a>
+            <a href="mailto:Saadatul.Art@gmail.com">
+                Saadatul.Art@gmail.com
+            </a>
+        </div>
+
+        <div class="footer-column">
+            <strong>Our cube has Instocks:</strong>
+            <span>Box of Cravings, Madang</span>
+            <span>(B53)</span>
+        </div>
+
+        <div class="footer-column reviews">
+            <a href="#">Reach us Out!</a>
+            <a href="#">See Our Reviews</a>
+
+            <div class="socials">
+                <a href="#">◎</a>
+                <a href="#">♪</a>
+            </div>
+        </div>
+
+        <p class="copyright">
+            ©2026, Sa’adatulDIY. All rights Reserved
+        </p>
+
+    </footer>
+
+    <script src="checkout.js"></script>
+
+</body>
+</html>
