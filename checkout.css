@@ -24,16 +24,13 @@ body {
 /* Header */
 
 .top-banner {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    width: 100%;
+    height: 180px;
 
-background-image: url("images/my-header-photo.jpg");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+    background-image: url("checkout.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .brand {
