@@ -34,11 +34,14 @@ body {
 }
 
 .brand {
-    text-decoration: none;
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 25px;
-    letter-spacing: -1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #465b8b;
+    white-space: nowrap;
 }
 
 .brand-script {
