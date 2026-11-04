@@ -1,0 +1,862 @@
+/* BASIC SETTINGS */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --ink: #243a76;
+    --text-blue: #405fa6;
+    --lavender: #b09fc2;
+    --pale-purple: #eee8f5;
+    --footer-blue: #a5ccdc;
+}
+
+body {
+    margin: 0;
+    background: #f4f4f4;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.header,
+main,
+.footer {
+    width: min(100%, 1000px);
+    margin-inline: auto;
+}
+
+main {
+    background: #ffffff;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.4;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 5px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* HEADER */
+
+/* Optional decorative background: images/header-texture.png */
+
+.header {
+    padding: 25px 30px 22px;
+    text-align: center;
+    background-color: #ffffff;
+    background-image: url("images/header-texture.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.brand {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #ae93cf;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.brand-diy {
+    color: #93d4e7;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.navigation a {
+    color: #202020;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    color: #9b80b7;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.navigation .cart-link {
+    display: inline-flex;
+    color: #ae93cf;
+}
+
+/* ABOUT INTRODUCTION */
+
+/* The gradients create a grid even before you add the texture image. */
+
+.about-intro {
+    padding: 32px 45px 40px;
+    background-color: #ffffff;
+
+    background-image:
+        url("images/grid-paper.png"),
+        linear-gradient(
+            to right,
+            rgba(120, 120, 120, 0.18) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(120, 120, 120, 0.18) 1px,
+            transparent 1px
+        );
+
+    background-size: cover, 30px 30px, 30px 30px;
+    background-position: center;
+}
+
+.about-intro h1 {
+    margin-bottom: 25px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+}
+
+.intro-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    align-items: start;
+    gap: 28px;
+}
+
+.intro-text p {
+    margin-bottom: 35px;
+    color: var(--text-blue);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+.intro-decoration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hooks-image {
+    width: 175px;
+    height: 135px;
+    object-fit: contain;
+}
+
+.business-card {
+    width: 215px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    transform: rotate(-6deg);
+    filter: drop-shadow(3px 6px 4px #00000025);
+}
+
+/* MY STORY */
+
+/* The gradient creates notebook lines without an image. */
+
+.my-story {
+    position: relative;
+    padding: 35px 40px 45px;
+
+    background-color: #ffffff;
+    background-image:
+        url("images/lined-paper.png"),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 37px,
+            #d5d5d5 38px,
+            transparent 40px
+        );
+
+    background-size: cover, auto;
+    background-position: center;
+}
+
+.story-top {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: start;
+    gap: 35px;
+}
+
+.founder-photo {
+    padding: 15px;
+    background: #ffffff;
+    box-shadow: 2px 5px 8px #00000030;
+    transform: rotate(-5deg);
+}
+
+.founder-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.story-introduction h2 {
+    margin-bottom: 12px;
+    padding-right: 95px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.founder-name {
+    margin-bottom: 20px;
+    color: var(--text-blue);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(27px, 4vw, 40px);
+    font-style: italic;
+    line-height: 1.2;
+}
+
+.my-story p:not(.founder-name) {
+    color: var(--text-blue);
+    font-weight: 600;
+}
+
+.bear-decoration {
+    position: absolute;
+    top: -65px;
+    right: 45px;
+    z-index: 1;
+    width: 130px;
+    height: 180px;
+    object-fit: contain;
+    transform: rotate(12deg);
+    pointer-events: none;
+}
+
+.story-middle {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    align-items: center;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.yarn-decoration {
+    width: 230px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.story-bottom {
+    position: relative;
+    min-height: 150px;
+    margin-top: 15px;
+    padding: 10px 160px 10px 20px;
+}
+
+.doll-decoration {
+    position: absolute;
+    right: 0;
+    bottom: -65px;
+    z-index: 1;
+    width: 135px;
+    height: 210px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* PURPLE PAPER SECTIONS */
+
+/* Replace purple-paper.png with a PNG containing transparent rough edges. */
+/* Without it, the section displays a plain lavender background. */
+
+.torn-paper {
+    position: relative;
+    isolation: isolate;
+    margin-inline: 5px;
+    padding: 35px;
+    color: #ffffff;
+}
+
+/* Keeps the fallback colour inside the optional transparent paper edges. */
+
+.torn-paper::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    z-index: -2;
+    background: var(--lavender);
+}
+
+.torn-paper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url("images/purple-paper.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+}
+
+/* UNIQUENESS */
+
+.unique-section h2 {
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+}
+
+.unique-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.unique-card {
+    text-align: center;
+}
+
+.unique-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #eee8f5;
+}
+
+.unique-card h3 {
+    margin: 12px 0 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.unique-card p {
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.stitch-quote {
+    margin: 0;
+    padding: 25px 35px;
+    color: var(--text-blue);
+    text-align: center;
+    font-style: italic;
+}
+
+/* CUBE LOCATION */
+
+.cube-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 35px;
+}
+
+.cube-details h2 {
+    margin-bottom: 45px;
+    font-size: clamp(27px, 3.5vw, 36px);
+    line-height: 1.12;
+}
+
+.cube-details h2 em {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15em;
+    font-weight: 400;
+}
+
+.cube-details h3 {
+    margin-bottom: 16px;
+    font-size: 22px;
+}
+
+.icon-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-line span {
+    font-size: 30px;
+    line-height: 1;
+}
+
+.whatsapp-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ffffff;
+    text-underline-offset: 4px;
+}
+
+.cube-location {
+    text-align: center;
+}
+
+.cube-location h3 {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.address {
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.map-link {
+    display: block;
+    color: #ffffff;
+    text-underline-offset: 4px;
+}
+
+.map-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    margin-bottom: 10px;
+    object-fit: cover;
+    background: #eee8f5;
+}
+
+.location-button {
+    margin-top: 15px;
+    padding: 9px 14px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.location-button:hover {
+    background: #ffffff20;
+}
+
+/* POP-UP EVENTS */
+
+.popup-section {
+    padding: 15px 45px 50px;
+    text-align: center;
+}
+
+.popup-section > h2 {
+    margin-bottom: 5px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 8vw, 76px);
+    font-weight: 400;
+    text-shadow: 2px 4px 3px #00000020;
+}
+
+.popup-section > p {
+    max-width: 800px;
+    margin: 0 auto 25px;
+    font-size: 19px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    margin-top: 25px;
+}
+
+.event-card img {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1;
+    margin: auto;
+    object-fit: cover;
+    box-shadow: 2px 5px 8px #00000035;
+    background: #eee8f5;
+}
+
+.event-card h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 35px 0 0;
+    color: #111111;
+    font-size: 22px;
+}
+
+/* Location pin drawn with CSS */
+
+.location-pin {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50% 50% 50% 0;
+    background: #ef443b;
+    transform: rotate(-45deg);
+}
+
+.location-pin::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+/* FOOTER */
+
+.footer {
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr 0.9fr;
+    gap: 20px;
+    padding: 30px;
+
+    background: var(--footer-blue);
+    color: #ffffff;
+    box-shadow: inset 0 -8px 0 #00000008;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-links a {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    margin: 10px 0 0;
+    text-align: center;
+}
+
+/* LOCATION POPUP */
+
+dialog {
+    width: min(460px, calc(100% - 30px));
+    max-height: 85vh;
+    padding: 0;
+    border: 1px solid #b5c9e4;
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--ink);
+}
+
+dialog::backdrop {
+    background: #18234199;
+}
+
+.dialog-content {
+    position: relative;
+    padding: 35px 25px 25px;
+    text-align: center;
+}
+
+.dialog-content h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 12px;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.dialog-map {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    margin-bottom: 20px;
+    object-fit: cover;
+    background: #eee8f5;
+}
+
+.dialog-map-button {
+    display: inline-block;
+    padding: 11px 18px;
+    border-radius: 6px;
+    background: var(--lavender);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* MOBILE LAYOUT */
+
+@media (max-width: 760px) {
+    .header {
+        padding-inline: 20px;
+    }
+
+    .navigation {
+        gap: 16px;
+    }
+
+    .navigation a {
+        font-size: 14px;
+    }
+
+    .about-intro {
+        padding: 30px 25px;
+    }
+
+    .intro-layout {
+        grid-template-columns: minmax(0, 1fr) 150px;
+        gap: 18px;
+    }
+
+    .intro-text p {
+        font-size: 14px;
+        letter-spacing: 0.4px;
+    }
+
+    .hooks-image {
+        height: 100px;
+    }
+
+    .business-card {
+        width: 140px;
+    }
+
+    .my-story {
+        padding: 30px 25px;
+    }
+
+    .story-top {
+        grid-template-columns: 200px minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .story-introduction h2 {
+        font-size: 34px;
+    }
+
+    .bear-decoration {
+        right: 20px;
+        width: 95px;
+        height: 140px;
+    }
+
+    .story-middle {
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .yarn-decoration {
+        width: 160px;
+    }
+
+    .my-story p:not(.founder-name) {
+        font-size: 14px;
+    }
+
+    .unique-grid {
+        gap: 18px;
+    }
+
+    .unique-card h3 {
+        font-size: 23px;
+    }
+
+    .unique-card p {
+        font-size: 14px;
+    }
+
+    .cube-section {
+        gap: 25px;
+        padding: 30px 25px;
+    }
+
+    .cube-details h2 {
+        margin-bottom: 25px;
+    }
+
+    .cube-details h3 {
+        font-size: 19px;
+    }
+
+    .cube-details p,
+    .whatsapp-link {
+        font-size: 14px;
+    }
+
+    .event-grid {
+        gap: 35px;
+    }
+
+    .footer {
+        padding: 25px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 540px) {
+    .brand {
+        font-size: 32px;
+    }
+
+    .navigation {
+        gap: 12px;
+    }
+
+    .intro-layout,
+    .story-top,
+    .story-middle,
+    .unique-grid,
+    .cube-section,
+    .event-grid,
+    .footer {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-decoration {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .hooks-image {
+        width: 120px;
+    }
+
+    .business-card {
+        width: 140px;
+    }
+
+    .founder-photo {
+        width: min(75%, 250px);
+        margin: 0 auto 15px;
+    }
+
+    .story-introduction h2 {
+        padding-right: 0;
+    }
+
+    .bear-decoration {
+        top: -35px;
+        right: 12px;
+        width: 75px;
+        height: 110px;
+    }
+
+    .story-middle {
+        gap: 10px;
+    }
+
+    .yarn-decoration {
+        justify-self: center;
+        height: 120px;
+    }
+
+    .story-bottom {
+        min-height: 180px;
+        padding: 0 90px 0 0;
+    }
+
+    .doll-decoration {
+        right: -10px;
+        bottom: -25px;
+        width: 95px;
+        height: 160px;
+    }
+
+    .unique-grid {
+        gap: 30px;
+    }
+
+    .unique-card img {
+        max-width: 300px;
+        margin: auto;
+    }
+
+    .unique-card p {
+        max-width: 280px;
+        margin: auto;
+    }
+
+    .cube-details {
+        text-align: center;
+    }
+
+    .icon-line {
+        justify-content: center;
+    }
+
+    .popup-section {
+        padding-inline: 25px;
+    }
+
+    .popup-section > p {
+        font-size: 16px;
+    }
+
+    .event-grid {
+        gap: 35px;
+    }
+
+    .event-card h3 {
+        margin-top: 22px;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .copyright {
+        grid-column: 1;
+    }
+}
