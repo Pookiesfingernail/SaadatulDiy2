@@ -6,51 +6,122 @@
 
     <title>About Us | Sa’adatulDIY</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Delicious+Handrawn&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet"
+    >
+
+    <script
+        src="https://kit.fontawesome.com/6971c1c2cd.js"
+        crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="about.css">
+
+    <script src="global.js" defer></script>
     <script src="about.js" defer></script>
 </head>
 
-<body>
+<body class="about-page">
 
     <!-- HEADER -->
-    <header class="header">
+    <header>
+        <div class="logo-container">
+            <span class="fancy-text">Sa'adatul</span>
 
-        <a href="index.html" class="brand" aria-label="Sa’adatulDIY home">
-            <span>Sa’adatul</span><span class="brand-diy">D.I.Y</span>
-        </a>
+            <span class="cute-text" style="color: #A8DCED;">
+                D.I.Y
+            </span>
 
-        <nav class="navigation" aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="custom.html">Custom</a>
-            <a href="about.html" class="active" aria-current="page">
-                About
-            </a>
-            <a href="contact.html">Contact</a>
-            <a href="reviews.html">Reviews</a>
-
-            <a href="cart.html" class="cart-link"
-                aria-label="Shopping cart">
-                <svg width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor"
-                    stroke-width="1.8" aria-hidden="true">
-                    <path d="M5 7h14l1 14H4L5 7Z"/>
-                    <path d="M8 8V6a4 4 0 0 1 8 0v2"/>
-                </svg>
-            </a>
-        </nav>
-
+            <img
+                src="photos/hook.png"
+                alt="Crochet hook"
+                class="logo-hook"
+            >
+        </div>
     </header>
 
-    <main>
+    <!-- NAVIGATION -->
+    <div class="nav-bar">
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
 
-        <!-- ABOUT INTRODUCTION -->
+                <li class="has-dropdown">
+                    <span class="dropdown-title" tabindex="0">
+                        Custom <span class="arrow">⮟</span>
+                    </span>
+
+                    <ul class="dropdown">
+                        <li>
+                            <a href="custom.html">Custom Keychain</a>
+                        </li>
+                        <li>
+                            <a href="custom.html">Custom Figurine</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="about.html" class="active"
+                        aria-current="page">
+                        About
+                    </a>
+                </li>
+
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="review.html">Reviews</a></li>
+            </ul>
+
+            <div class="nav-icon">
+                <div class="searchbar">
+                    <input
+                        class="search-input"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search products"
+                    >
+
+                    <i
+                        class="fa-solid fa-magnifying-glass fa-xl search-icon"
+                        aria-hidden="true">
+                    </i>
+                </div>
+
+                <div class="cart-icon">
+                    <a href="cart.html" aria-label="Shopping cart">
+                        <i
+                            class="fa-solid fa-bag-shopping fa-xl"
+                            aria-hidden="true">
+                        </i>
+                    </a>
+                </div>
+
+                <div class="profile-icon">
+                    <a href="profile.html" aria-label="Your profile">
+                        <i
+                            class="fa-regular fa-circle-user fa-xl"
+                            aria-hidden="true">
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main class="about-main">
+
+        <!-- INTRODUCTION -->
         <section class="about-intro" aria-labelledby="aboutTitle">
 
             <h1 id="aboutTitle">About Sa’adatulD.I.Y</h1>
 
             <div class="intro-layout">
-
                 <div class="intro-text">
                     <p>
                         SaadatulDIY is a handmade business specialising
@@ -78,18 +149,11 @@
 
                 <div class="intro-decoration">
                     <img
-                        src="images/crochet-hooks.png"
+                        src="photos/crochet-hooks.png"
                         alt=""
                         class="hooks-image"
                     >
-
-                    <img
-                        src="images/business-card.png"
-                        alt="Sa’adatulDIY business card"
-                        class="business-card"
-                    >
                 </div>
-
             </div>
 
         </section>
@@ -98,16 +162,15 @@
         <section class="my-story" aria-labelledby="storyTitle">
 
             <img
-                src="images/bear-keychain.png"
+                src="photos/bear-keychain.png"
                 alt=""
                 class="bear-decoration"
             >
 
             <div class="story-top">
-
                 <div class="founder-photo">
                     <img
-                        src="images/founder.jpg"
+                        src="photos/founder.jpg"
                         alt="Nur Basyirah Sa’adatul Hanan, founder of Sa’adatulDIY"
                     >
                 </div>
@@ -127,12 +190,11 @@
                         designs and crochet.
                     </p>
                 </div>
-
             </div>
 
             <div class="story-middle">
                 <img
-                    src="images/yarn-drawing.png"
+                    src="photos/yarn-drawing.png"
                     alt=""
                     class="yarn-decoration"
                 >
@@ -158,7 +220,7 @@
                 </p>
 
                 <img
-                    src="images/princess-doll.png"
+                    src="photos/princess-doll.png"
                     alt=""
                     class="doll-decoration"
                 >
@@ -166,7 +228,7 @@
 
         </section>
 
-        <!-- UNIQUENESS -->
+        <!-- CROCHET UNIQUENESS -->
         <section class="unique-section torn-paper"
             aria-labelledby="uniqueTitle">
 
@@ -175,15 +237,14 @@
             </h2>
 
             <div class="unique-grid">
-
                 <article class="unique-card">
                     <img
-                        src="images/yarns.jpg"
+                        src="photos/yarns.jpg"
                         alt="Colourful yarns used for crochet"
+                        loading="lazy"
                     >
 
                     <h3>Our Yarns</h3>
-
                     <p>
                         Our crochet products are made with
                         high-quality yarns.
@@ -192,12 +253,12 @@
 
                 <article class="unique-card">
                     <img
-                        src="images/designs.jpg"
+                        src="photos/designs.jpg"
                         alt="Handmade crochet flower keychains"
+                        loading="lazy"
                     >
 
                     <h3>Our Designs</h3>
-
                     <p>
                         Most of the designs are based on my
                         own patterns and style.
@@ -206,18 +267,17 @@
 
                 <article class="unique-card">
                     <img
-                        src="images/custom-dolls.jpg"
+                        src="photos/custom-dolls.jpg"
                         alt="Two personalised crochet dolls"
+                        loading="lazy"
                     >
 
                     <h3>Your Ideas</h3>
-
                     <p>
                         Share your ideas, and we can discuss
                         how to bring them to life!
                     </p>
                 </article>
-
             </div>
 
         </section>
@@ -241,8 +301,8 @@
                 <h3>Box Of Cravings details</h3>
 
                 <p class="icon-line">
-                    <span aria-hidden="true">◷</span>
-                    Open Daily 10am - 8:50pm
+                    <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                    <span>Open Daily 10am - 8:50pm</span>
                 </p>
 
                 <a
@@ -251,6 +311,8 @@
                     rel="noopener noreferrer"
                     class="whatsapp-link"
                 >
+                    <i class="fa-brands fa-whatsapp"
+                        aria-hidden="true"></i>
                     You can also reach us via WhatsApp!
                 </a>
             </div>
@@ -258,24 +320,22 @@
             <div class="cube-location">
                 <h3>Cube Location</h3>
 
-                                <p class="address">
+                <p class="address">
                     Unit 11, Ground Floor, Block D, Lot No. 79780,<br>
                     Jalan Madang, Bandar Seri Begawan BC3715
                 </p>
 
-                <!-- Interactive Google Map -->
                 <iframe
+                    class="interactive-map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127197.37394370214!2d114.87721175820309!3d4.953304900000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3222f5002a4fa3b5%3A0x22f6cb048bdd9a24!2sBox%20of%20Cravings%2C%20Madang!5e0!3m2!1sen!2sbn!4v1793800402805!5m2!1sen!2sbn"
                     title="Box of Cravings, Madang location"
-                    height="280"
-                    style="width: 100%; border: 0; display: block; margin-bottom: 10px;"
                     allowfullscreen
                     loading="lazy"
                     referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
 
                 <a
-                    href="https://share.google/krX9H6nGhiYPXrtvj"
+                    href="https://maps.app.goo.gl/PafBMgeYysjBA9dr7"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="map-link"
@@ -304,38 +364,36 @@
                 upcoming events to see more of our crochet collection.
             </p>
 
-            <p>
-                Follow our TikTok and Instagram for updates!
-            </p>
+            <p>Follow our TikTok and Instagram for updates!</p>
 
             <div class="event-grid">
-
                 <article class="event-card">
                     <img
-                        src="images/rimba-point.jpg"
+                        src="photos/rimba-point.jpg"
                         alt="Sa’adatulDIY crochet stall at Rimba Point"
+                        loading="lazy"
                     >
 
                     <h3>
-                        <span class="location-pin"
-                            aria-hidden="true"></span>
+                        <i class="fa-solid fa-location-dot"
+                            aria-hidden="true"></i>
                         RIMBA POINT
                     </h3>
                 </article>
 
                 <article class="event-card">
                     <img
-                        src="images/yayasan.jpg"
+                        src="photos/yayasan.jpg"
                         alt="Sa’adatulDIY crochet stall at Yayasan"
+                        loading="lazy"
                     >
 
                     <h3>
-                        <span class="location-pin"
-                            aria-hidden="true"></span>
+                        <i class="fa-solid fa-location-dot"
+                            aria-hidden="true"></i>
                         YAYASAN
                     </h3>
                 </article>
-
             </div>
 
         </section>
@@ -343,15 +401,10 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-
+    <footer class="about-footer">
         <div class="footer-column">
             <strong>Sa’adatulDIY</strong>
-
-            <a href="tel:+6738282379">
-                +673 828 2379
-            </a>
-
+            <a href="tel:+6738282379">+673 828 2379</a>
             <a href="mailto:Saadatul.Art@gmail.com">
                 Saadatul.Art@gmail.com
             </a>
@@ -365,18 +418,16 @@
 
         <div class="footer-column footer-links">
             <a href="contact.html">Reach us Out!</a>
-            <a href="reviews.html">See Our Reviews</a>
+            <a href="review.html">See Our Reviews</a>
         </div>
 
         <p class="copyright">
             ©2026, Sa’adatulDIY. All rights reserved.
         </p>
-
     </footer>
 
     <!-- LOCATION POPUP -->
     <dialog id="locationDialog" aria-labelledby="locationTitle">
-
         <div class="dialog-content">
 
             <button
@@ -392,12 +443,6 @@
 
             <p><strong>Madang · Cube B53</strong></p>
 
-            <img
-                src="images/cube-map.png"
-                alt="Map of the Box of Cravings location"
-                class="dialog-map"
-            >
-
             <p>
                 Unit 11, Ground Floor, Block D, Lot No. 79780,
                 Jalan Madang, Bandar Seri Begawan BC3715
@@ -406,7 +451,7 @@
             <p>Open Daily 10am - 8:50pm</p>
 
             <a
-                href="https://share.google/krX9H6nGhiYPXrtvj"
+                href="https://maps.app.goo.gl/PafBMgeYysjBA9dr7"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="dialog-map-button"
@@ -415,7 +460,6 @@
             </a>
 
         </div>
-
     </dialog>
 
 </body>
