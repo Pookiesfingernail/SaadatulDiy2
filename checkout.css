@@ -30,7 +30,7 @@ body {
     padding: 0;
     color: var(--ink);
     background: var(--white);
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: 'Inter',, sans-serif;
     font-size: 14px;
 }
 
@@ -407,6 +407,7 @@ label.field-label,
 .mobile-place {
     display: none;
 }
+
 
 
 /* =========================================
@@ -1383,4 +1384,25 @@ label.field-label,
     .footer {
         font-size: 10px;
     }
+}
+
+/* Main headings */
+h1, h2, h3, h4 {
+    font-family: 'Google Sans', sans-serif;
+}
+
+/* Navigation and buttons */
+.navbar,
+button,
+.confirm-button {
+    font-family: 'Google Sans', sans-serif;
+}
+
+/* Main paragraph and form text */
+body,
+input,
+textarea,
+select,
+label {
+    font-family: 'Inter', sans-serif;
 }
