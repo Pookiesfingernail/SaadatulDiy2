@@ -24,17 +24,26 @@
         <div class="nav-bar">
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="custom.html">Custom</a></li>
+
+                    <li class="has-dropdown">
+                    <span class="dropdown-title">Custom <span class="arrow">⮟</span></span>
+                    <ul class="dropdown">
+                        <li><a href="custom.html">Custom Keychain</a></li>
+                        <li><a href="#">Custom Figurine</a></li>
+                    </ul>
+                    </li>
+
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="review.html">Reviews</a></li>
         
                 </ul>
                 <div class="nav-icon">
-                <div class="search-icon">
-                        <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                <div class="searchbar">
+                        <input class="search-input" type="search" placeholder="Search">
+                        <i class="fa-solid fa-magnifying-glass fa-xl search-icon"></i>
                 </div>
 
                 <div class="cart-icon">
@@ -46,12 +55,14 @@
                 </div>
                 </div>
             </nav>
-
         </div>
 <main>
 </main>
 <footer>
+</footer>    
 
-</footer>        
+
+</div> 
+<script src="global.js"></script>
 </body>
 </html>
