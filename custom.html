@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Keychain | Sa'adatulDIY</title>
+    <link rel="stylesheet" href="checkout.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="index.html" class="logo">Sa’adatulDIY</a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Shop</a>
+
+            <div class="dropdown">
+                <a href="#" class="active">Custom⌄</a>
+                <div class="dropdown-menu">
+                    <a href="figurine.html">Figurine</a>
+                    <a href="custom.html">Keychain</a>
+                </div>
+            </div>
+
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="reviews.html">Reviews</a>
+        </nav>
+
+        <div class="nav-icons">
+            <a href="#" aria-label="Search">⌕</a>
+            <a href="cart.html" aria-label="Cart">♧</a>
+        </div>
+    </header>
+
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Create Your Custom<br>Keychain!</h1>
+            <p>
+                Every little detail makes it special. Create a crochet
+                keychain to capture someone's personality, a meaningful
+                memory, or a little piece of yourself.
+            </p>
+        </div>
+    </section>
+
+    <p class="notice">
+        <strong>Note:</strong> Orders must be placed 3–5 weeks in advance!
+    </p>
+
+
+    <!-- Main Customisation Area -->
+    <main class="custom-container">
+
+        <section class="custom-left">
+
+            <div class="section-heading">
+                <span class="number">#1</span>
+                <h2>Keychain Customisation</h2>
+            </div>
+
+            <div id="keychainForms"></div>
+
+
+
+            <!-- Additional Details -->
+            <section class="form-section additional-section">
+                <h3>Add Details</h3>
+                <label for="specialNotes">Special Note (Optional)</label>
+                <textarea id="specialNotes"
+                    placeholder="Write any additional requests or details here..."></textarea>
+            </section>
+
+        </section>
+
+
+       <aside class="summary-panel">
+
+    <!-- Couple Order Checkbox -->
+    <label class="couple-option">
+        <input type="checkbox" id="addKeychain">
+        <span class="circle-check"></span>
+
+        <span class="couple-text">
+            <strong>Add Another Keychain</strong>
+            <small>Couple Order (Keychain #2)</small>
+        </span>
+    </label>
+
+    <div class="couple-note">
+        Tick the circle to add a second keychain to your order.
+    </div>
+
+    <!-- Live Order Summary -->
+    <div class="summary-content">
+
+        <div class="summary-heading">
+            <h2>☷ Live Order Summary</h2>
+            <span class="live-label">LIVE</span>
+        </div>
+
+        <div id="summaryItems"></div>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-total">
+            <span>Estimated Total</span>
+            <strong>BND <span id="totalPrice">38.00</span></strong>
+        </div>
+
+        <p class="summary-disclaimer">
+            *Final price may vary depending on the complexity of your design.
+        </p>
+
+        <button class="confirm-button" id="confirmCustom">
+            Confirm Customisation
+        </button>
+
+    </div>
+
+</aside>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div>
+            <strong>Sa’adatulDIY</strong>
+            <p>+673 828 2379</p>
+            <p>SaadatulDIY@gmail.com</p>
+        </div>
+
+        <div>
+            <strong>Our cube has Instocks:</strong>
+            <p>Box of Cravings, Madang (BS3)</p>
+        </div>
+
+        <div>
+            <strong>Reach us Out!</strong>
+            <p>See Our Reviews</p>
+        </div>
+
+        <div class="copyright">
+            ©2026, Sa’adatulDIY. All rights Reserved.
+        </div>
+    </footer>
+
+
+    <script src="custom.js"></script>
+</body>
+</html>
