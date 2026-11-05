@@ -1,0 +1,129 @@
+/* ---------------------- Header ------------------- */
+
+header {
+    width: 100%;
+}
+
+.fancy-text {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 1.7em;
+    color: #B39BDC;
+
+}
+
+.cute-text {
+    font-family: 'Delicious Handrawn', cursive;
+    font-weight: 400;
+    font-size: 1.7em;
+
+}
+
+
+h1 {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.logo-hook {
+    width: auto;
+    height: 4em;
+    transform: translateY(px);
+    display: inline-block;
+    margin-left: -30px;
+}
+
+/* ---------------------- Navigation Bar ------------------- */
+
+.search-icon {
+    color: #B39BDC; 
+}
+
+.cart-icon a,
+.cart-icon i {
+    color: #B39BDC;
+    text-decoration: none;
+}
+
+.profile-icon a,
+.profile-icon i {
+    color: #B39BDC;
+    text-decoration: none;
+}
+
+nav{
+    padding: 10px 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+nav ul {
+    position: absolute;
+    left: 40%;  
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 20px 20px;
+}
+
+nav ul li a{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 400;
+    font-size: 1.5em;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    position: absolute;
+    right: 95px;
+}
+
+nav ul li a:hover{
+    color:#B39BDC;
+}
+
+nav ul li a::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #B39BDC;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after{
+    transform: scaleX(1);
+}
