@@ -1,11 +1,91 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop | Sa’adatulDIY</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="shop.css">
 </head>
 <body>
-    
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="index.html" class="logo">Sa’adatulDIY</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="custom.html">Custom</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="review.html">Reviews</a>
+        </nav>
+
+        <div class="nav-icons">
+            <a href="shop.html" aria-label="Shop">⌕</a>
+            <a href="checkout.html" aria-label="Shopping bag">▢</a>
+            <a href="contact.html" aria-label="Account">☻</a>
+        </div>
+    </header>
+
+    <!-- Shop Banner -->
+    <section class="shop-banner">
+        <h1>Shop</h1>
+        <p>Handmade with love</p>
+
+        <div class="search-box">
+            <span>⌕</span>
+            <input type="search" id="searchInput"
+                   placeholder="Search your favourite.....">
+        </div>
+    </section>
+
+    <main class="shop-container">
+
+        <!-- Category Buttons -->
+        <div class="category-buttons">
+            <button class="category-btn active" data-category="All">All</button>
+            <button class="category-btn" data-category="Keychains">Keychains</button>
+            <button class="category-btn" data-category="Plushies">Plushies</button>
+            <button class="category-btn" data-category="Accessories">Accessories</button>
+        </div>
+
+        <!-- Products are added by shop.js -->
+        <div id="productSections"></div>
+
+        <p id="noResults" class="no-results" hidden>
+            No products found. Please try another search.
+        </p>
+
+    </main>
+
+    <footer class="footer">
+        <div>
+            <strong>Sa’adatulDIY</strong>
+            <p>Handmade with love ♡</p>
+        </div>
+
+        <div>
+            <strong>Explore</strong>
+            <a href="shop.html">Shop</a>
+            <a href="custom.html">Custom Orders</a>
+            <a href="review.html">Customer Reviews</a>
+        </div>
+
+        <div>
+            <strong>Contact Us</strong>
+            <a href="contact.html">Get in touch</a>
+        </div>
+
+        <p class="copyright">© 2026 Sa’adatulDIY. All rights reserved.</p>
+    </footer>
+
+    <script src="shop.js"></script>
 </body>
 </html>
