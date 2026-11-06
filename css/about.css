@@ -433,6 +433,7 @@
 .address {
     margin-bottom: 12px;
     font-size: 25px;
+    
     color: #3C569A;
 }
 
@@ -512,7 +513,7 @@
     align-items: center;
     gap: 18px;
     margin: 35px 0 0;
-    color: #111111;
+    color: #e22525;
     font-size: 22px;
 }
 
