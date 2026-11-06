@@ -1,0 +1,399 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #24365d;
+}
+
+/* Navigation */
+.navbar {
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: #fff;
+    gap: 12px;
+}
+
+.logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #b29ad9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 23px;
+}
+
+.navbar nav a {
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #a88bc9;
+    text-decoration: underline;
+}
+
+.nav-icons {
+    position: absolute;
+    right: 20px;
+    top: 43px;
+    color: #b49bd4;
+    font-size: 19px;
+}
+
+/* Banner */
+.banner {
+    background: #ded3e9;
+    padding: 42px 20px;
+    text-align: center;
+}
+
+.banner h1 {
+    color: white;
+    font-size: 38px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px #a99ab8;
+}
+
+.banner p {
+    color: white;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Main Container */
+.review-container {
+    max-width: 1050px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+/* Review Cards */
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.review-card {
+    background: white;
+    padding: 16px;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
+    min-width: 0;
+}
+
+.review-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.stars {
+    color: #405b91;
+    font-size: 21px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.review-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.review-photo {
+    width: 42%;
+    max-width: 150px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.placeholder-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8e2f1;
+    font-size: 48px;
+}
+
+.review-content p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #263b67;
+}
+
+.product-name {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 9px;
+}
+
+/* Review Form */
+.review-form-section {
+    margin-top: 35px;
+    background: #f2f0fb;
+    border: 1px solid #c8c9e8;
+    border-radius: 9px;
+    padding: 22px;
+}
+
+.review-form-section h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.form-description {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+#reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#reviewForm > label {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 7px;
+}
+
+#reviewForm > label span {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#reviewForm input[type="text"],
+#reviewForm textarea,
+#reviewForm input[type="file"] {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #c5cde1;
+    border-radius: 5px;
+    background: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #24365d;
+}
+
+#reviewForm textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+#reviewForm input:focus,
+#reviewForm textarea:focus {
+    outline: 2px solid #b9a5d8;
+}
+
+/* Star Rating */
+.rating-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    width: fit-content;
+}
+
+.rating-input input {
+    display: none;
+}
+
+.rating-input label {
+    font-size: 29px;
+    color: #aaa;
+    cursor: pointer;
+    padding-right: 3px;
+}
+
+.rating-input label:hover,
+.rating-input label:hover ~ label,
+.rating-input input:checked ~ label {
+    color: #405b91;
+}
+
+/* Image Preview */
+.image-preview img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 7px;
+    margin-top: 5px;
+    object-fit: cover;
+}
+
+/* Submit Button */
+.submit-button {
+    align-self: center;
+    margin-top: 15px;
+    width: 150px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #b39bcf;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.submit-button:hover {
+    background: #9c82bd;
+}
+
+/* Footer */
+.footer {
+    background: #91c5dc;
+    color: white;
+    padding: 22px 25px 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.footer-column strong {
+    font-weight: 700;
+}
+
+.footer a {
+    color: white;
+    font-weight: 700;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 9px 8px;
+        gap: 10px;
+    }
+
+    .nav-icons {
+        display: none;
+    }
+
+    .navbar nav {
+        gap: 14px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .banner {
+        padding: 35px 12px;
+    }
+
+    .banner h1 {
+        font-size: 29px;
+    }
+
+    .review-container {
+        padding: 0 12px;
+        margin: 18px auto;
+    }
+
+    .review-grid {
+        gap: 12px;
+    }
+
+    .review-card {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .review-card h3 {
+        font-size: 12px;
+    }
+
+    .stars {
+        font-size: 16px;
+        letter-spacing: 0;
+    }
+
+    .review-content {
+        gap: 6px;
+        flex-direction: column;
+    }
+
+    .review-photo {
+        width: 100%;
+        max-width: none;
+    }
+
+    .review-content p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .product-name {
+        font-size: 10px;
+    }
+
+    .review-form-section {
+        padding: 13px;
+        margin-top: 25px;
+    }
+
+    .review-form-section h2 {
+        font-size: 15px;
+    }
+
+    .form-description {
+        font-size: 12px;
+    }
+
+    #reviewForm > label {
+        font-size: 13px;
+    }
+
+    #reviewForm input[type="text"],
+    #reviewForm textarea,
+    #reviewForm input[type="file"] {
+        font-size: 12px;
+    }
+
+    .footer {
+        grid-template-columns: 1fr 1fr;
+        padding: 18px 12px;
+        font-size: 11px;
+    }
+
+    .copyright {
+        font-size: 10px;
+    }
+}
