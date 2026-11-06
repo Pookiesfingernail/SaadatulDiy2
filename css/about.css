@@ -231,8 +231,8 @@
     right: 5%;
     z-index: 1;
 
-    width: 130px;
-    height: 180px;
+    width: 200px;
+    height: 300px;
 
     object-fit: contain;
     transform: rotate(12deg);
@@ -247,11 +247,14 @@
     margin-top: 35px;
 }
 
-.yarn-decoration {
+.about-page .story-middle .yarn-decoration {
     width: 230px;
-    height: 160px;
+    height: 350px;
+    min-width: 0;
     justify-self: center;
     object-fit: contain;
+    transform: scale(1.8);
+    transform-origin: center;
 }
 
 .story-bottom {
@@ -267,8 +270,8 @@
     bottom: -65px;
     z-index: 1;
 
-    width: 135px;
-    height: 210px;
+    width: 250px;
+    height: 400px;
 
     object-fit: contain;
     pointer-events: none;
@@ -671,8 +674,8 @@
 
     .bear-decoration {
         right: 20px;
-        width: 95px;
-        height: 140px;
+        width: 150px;
+        height: 300px;
     }
 
     .story-middle {
