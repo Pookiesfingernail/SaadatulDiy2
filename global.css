@@ -1,4 +1,7 @@
 /* ---------------------- Header ------------------- */
+html {
+    scroll-behavior: smooth;
+}
 
 header {
     width: 100%;
@@ -35,7 +38,7 @@ h1 {
 .logo-hook {
     width: auto;
     height: 3.9em;
-    transform: translateY(px);
+    transform: translateY(0px);
     display: inline-block;
     margin-left: -30px;
 }
@@ -264,4 +267,8 @@ nav > ul > li > a:hover::after {
 .search-input::placeholder {
     color: rgba(0,0,0,0.25);
 
+}
+
+.search-icon{
+    cursor: pointer;
 }
