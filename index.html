@@ -3,31 +3,123 @@
     <head>
         <meta charset="UTF-8">
         <title>Homepage</title>
-        <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Delicious+Handrawn&family=Fredoka:wght@300..700&family=Fuzzy+Bubbles:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/6971c1c2cd.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="index.css">
     </head>
+
     <body>
         <header>
-            <h1>Sa'adatul D.I.Y</h1>
-            </header>
+            <h1>
+            <div class="logo-container">
+                <span class="fancy-text">Sa'adatul </span>
+                <span class="cute-text"><span style="color: #A8DCED;">D.I.Y</span></span>
+            <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">    
+          </div>    
+        </h1>
+        </header>
+
+        <div class="nav-bar">
             <nav>
-                <div class="nav-bar">
-                    
-                   <div class="menu"> 
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="custom.html">Custom</a></li>
+
+                    <li class="has-dropdown">
+                    <span class="dropdown-title">Custom <span class="arrow">⮟</span></span>
+                    <ul class="dropdown">
+                        <li><a href="custom.html">Custom Keychain</a></li>
+                        <li><a href="#">Custom Figurine</a></li>
+                    </ul>
+                    </li>
+
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="review.html">Reviews</a></li>
+        
                 </ul>
-                   </div>
+                <div class="nav-icon">
+                <div class="searchbar">
+                        <input class="search-input" type="search" placeholder="Search">
+                        <i class="fa-solid fa-magnifying-glass fa-xl search-icon"></i>
+                </div>
+
+                <div class="cart-icon">
+                        <a href="cart.html"><i class="fa-solid fa-bag-shopping fa-xl"></i></a>
+
+                </div>
+                <div class="profile-icon">
+                     <a href="profile.html"><i class="fa-regular fa-circle-user fa-xl"></i></a>
+                </div>
                 </div>
             </nav>
+        </div>
 <main>
+
+    <div class="context">
+        <p>Well-known and Bruneians favorites<br>to look for handmade
+            crochet with its<br>own 
+            uniqueness and style just for you! 
+            <br> Welcome to Sa’adatulD.I.Y </p>
+
+            <div class="aurora-image">
+            <img src="photos/Aurora.png" alt="aurora">
+            <img src="photos/Elephant.png" alt="elephant" class="elephant-image">
+            </div>
+    </div>
+
+    <div class="Cube-links">
+        <div class="tooltip" data-tip="Click to see Cube Location">
+            <h3>
+                <a href="about.html#cube-details" class="link-cube">
+                <span class="fuzzy-bubbles">Available</span> 
+                <span class="inter">at our Cube!</span>
+                <i class="fa-solid fa-location-dot fa-l" location-icon></i>
+                <p>Click to see cube location</p>
+            </a>
+            </h3>    
+        </div>
+        </div>   
+
+     <div class="Army-Product">
+        <h3><span class="fredoka">Signature Brunei Army (RBAF)</span></h3>
+        <p><span class="inter">One of the most Challenging and signature handmade piece, it is around 45cm height 
+            <br> and typically for Army lovers and Army collectors!</span></p>
+
+            <a href="shop.html#" class="button-link">View Product</a>
+
+            <div class="Army-image">
+            <img src="photos/ArmyDoll2.png" class="Doll-2">
+            <img src="photos/Armydoll1.png" class="Doll-1">
+            <img src="photos/ArmyDoll3.png" class="Doll-3">
+            </div>
+     </div>
+
+     <div class="Animal-keychains">
+        <img src="photos/AnimalKeychain.png" class="animalkeychain">
+        
+        <div class="animal-details">
+        <h3 class="animal-title"><span class="fredoka2">Animal Keychains</span></h3>
+       
+        <p class="animal-description"><span class="inter">Like penguins and cats are 
+            best<br> budget accessories to bring around with when you are an Animal lover
+             or you just find them cute!</span></p>
+
+             <a href="shop.html#" class="shopbtn-link">Shop Now</a>
+        </div>
+     </div>
+     
+           
+
 </main>
 <footer>
-p
-</footer>        
+</footer>    
+
+
+</div> 
+<script src="global.js"></script>
 </body>
 </html>

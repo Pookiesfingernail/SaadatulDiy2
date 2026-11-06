@@ -1,37 +1,49 @@
-// Location popup elements
-const locationDialog = document.getElementById("locationDialog");
-const openLocationButton = document.getElementById("openLocation");
-const closeLocationButton = document.getElementById("closeLocation");
+// ABOUT PAGE: LOCATION DETAILS POPUP
 
-// Open the popup
-openLocationButton.addEventListener("click", () => {
-    locationDialog.showModal();
-});
+(() => {
+    const locationDialog = document.getElementById("locationDialog");
+    const openButton = document.getElementById("openLocation");
+    const closeButton = document.getElementById("closeLocation");
 
-//Close using the X button
-closeLocationButton.addEventListener("click", () => {
-    locationDialog.close();
-});
+    // Only run when the popup elements exist.
+    if (!locationDialog || !openButton || !closeButton) {
+        return;
+    }
 
-//Close when clicking outside the popup
-locationDialog.addEventListener("click", (event) => {
-    const bound = locationDialog.getBoundingClientRect();
+    // Open the location details.
+    openButton.addEventListener("click", () => {
+        if (!locationDialog.open) {
+            locationDialog.showModal();
+        }
+    });
 
-    const clickenOutside =
-        event.clientX < bound.left ||
-        event.clientX > bound.right ||
-        event.clientY < bound.top ||
-        event.clientY > bound.bottom;
+    // Close using the X button.
+    closeButton.addEventListener("click", () => {
+        locationDialog.close();
+    });
 
-        if (clickenOutside) {
+    // Close when clicking the shaded area outside the popup.
+    locationDialog.addEventListener("click", (event) => {
+        if (event.target !== locationDialog) {
+            return;
+        }
+
+        const bounds = locationDialog.getBoundingClientRect();
+
+        const clickedOutside =
+            event.clientX < bounds.left ||
+            event.clientX > bounds.right ||
+            event.clientY < bounds.top ||
+            event.clientY > bounds.bottom;
+
+        if (clickedOutside) {
             locationDialog.close();
         }
-});
+    });
 
-// Return focus to the button after closing.
-// The escape key also closes the dialog automatically
-locationDialog.addEventListener("close", () => {
-    openLocationButton.focus();
-}
-);
-
+    // Return keyboard focus after closing.
+    // Pressing Escape also closes the popup automatically.
+    locationDialog.addEventListener("close", () => {
+        openButton.focus();
+    });
+})();

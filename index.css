@@ -1,0 +1,255 @@
+/* ----------------Introduction-----------------*/
+.context{
+    width: 60%;
+    height: 250px;
+    min-height: 100%;
+    background-image: url("photos/indexBanner.png");
+    background-position: center;
+    background-size: cover;
+    padding: 30px 20%;
+    overflow: visible; 
+    display: inline-flex;
+    align-items: center;
+    
+}
+
+.context p {
+    font-family: 'inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    padding: 0;
+    line-height: 1.6;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+.context p {
+    position: relative;
+    left: -100px;
+    right: 0;
+}
+
+.aurora-image{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+}
+
+.aurora-image img{
+    width: 300px;
+    height: 350px;
+    object-fit: contain;
+    transform: rotate(-20deg)
+}
+
+.elephant-image {
+    position: absolute;
+    width: 400px !important;
+    height: auto !important;
+    top: -80px;
+    left: 80px;
+    z-index: 2;
+    object-fit: contain;
+    transform: rotate(20deg) !important;
+
+}
+
+.elephant-image, 
+.aurora-image {
+    pointer-events: none;
+}
+/*--------------------Cube links------------------------*/
+.Cube-links {
+    text-align: center;
+    font-size: 1.9em;
+    color: #75AAC6;
+    cursor: pointer;
+    
+}
+
+.inter {
+    font-family: 'inter', sans-serif;
+    font-weight: 300;
+}
+
+.fuzzy-bubbles {
+    font-family: 'Fuzzy Bubbles', sans-serif;
+}
+
+.Cube-links:hover{
+    color: #75AAC6;
+}
+
+.link-cube {
+    color:#75AAC6;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link-cube:visited {
+    color: #75AAC6;
+}
+
+.link-cube:hover{
+    color: #75AAC6;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.Cube-links p {
+    font-family: 'inter', sans-serif;
+    font-weight: 380;
+    font-size: 20px;
+    margin: auto;
+}
+/*-----------------------Army section-----------------------------*/
+.Army-Product {
+    text-align: center;
+    padding: 23px;
+    background-color: white;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.Army-Product:hover {
+    background-color: #f6f6f6;
+    height: 80%;
+    box-shadow: 0px 9px 20px rgba(125, 124, 126, 0.71);
+}
+
+.fredoka {
+    font-family: 'fredoka', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #1C3169;
+
+}
+
+.inter {
+    font-family: 'inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+.Doll-1 {
+    width: 200px;
+    object-fit: contain;
+    transform: translate(0px, 10px);
+}
+
+.Doll-2 {
+    width: 200px;
+    object-fit: contain;
+    transform: translate(-30px, 10px);
+}
+
+.Doll-3 {
+    width: 200px;
+    object-fit: contain;
+    transform: translate(30px, 10px);
+}
+
+.Army-image img {
+    display: inline-block;
+    cursor: pointer;
+    top: -10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.Army-image img:hover {
+    transform: scale(1.08) translate(-5px);
+    box-shadow: 0px 8px 15px rgba(0,0,0,0.2);
+}
+
+.button-link {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    top: -20px;
+    padding: 12px 24px;
+    margin: 10px 0 20px;
+    color: white;
+    font-size: 1em;
+    font-family: 'inter', sans-serif;
+    font-weight: 600;
+    background-color: #AA94BF;
+    border: none;
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-link:hover {
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+.button-link:active {
+    transform: scale(0.50);
+}
+
+/*------------------------Animal Keychian------------------------------------*/
+.Animal-keychains .animalkeychain{
+    float: left;
+    width: 400px;
+    margin: 0 23rem 1rem 3rem;
+}
+
+
+.fredoka2 {
+    font-family: 'fredoka', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color:#1C3169;
+}
+
+.animalkeychain {
+    transform: translateX(40%);
+}
+
+.animal-title {
+    position: relative;
+    left: 16px;
+    top: 50px;
+}
+
+.animal-description{
+    text-align: center;
+    position: relative;
+    left: -86px;
+    top: 50px;
+    font-family: 'inter', sans-serif;
+    font-size: 1em;
+}
+
+.shopbtn-link {
+    display: inline-block;
+    margin-top: 60px;
+    padding: 12px 24px;
+    position: relative;
+    left: 65px;
+    text-decoration: none;
+    margin: 50px 0 20px;
+    color: white;
+    font-size: 1.2em;
+    font-family: 'inter', sans-serif;
+    font-weight: 600;
+    background-color: #AA94BF;
+    border: none;
+    border-radius: 3px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shopbtn-link:hover {
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+.shopbtn-link:active {
+    transform: scale(0.50);
+}
+
+.animal-details {
+    position: relative;
+    top: 0;
+    left: -50px;
+}
