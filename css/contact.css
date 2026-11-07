@@ -233,6 +233,22 @@
     box-shadow: 0 20px 25px -10px rgba(0,0,0,0.5);
 }
 
+.tiktok-links {
+    text-decoration: none;
+}
+
+.tiktok-links:hover {
+    opacity: 0.7;
+}
+
+.insta-links {
+    text-decoration: none;
+}
+
+.insta-links:hover {
+    opacity: 0.7;
+}
+
 /*-------------------Tiktok Videos--------------------*/
 .tiktok-head {
     font-size: 1.4em;
