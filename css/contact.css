@@ -66,7 +66,7 @@
 
 .contact-details {
     text-align: left;
-    transform: translateX(30%);
+    transform: translateX(10%);
     width: 50%;
 }
 
@@ -132,4 +132,146 @@
 .contact-form textarea:focus {
     border-color: #BBD4E1;
     box-shadow: 0 0 5px rgba(179, 155, 220, 0.5);
+}
+
+.contact-form textarea{
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #B39bdc;
+    color: white;
+    border: none;
+    padding: 5px 30px;
+    border-radius: 4px;
+    font-family: 'inter', sans-serif;
+    font-size: 1.4em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #9480b8;
+}
+
+/*----------------------------Social Media sections-------------------------------------*/
+.insta {
+    font-family: 'inter', sans-serif;
+    font-size: 1.3em;
+    color:#1C3169;
+    font-weight: 800;   
+}
+
+.tiktok {
+    font-family: 'inter', sans-serif;
+    font-size: 1.3em;
+    color:#1C3169;
+    font-weight: 800;  
+}
+
+.stay {
+    font-family: 'inter', sans-serif;
+}
+.updated {
+    font-family: 'Fuzzy bubbles', sans-serif;
+}
+
+.stay-updated {
+    color: #73B8DC;
+    font-size: 1.4em;
+    transform: translateX(15px);
+    text-shadow: 2px 2px 4px #00000035;
+    
+}
+
+.Social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 130px;
+    width: 100%;
+    transform: translate( -15px,-50px);
+}
+
+.tiktok, 
+.insta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.Social-media h4, 
+.Social-media h2 {
+    margin: 0;
+}
+
+.Social-media2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    transform: translate( -2px, -40px);
+}
+
+.ig {
+    width: 300px;
+    height: auto;
+    box-shadow: 0 20px 25px -10px rgba(0,0,0,0.5);
+}
+
+.igs {
+    width: 300px;
+    height: auto;
+    box-shadow: 0 20px 25px -10px rgba(0,0,0,0.5);
+}
+
+.tt {
+    width: 300px; 
+    height: auto;
+    box-shadow: 0 20px 25px -10px rgba(0,0,0,0.5);
+}
+
+/*-------------------Tiktok Videos--------------------*/
+.tiktok-head {
+    font-size: 1.4em;
+    font-weight: 600;
+    color:#73B8DC;
+    text-shadow: 2px 2px 4px #00000035;
+    text-align: center;
+}
+
+.tiktoktext {
+    font-family: 'Fuzzy bubbles', sans-serif;
+}
+
+.videotext {
+    font-family: 'inter', sans-serif;
+}
+
+.tiktok-videos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.video-rows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    transform: translateY(-40px);
+}
+
+.video-rows video {
+    width: 250px;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+}
+
+.bottom-section {
+    background-color: #b39bdc47;
 }
