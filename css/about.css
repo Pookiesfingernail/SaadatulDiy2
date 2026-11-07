@@ -135,6 +135,81 @@
     object-fit: contain;
 }
 
+/* Hooks above the tilted logo, with clip overlapping */
+.about-page .intro-decoration {
+    position: relative;
+    display: block;
+    align-self: start;
+    justify-self: center;
+    width: min(100%, 320px);
+    height: 440px;
+    margin-top: -55px;
+}
+
+.about-page .intro-decoration .hooks-image {
+    position: absolute;
+    top: -25px;
+    left: -5%;
+    width: 85%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.about-page .intro-logo-card {
+    position: absolute;
+    top: 180px;
+    left: 10%;
+    width: 80%;
+    transform: rotate(-7deg);
+}
+
+.about-page .intro-logo {
+    display: block;
+    width: 95%;
+    height: auto;
+    box-shadow: 3px 6px 8px #00000035;
+}
+
+.about-page .intro-logo-clip {
+    position: absolute;
+    top: -145px;
+    right: -65px;
+    width: 85%;
+    height: auto;
+    max-width: none;
+    transform: rotate(32deg);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Smaller screens */
+@media (max-width: 760px) {
+    .about-page .intro-decoration {
+        width: min (100%, 320px);
+        height: 440px;
+        margin-top: 0;
+    }
+
+    .about-page .intro-decoration .hooks-image {
+        height: 200px;
+    }
+
+    .about-page .intro-logo-card {
+        top: 180px;
+    }
+
+    .about-page .intro-logo-clip {
+        top: -28px;
+        right: -10px;
+    }
+}
+
+@media (max-width: 540px) {
+    .about-page .intro-decoration {
+        margin-top: 20px;
+    }
+}
+
 /* ================= MY STORY ================= */
 
 .my-story {
@@ -484,7 +559,8 @@
 .popup-section > p {
     max-width: 800px;
     margin: 0 auto 25px;
-    font-size: 19px;
+    font-size: 23px;
+    font-weight: 200;
 }
 
 .event-grid {
