@@ -366,7 +366,7 @@
     position: absolute;
     inset: 5px;
     z-index: -2;
-    background: var(--lavender);
+    background: transparent;
 }
 
 .torn-paper::after {
@@ -375,9 +375,10 @@
     inset: 0;
     z-index: -1;
 
-    background-image: url("../photos/background-paper.jpg");
+    background-image: url("../photos/Aboutbanner.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 183.824% 113.636%;
+    background-position: 46.784% 51.667%;
 
     pointer-events: none;
 }
@@ -541,6 +542,21 @@
     background: #ffffff20;
 }
 
+/* White text with black shadows on purple sections */
+.about-page .torn-paper,
+.about-page .torn-paper h2,
+.about-page .torn-paper h3,
+.about-page .torn-paper p,
+.about-page .torn-paper a,
+.about-page .torn-paper i,
+.about-page .torn-paper .location-button {
+    color: #ffffff;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.about-page .torn-paper .location-button {
+    border-color: #ffffff;
+}
 /* ================= POP-UP EVENTS ================= */
 
 .popup-section {
