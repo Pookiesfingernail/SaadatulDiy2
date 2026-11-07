@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Reviews | Sa’adatulDIY</title>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="review.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/review.css">
 </head>
 
 <body>
 
     <!-- Navigation -->
     <header class="navbar">
+
         <a href="index.html" class="logo">Sa’adatulDIY</a>
 
         <nav>
@@ -28,7 +31,12 @@
             <a href="review.html" class="active">Reviews</a>
         </nav>
 
-        <div class="nav-icons">⌕　shop　user</div>
+        <div class="nav-icons">
+            <a href="shop.html" title="Shop" aria-label="Shop">⌕</a>
+            <a href="checkout.html" title="Shopping bag" aria-label="Shopping bag">▢</a>
+            <a href="contact.html" title="Contact" aria-label="Contact">☻</a>
+        </div>
+
     </header>
 
     <!-- Banner -->
@@ -45,40 +53,74 @@
             <article class="review-card">
                 <h3>Evangeline</h3>
                 <div class="stars">★★★★★</div>
+
                 <div class="review-content">
-                    <div class="review-photo placeholder-photo">photo</div>
-                    <p>I am super happy with the results of this doll! It looks so cuteee &lt;3</p>
+                    <div class="review-photo placeholder-photo">
+                        photo
+                    </div>
+
+                    <p>
+                        I am super happy with the results of this doll!
+                        It looks so cuteee &lt;3
+                    </p>
                 </div>
+
                 <span class="product-name">Custom Head Keychain</span>
             </article>
 
             <article class="review-card">
                 <h3>Nicole</h3>
                 <div class="stars">★★★★★</div>
+
                 <div class="review-content">
-                    <div class="review-photo placeholder-photo">photo</div>
-                    <p>It looks even better in person!! I'm definitely ordering another custom one when you can open slots again!</p>
+                    <div class="review-photo placeholder-photo">
+                        photo
+                    </div>
+
+                    <p>
+                        It looks even better in person!! I'm definitely
+                        ordering another custom one when you can open
+                        slots again!
+                    </p>
                 </div>
+
                 <span class="product-name">Custom Permpoon Keychain</span>
             </article>
 
             <article class="review-card">
                 <h3>Sophia</h3>
                 <div class="stars">★★★★★</div>
+
                 <div class="review-content">
-                    <div class="review-photo placeholder-photo">photo</div>
-                    <p>I can't thank you enough for your effort and time & thank you so much also for the lovely dress! Time to book another slot &lt;3</p>
+                    <div class="review-photo placeholder-photo">
+                        photo
+                    </div>
+
+                    <p>
+                        I can't thank you enough for your effort and time.
+                        Thank you so much also for the lovely dress!
+                        Time to book another slot &lt;3
+                    </p>
                 </div>
+
                 <span class="product-name">Custom Female Doll</span>
             </article>
 
             <article class="review-card">
                 <h3>Aisyah</h3>
                 <div class="stars">★★★★★</div>
+
                 <div class="review-content">
-                    <div class="review-photo placeholder-photo">photo</div>
-                    <p>I just picked them up and thank you so much!! I love them so much!!</p>
+                    <div class="review-photo placeholder-photo">
+                        photo
+                    </div>
+
+                    <p>
+                        I just picked them up and thank you so much!!
+                        I love them so much!!
+                    </p>
                 </div>
+
                 <span class="product-name">Custom Couple Dolls</span>
             </article>
 
@@ -88,58 +130,82 @@
         <section class="review-form-section">
 
             <h2>Would you like to write a review?</h2>
+
             <p class="form-description">
-                Please fill in the form below. We would love to hear about your experience!
+                Please fill in the form below. We would love to hear
+                about your experience!
             </p>
 
             <form id="reviewForm">
 
                 <label for="customerName">Name:</label>
-                <input type="text" id="customerName"
-                    placeholder="Please fill in your name (e.g. Nicole)" required>
 
-                <label>Rating: <span>(Select the stars based on your overall satisfaction)</span></label>
+                <input type="text" id="customerName"
+                    placeholder="Please fill in your name (e.g. Nicole)"
+                    required>
+
+                <label>
+                    Rating:
+                    <span>(Select the stars based on your overall satisfaction)</span>
+                </label>
 
                 <div class="rating-input">
-                    <input type="radio" name="rating" id="star5" value="5" required>
+
+                    <input type="radio" name="rating"
+                        id="star5" value="5" required>
                     <label for="star5">★</label>
 
-                    <input type="radio" name="rating" id="star4" value="4">
+                    <input type="radio" name="rating"
+                        id="star4" value="4">
                     <label for="star4">★</label>
 
-                    <input type="radio" name="rating" id="star3" value="3">
+                    <input type="radio" name="rating"
+                        id="star3" value="3">
                     <label for="star3">★</label>
 
-                    <input type="radio" name="rating" id="star2" value="2">
+                    <input type="radio" name="rating"
+                        id="star2" value="2">
                     <label for="star2">★</label>
 
-                    <input type="radio" name="rating" id="star1" value="1">
+                    <input type="radio" name="rating"
+                        id="star1" value="1">
                     <label for="star1">★</label>
+
                 </div>
 
                 <label for="productName">Product:</label>
-                <input type="text" id="productName"
-                    placeholder="Please fill in the name of the product you bought." required>
 
-                <label for="productImage">Image of Product: <span>(Optional)</span></label>
+                <input type="text" id="productName"
+                    placeholder="Please fill in the name of the product you bought."
+                    required>
+
+                <label for="productImage">
+                    Image of Product: <span>(Optional)</span>
+                </label>
+
                 <input type="file" id="productImage" accept="image/*">
 
                 <div id="imagePreview" class="image-preview"></div>
 
                 <label for="comments">Comments:</label>
+
                 <textarea id="comments" rows="3"
                     placeholder="Please leave your thoughts on your purchases and experiences here."
                     required></textarea>
 
-                <button type="submit" class="submit-button">SUBMIT</button>
+                <button type="submit" class="submit-button">
+                    SUBMIT
+                </button>
 
             </form>
+
         </section>
 
     </main>
 
     <!-- Footer -->
     <footer class="footer">
+
         <div class="footer-column">
             <strong>Sa’adatulDIY</strong>
             <p>+673 828 2379</p>
@@ -153,14 +219,18 @@
 
         <div class="footer-column">
             <strong>Reach us Out!</strong>
+            <a href="contact.html">Contact Us</a>
             <a href="review.html">See Our Reviews</a>
         </div>
 
         <div class="copyright">
             ©2026, Sa’adatulDIY. All rights Reserved.
         </div>
+
     </footer>
 
-    <script src="review.js"></script>
+    <!-- JavaScript -->
+    <script src="js/review.js"></script>
+
 </body>
 </html>

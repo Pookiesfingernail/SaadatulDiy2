@@ -3,42 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Keychain | Sa'adatulDIY</title>
-    <link rel="stylesheet" href="checkout.css">
+
+    <title>Custom Keychain | Sa’adatulDIY</title>
 
     <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" href="custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Delicious+Handrawn&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <a href="index.html" class="logo">Sa’adatulDIY</a>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/6971c1c2cd.js" crossorigin="anonymous"></script>
 
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="menu.html">Shop</a>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/custom.css">
 
-            <div class="dropdown">
-                <a href="#" class="active">Custom⌄</a>
-                <div class="dropdown-menu">
-                    <a href="figurine.html">Figurine</a>
-                    <a href="custom.html">Keychain</a>
+</head>
+
+<body>
+
+    <!-- HEADER / LOGO -->
+<header>
+    <a href="index.html" class="logo-link" style="display: flex; justify-content: center; align-items: center; text-decoration: none;">
+        <img src="photos/saadatuldiyclear.png" alt="Sa'adatulDIY Logo" style="height: 50px; width: auto; object-fit: contain;">
+    </a>
+</header>
+
+    <!-- NAVIGATION MENU -->
+    <div class="nav-bar">
+        <nav aria-label="Main navigation">
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+
+                <li class="has-dropdown">
+                    <span class="dropdown-title" tabindex="0">
+                        Custom <span class="arrow">⮟</span>
+                    </span>
+
+                    <ul class="dropdown">
+                        <li><a href="custom.html">Custom Keychain</a></li>
+                        <li><a href="#">Custom Figurine</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="review.html">Reviews</a></li>
+            </ul>
+
+            <!-- SEARCH, CART AND PROFILE -->
+            <div class="nav-icon">
+
+                <div class="searchbar">
+                    <input
+                        class="search-input"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search products"
+                    >
+
+                    <i class="fa-solid fa-magnifying-glass fa-xl search-icon"></i>
                 </div>
+
+                <div class="cart-icon">
+                    <a href="cart.html" aria-label="Shopping cart">
+                        <i class="fa-solid fa-bag-shopping fa-xl"></i>
+                    </a>
+                </div>
+
+                <div class="profile-icon">
+                    <a href="profile.html" aria-label="Your profile">
+                        <i class="fa-regular fa-circle-user fa-xl"></i>
+                    </a>
+                </div>
+
             </div>
-
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="reviews.html">Reviews</a>
         </nav>
+    </div>
 
-        <div class="nav-icons">
-            <a href="#" aria-label="Search">⌕</a>
-            <a href="cart.html" aria-label="Cart">user</a>
-        </div>
-    </header>
+    <main>
 
 
     <!-- Banner -->
@@ -59,7 +104,7 @@
 
 
     <!-- Main Customisation Area -->
-    <main class="custom-container">
+    <div class="custom-container">
 
         <section class="custom-left">
 
@@ -101,6 +146,7 @@
     </div>
 
     <!-- Live Order Summary -->
+
     <div class="summary-content">
 
         <div class="summary-heading">
@@ -112,11 +158,18 @@
 
         <div class="summary-divider"></div>
 
-        <div class="summary-total">
-            <span>Estimated Total</span>
-            <strong>BND <span id="totalPrice">38.00</span></strong>
-        </div>
+<div class="summary-total">
+    <span>ESTIMATED TOTAL</span>
+    <div style="text-align: right;">
+        <div style="font-size: 10px; color: #666; text-transform: uppercase;">Subject to confirmation</div>
+        <strong style="font-size: 22px; color: #465b8b;">BND $<span id="totalPrice">38.00</span></strong>
+    </div>
+</div>
 
+<div class="checkout-nav" style="margin-bottom: 15px; display: flex; flex-direction: column; gap: 10px;">
+    <p style="font-size: 11px; margin: 0; color: #555; text-align: center;">CLICK TO SEE COLOUR CODE OPTIONS</p>
+    <a href="#" style="background: #b49bc9; color: white; text-align: center; padding: 8px; border-radius: 5px; font-size: 13px; text-decoration: none;">PDF FILE</a>
+</div>
         <p class="summary-disclaimer">
             *Final price may vary depending on the complexity of your design.
         </p>
@@ -155,6 +208,6 @@
     </footer>
 
 
-    <script src="custom.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>

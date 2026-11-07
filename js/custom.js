@@ -1,10 +1,10 @@
 const keychains = [
     {
-        gender: "Male",
-        basePrice: 38,
-        skin: "Light",
-        hair: "Short Hair",
-        outfit: "Casual Outfit",
+        gender: "",
+        basePrice: "",
+        skin: "",
+        hair: "",
+        outfit: "",
         accessories: [],
         hairNote: "",
         outfitNote: "",
@@ -63,7 +63,6 @@ function createKeychainForm(item, index) {
     return `
         <section class="form-section keychain-card">
 
-            <h3>Keychain #${index + 1} Customisation</h3>
 
             <label>CHOOSE DOLL GENDER (Fixed Size 12cm - 14cm)</label>
 
@@ -75,7 +74,7 @@ function createKeychainForm(item, index) {
                     data-field="gender"
                     data-value="Male">
 
-                    <strong>👨 Male Keychain</strong>
+                    <strong>Male Keychain</strong>
                     <small>Male crochet doll</small>
                     <span class="choice-price">BND $38.00</span>
                 </button>
@@ -86,7 +85,7 @@ function createKeychainForm(item, index) {
                     data-field="gender"
                     data-value="Female">
 
-                    <strong>👩 Female Keychain</strong>
+                    <strong>Female Keychain</strong>
                     <small>Female crochet doll</small>
                     <span class="choice-price">BND $40.00</span>
                 </button>
@@ -120,11 +119,13 @@ function createKeychainForm(item, index) {
 
             <h3>Hair & Head Styling</h3>
 
-            <div class="small-instruction">
-                📷 <strong>Reference Photo Customisation:</strong><br>
-                Upload your own picture or reference photo
-                to help us understand your preferred hairstyle.
-            </div>
+<div class="reference-photo-box">
+    <i class="fa-regular fa-image"></i>
+    <div>
+        <strong>Reference Photo Customisation:</strong><br>
+        Upload your own picture or reference photo to help us understand your preferred hairstyle.
+    </div>
+</div>
 
             <label>HAIRSTYLE / LENGTH / HEADWEAR OPTIONS</label>
 
@@ -166,11 +167,13 @@ function createKeychainForm(item, index) {
 
             <h3>Outfit / Apparel</h3>
 
-            <div class="small-instruction">
-                📷 <strong>Reference Photo Customisation:</strong><br>
-                Upload your own picture or reference photo to help us
-                understand your preferred outfit.
-            </div>
+            <div class="reference-photo-box">
+    <i class="fa-regular fa-image"></i>
+    <div>
+        <strong>Reference Photo Customisation:</strong><br>
+        Upload your own picture or reference photo to help us understand your preferred hairstyle.
+    </div>
+</div>
 
             <label>SELECT OUTFIT / APPAREL CATEGORY</label>
 
@@ -212,11 +215,13 @@ function createKeychainForm(item, index) {
 
             <h3>Optional Accessories & Details</h3>
 
-            <div class="small-instruction">
-                📷 <strong>Reference Photo Customisation:</strong><br>
-                Upload your own picture or reference photo to help us
-                understand your preferred accessories.
-            </div>
+<div class="reference-photo-box">
+    <i class="fa-regular fa-image"></i>
+    <div>
+        <strong>Reference Photo Customisation:</strong><br>
+        Upload your own picture or reference photo to help us understand your preferred hairstyle.
+    </div>
+</div>
 
             <label>SELECT ACCESSORIES</label>
 
