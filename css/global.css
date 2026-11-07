@@ -272,3 +272,116 @@ nav > ul > li > a:hover::after {
 .search-icon{
     cursor: pointer;
 }
+/*------------------Footer------------------------*/
+
+footer {
+    background: #A6CCE0;
+    padding-top: 10px;
+    color: white;
+}
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.footer-content {
+    width: 33.3%;
+}
+
+.footer-content h3 {
+    font-family: 'inter', sans-serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.footer-content p {
+    font-family: 'inter', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    width: 190px;
+    margin: auto;
+    padding: 4px;
+}
+
+.footer-content ul {
+    text-align: center;
+}
+
+.List li::before {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background: #4D99C0;
+    transition-duration: .5s;
+}
+
+.bottom-bar {
+    background: #90bfd8;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.bottom-bar p {
+    color: white;
+    font-family: 'inter', sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.List li a {
+    color: white;
+    font-family: 'inter', sans-serif;
+    font-size: 1em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.List li a:hover {
+    color: #1c3169;
+}
+
+.List {
+    padding: 0;
+    list-style: none;
+}
+
+.List li {
+    width: auto;
+    text-align: center;
+    padding: 7px;
+    position: relative;
+}
+
+.footer-content:last-child .List {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-content:last-child .List li {
+    padding: 5px;
+}
+
+.insta-icon,
+.tiktok-icon {
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.insta-icon:hover,
+.tiktok-icon:hover {
+    color: #1c3169;
+    transform: scale(1.2);
+}
