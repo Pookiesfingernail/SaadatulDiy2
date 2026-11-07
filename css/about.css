@@ -563,6 +563,12 @@
     font-weight: 200;
 }
 
+.popup-section .social-link {
+    color: #3C569A;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
 .event-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
