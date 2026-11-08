@@ -15,6 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const formMessage = document.getElementById("formMessage");
     const submitButton = signupForm.querySelector(".signup-button");
 
+    // Page to return to after signing up (e.g. the product the customer wanted to add)
+    const next = SDIY.safeRedirect(
+        new URLSearchParams(window.location.search).get("next"),
+        "account.html"
+    );
+
+    document.getElementById("loginLink").href = SDIY.loginUrl(next);
+
+    SDIY.getSession().then(session => {
+        if (session.loggedIn) window.location.replace(next);
+    });
+
     // DISPLAY FIELD ERROR
     function showError(input, errorId, message) {
         document.getElementById(errorId).textContent = message;
@@ -182,52 +194,38 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Backend endpoint to be created in PHP.
-        // No account is created until the server confirms success.
+        // api/register.php saves the account in the database and logs the customer in.
         submitButton.disabled = true;
         submitButton.textContent = "Creating Account...";
 
         try {
-            const response = await fetch("register.php", {
+            await SDIY.api("register.php", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
+                body: {
                     full_name: fullName.value.trim(),
                     email: email.value.trim(),
                     password: password.value
-                })
+                },
+                redirectOnLogin: false
             });
 
-            const result = await response.json();
-
-            if (!response.ok || !result.success) {
-                throw new Error(
-                    result.message || "Registration failed."
-                );
-            }
-
             showMessage(
-                "Account created successfully! You can now log in.",
+                "Account created successfully! Redirecting...",
                 "success"
             );
 
             signupForm.reset();
-
-            // Redirect to login after successful registration.
-            // Uncomment if automatic redirection is preferred:
-            // window.location.href = "login.html";
+            window.location.href = next;
 
         } catch (error) {
-            showMessage(
-                error.message === "Failed to fetch"
-                    ? "Registration server is unavailable. Please check your PHP setup."
-                    : error.message,
-                "error"
-            );
+            const fieldErrors = (error.data && error.data.errors) || {};
 
-        } finally {
+            if (fieldErrors.email) showError(email, "emailError", fieldErrors.email);
+            if (fieldErrors.full_name) showError(fullName, "nameError", fieldErrors.full_name);
+            if (fieldErrors.password) showError(password, "passwordError", fieldErrors.password);
+
+            showMessage(error.message, "error");
+
             submitButton.disabled = false;
             submitButton.textContent = "Sign Up";
         }

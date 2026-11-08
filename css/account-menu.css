@@ -1,0 +1,162 @@
+/* =========================================================
+   ACCOUNT DROPDOWN, CART BADGE & POP-UP MESSAGE
+   Shared by every page (works with global.css, custom.css, ...)
+   ========================================================= */
+
+.profile-icon.has-account-menu {
+    position: relative;
+}
+
+.profile-icon.has-account-menu > a {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile-icon.has-account-menu > a:hover,
+.profile-icon.has-account-menu.open > a {
+    transform: scale(1.15);
+}
+
+.account-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 16px);
+    right: -12px;
+    min-width: 210px;
+    padding: 10px 0;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    z-index: 2000;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+}
+
+.account-menu::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    right: 18px;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.profile-icon.open .account-menu {
+    display: block;
+}
+
+.account-menu-greeting {
+    margin: 0;
+    padding: 6px 20px 10px;
+    color: #777;
+    font-size: 13px;
+    border-bottom: 1px solid #f0eaf8;
+}
+
+.account-menu-greeting strong {
+    color: #465b8b;
+}
+
+.profile-icon .account-menu a,
+.account-menu button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.profile-icon .account-menu a i,
+.account-menu button i {
+    width: 16px;
+    color: #B39BDC;
+    font-size: 14px;
+    text-align: center;
+}
+
+.profile-icon .account-menu a:hover,
+.account-menu button:hover {
+    color: #B39BDC;
+    background: #faf7ff;
+}
+
+.account-menu-rule {
+    height: 1px;
+    margin: 6px 0;
+    background: #f0eaf8;
+}
+
+.account-menu-logout {
+    color: #c0392b !important;
+}
+
+/* Cart badge (added by global.js on pages without #cart-count) */
+.cart-icon a {
+    position: relative;
+}
+
+.sdiy-cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    min-width: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    background: #a98ac5;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: center;
+}
+
+/* Pop-up message */
+.sdiy-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    z-index: 3000;
+    max-width: calc(100% - 40px);
+    padding: 14px 24px;
+    border-radius: 10px;
+    background: #465b8b;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sdiy-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.sdiy-toast.error {
+    background: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .account-menu {
+        right: -20px;
+    }
+}

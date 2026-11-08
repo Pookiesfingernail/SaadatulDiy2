@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Sa'adatul D.I.Y</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Delicious+Handrawn&family=Fredoka:wght@300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6971c1c2cd.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/account-menu.css">
+</head>
+
+<body>
+
+    <!-- HEADER LOGO -->
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <span class="fancy-text">Sa'adatul </span>
+                <span class="cute-text"><span style="color: #A8DCED;">D.I.Y</span></span>
+                <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">
+            </div>
+        </a>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <div class="nav-bar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+
+                <li class="has-dropdown">
+                    <span class="dropdown-title">Custom <span class="arrow">⮟</span></span>
+                    <ul class="dropdown">
+                        <li><a href="custom.html">Custom Keychain</a></li>
+                        <li><a href="#">Custom Figurine</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="review.html">Reviews</a></li>
+            </ul>
+
+            <div class="nav-icon">
+                <div class="searchbar">
+                    <input class="search-input" type="search" placeholder="Search">
+                    <i class="fa-solid fa-magnifying-glass fa-xl search-icon"></i>
+                </div>
+
+                <div class="cart-icon">
+                    <a href="cart.html" aria-label="Shopping cart"><i class="fa-solid fa-bag-shopping fa-xl"></i></a>
+                </div>
+
+                <div class="profile-icon">
+                    <a href="account.html" aria-label="My account"><i class="fa-regular fa-circle-user fa-xl"></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- MY ACCOUNT -->
+    <main class="cart-page account-page">
+
+        <div class="cart-heading">
+            <h1>My Account</h1>
+            <p id="accountGreeting">Welcome back ♡</p>
+        </div>
+
+        <div class="account-layout">
+
+            <!-- SIDE MENU -->
+            <aside class="cart-panel account-sidebar">
+                <div class="account-user">
+                    <i class="fa-regular fa-circle-user"></i>
+                    <div>
+                        <strong id="sidebarName">&nbsp;</strong>
+                        <span id="sidebarEmail">&nbsp;</span>
+                    </div>
+                </div>
+
+                <div class="account-tabs" role="tablist">
+                    <a href="#profile" class="account-tab" data-tab="profile" role="tab">
+                        <i class="fa-regular fa-user"></i> Profile Settings
+                    </a>
+                    <a href="#favourites" class="account-tab" data-tab="favourites" role="tab">
+                        <i class="fa-regular fa-heart"></i> Favourite Items
+                    </a>
+                    <a href="#orders" class="account-tab" data-tab="orders" role="tab">
+                        <i class="fa-solid fa-receipt"></i> Order History
+                    </a>
+                    <a href="cart.html" class="account-tab">
+                        <i class="fa-solid fa-bag-shopping"></i> Shopping Cart
+                    </a>
+                    <button type="button" class="account-tab account-logout" id="logoutButton">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                    </button>
+                </div>
+            </aside>
+
+            <div class="account-content">
+
+                <!-- PROFILE SETTINGS -->
+                <section class="cart-panel account-section" id="tab-profile" role="tabpanel" hidden>
+                    <h2>Profile Settings</h2>
+                    <p class="account-note">Your details are saved to your account and filled in automatically at checkout.</p>
+
+                    <form id="profileForm" class="account-form" novalidate>
+                        <div class="account-grid">
+                            <label>Full Name *
+                                <input type="text" name="full_name" maxlength="100" autocomplete="name" required>
+                            </label>
+                            <label>Email Address *
+                                <input type="email" name="email" maxlength="254" autocomplete="email" required>
+                            </label>
+                            <label>Phone Number
+                                <input type="tel" name="phone" maxlength="20" autocomplete="tel" placeholder="+673 xxx xxxx">
+                            </label>
+                            <label>Postcode
+                                <input type="text" name="postcode" maxlength="20" autocomplete="postal-code">
+                            </label>
+                            <label class="wide">Address
+                                <input type="text" name="address" maxlength="255" autocomplete="street-address">
+                            </label>
+                            <label>City / District
+                                <input type="text" name="city" maxlength="100" autocomplete="address-level2">
+                            </label>
+                        </div>
+
+                        <p class="account-message" id="profileMessage" role="status" aria-live="polite"></p>
+                        <button type="submit" class="cart-button account-save">Save Changes</button>
+                    </form>
+
+                    <div class="account-divider"></div>
+
+                    <h2>Change Password</h2>
+
+                    <form id="passwordForm" class="account-form" novalidate>
+                        <div class="account-grid">
+                            <label>Current Password *
+                                <input type="password" name="current_password" autocomplete="current-password" required>
+                            </label>
+                            <label>New Password * <small>(min. 8 characters)</small>
+                                <input type="password" name="new_password" minlength="8" autocomplete="new-password" required>
+                            </label>
+                            <label>Confirm New Password *
+                                <input type="password" name="confirm_password" minlength="8" autocomplete="new-password" required>
+                            </label>
+                        </div>
+
+                        <p class="account-message" id="passwordMessage" role="status" aria-live="polite"></p>
+                        <button type="submit" class="cart-button account-save">Update Password</button>
+                    </form>
+                </section>
+
+                <!-- FAVOURITE ITEMS -->
+                <section class="cart-panel account-section" id="tab-favourites" role="tabpanel" hidden>
+                    <h2>Favourite Items</h2>
+                    <div id="favouritesList" class="favourite-grid">
+                        <p class="cart-empty">Loading your favourites...</p>
+                    </div>
+                </section>
+
+                <!-- ORDER HISTORY -->
+                <section class="cart-panel account-section" id="tab-orders" role="tabpanel" hidden>
+                    <h2>Order History</h2>
+                    <div id="ordersList">
+                        <p class="cart-empty">Loading your orders...</p>
+                    </div>
+
+                    <h2 class="account-subheading">Custom Orders</h2>
+                    <div id="customOrdersList"></div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Sa'adatul.D.I.Y Contact</h3>
+                <p>Phone:<br>+673 828 2379</p>
+                <p>Email: Saadatul.Art@gmail.com</p>
+                <h3>Cube Address (instocks)</h3>
+                <p>Box Of Cravings, Madang (B53)</p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="List">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Stay Updated</h3>
+                <ul class="List">
+                    <li><a href="https://www.instagram.com/saadatuldiy/"><i class="fa-brands fa-instagram fa-2xl insta-icon"></i></a></li>
+                    <li><a href="https://www.tiktok.com/@saadatuldiy"><i class="fa-brands fa-tiktok fa-2xl tiktok-icon"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>&copy;2026, Sa'adatulD.I.Y. All rights reserved. </p>
+        </div>
+    </footer>
+
+    <script src="js/global.js"></script>
+    <script src="js/account.js"></script>
+</body>
+</html>

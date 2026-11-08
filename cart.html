@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Sa'adatul D.I.Y</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Delicious+Handrawn&family=Fredoka:wght@300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6971c1c2cd.js" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/account-menu.css">
+</head>
+
+<body>
+
+    <!-- HEADER LOGO -->
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <span class="fancy-text">Sa'adatul </span>
+                <span class="cute-text"><span style="color: #A8DCED;">D.I.Y</span></span>
+                <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">
+            </div>
+        </a>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <div class="nav-bar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+
+                <li class="has-dropdown">
+                    <span class="dropdown-title">Custom <span class="arrow">⮟</span></span>
+                    <ul class="dropdown">
+                        <li><a href="custom.html">Custom Keychain</a></li>
+                        <li><a href="#">Custom Figurine</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="review.html">Reviews</a></li>
+            </ul>
+
+            <div class="nav-icon">
+                <div class="searchbar">
+                    <input class="search-input" type="search" placeholder="Search">
+                    <i class="fa-solid fa-magnifying-glass fa-xl search-icon"></i>
+                </div>
+
+                <div class="cart-icon">
+                    <a href="cart.html" aria-label="Shopping cart"><i class="fa-solid fa-bag-shopping fa-xl"></i></a>
+                </div>
+
+                <div class="profile-icon">
+                    <a href="account.html" aria-label="My account"><i class="fa-regular fa-circle-user fa-xl"></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- SHOPPING CART -->
+    <main class="cart-page">
+
+        <div class="cart-heading">
+            <h1>Shopping Cart</h1>
+            <p>Handmade with love ♡</p>
+        </div>
+
+        <div class="cart-layout">
+
+            <section class="cart-panel">
+                <div class="cart-panel-title">
+                    <h2>Your Items</h2>
+                    <span id="cartItemCount">0 items</span>
+                </div>
+
+                <div id="cartLoading" class="cart-empty">Loading your cart...</div>
+
+                <div id="cartEmpty" class="cart-empty" hidden>
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p>Your cart is currently empty.</p>
+                    <a href="shop.html" class="cart-button">Start Shopping</a>
+                </div>
+
+                <div id="cartItems" class="cart-items"></div>
+            </section>
+
+            <aside class="cart-panel cart-summary">
+                <h2>Order Summary</h2>
+
+                <div class="cart-summary-line">
+                    <span>Subtotal</span>
+                    <span>BND <b id="cartSubtotal">0.00</b></span>
+                </div>
+
+                <div class="cart-summary-line muted">
+                    <span>Delivery</span>
+                    <span>Calculated at checkout</span>
+                </div>
+
+                <div class="cart-total-line">
+                    <span>Total</span>
+                    <strong>BND <span id="cartTotal">0.00</span></strong>
+                </div>
+
+                <a href="checkout.html" id="checkoutButton" class="cart-button disabled" aria-disabled="true">
+                    Proceed to Checkout
+                </a>
+
+                <a href="shop.html" class="cart-back">Continue Shopping</a>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Sa'adatul.D.I.Y Contact</h3>
+                <p>Phone:<br>+673 828 2379</p>
+                <p>Email: Saadatul.Art@gmail.com</p>
+                <h3>Cube Address (instocks)</h3>
+                <p>Box Of Cravings, Madang (B53)</p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="List">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Stay Updated</h3>
+                <ul class="List">
+                    <li><a href="https://www.instagram.com/saadatuldiy/"><i class="fa-brands fa-instagram fa-2xl insta-icon"></i></a></li>
+                    <li><a href="https://www.tiktok.com/@saadatuldiy"><i class="fa-brands fa-tiktok fa-2xl tiktok-icon"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>&copy;2026, Sa'adatulD.I.Y. All rights reserved. </p>
+        </div>
+    </footer>
+
+    <script src="js/global.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -14,30 +14,24 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/account-menu.css">
 </head>
 
 <body>
 
     <!-- HEADER / LOGO -->
-    <header class="checkout-header">
-        <!-- Background Image applied in CSS -->
-        <div class="header-content">
-            
-            <!-- Logo centered -->
-            <a href="index.html" class="logo-link">
-                <div class="logo-container">
-                    <span class="fancy-text">Sa'adatul </span>
-                    <span class="cute-text"><span style="color: #A8DCED;">D.I.Y</span></span>
-                    <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">    
-                </div>    
-            </a>
+<header>
+    <a href="index.html" class="logo-link" style="display: flex; justify-content: center; align-items: center; text-decoration: none;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+    <span class="fancy-text">Sa'adatul</span>
+    <span class="cute-text" style="color: #A8DCED;">D.I.Y</span>
+    <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">
+</div>
+</header> 
 
-            <!-- Icons on the right -->
-            <div class="header-icons">
-                <a href="shop.html" aria-label="Back to Shop"><i class="fa-solid fa-store"></i></a>
-                <a href="profile.html" aria-label="Profile"><i class="fa-regular fa-circle-user"></i></a>
-            </div>
-        </div>
+    <!-- Header and Navigation -->
+    <header class="top-banner">
+        <a class="bag-icon" href="checkout.html" aria-label="Shopping bag">▢</a>
     </header>
 
     <!-- Main Checkout -->
@@ -159,6 +153,8 @@
 
             <h2 class="summary-title">Your Order</h2>
 
+            <div id="orderItems" class="order-items"></div>
+
             <div id="emptyOrder" class="empty-order">
                 Your order is currently empty. Please add items from the Shop page.
             </div>
@@ -213,6 +209,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="js/global.js"></script>
     <script src="js/checkout.js"></script>
 </body>
 </html>
