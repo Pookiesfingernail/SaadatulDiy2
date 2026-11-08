@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | Sa’adatulDIY</title>
-
+    
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,26 +12,22 @@
     <script src="https://kit.fontawesome.com/6971c1c2cd.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/checkout.css">
-    <link rel="stylesheet" href="css/account-menu.css">
 </head>
 
 <body>
 
     <!-- HEADER / LOGO -->
-<header>
-    <a href="index.html" class="logo-link" style="display: flex; justify-content: center; align-items: center; text-decoration: none;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-    <span class="fancy-text">Sa'adatul</span>
-    <span class="cute-text" style="color: #A8DCED;">D.I.Y</span>
-    <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">
-</div>
-</header> 
-
-    <!-- Header and Navigation -->
     <header class="top-banner">
-        <a class="bag-icon" href="checkout.html" aria-label="Shopping bag">▢</a>
+        <a class="brand" href="index.html">
+            <!-- Changed class to header-logo-small -->
+            <img src="photos/saadatuldiyclear.png" alt="Sa'adatulDIY Logo" class="header-logo-small">
+        </a>
+
+        <div class="header-icons">
+            <a href="shop.html" aria-label="Shop"><i class="fa-solid fa-bag-shopping"></i></a>
+            <a href="profile.html" aria-label="Profile"><i class="fa-regular fa-circle-user"></i></a>
+        </div>
     </header>
 
     <!-- Main Checkout -->
@@ -42,121 +38,152 @@
 
             <h1>Order Information</h1>
 
-            <form id="checkoutForm">
+<form id="checkoutForm">
 
-                <label for="email">Email address *</label>
-                <input type="email" id="email" required>
+    <label for="email">Email address *</label>
+    <input type="email" id="email" placeholder="example@gmail.com" required>
 
-                <div class="section-rule"></div>
+    <div class="section-rule"></div>
 
-                <h2>Delivery / Pickup</h2>
+    <h2>Delivery / Pickup</h2>
 
-                <div class="choice-switch">
-                    <button type="button" class="switch-option active" data-method="delivery">
-                        <i class="fa-solid fa-truck"></i> Delivery
-                    </button>
-                    <button type="button" class="switch-option" data-method="pickup">
-                        <i class="fa-solid fa-store"></i> Pickup
-                    </button>
-                </div>
+    <div class="choice-switch">
+        <button type="button" class="switch-option active" data-method="delivery">
+            <i class="fa-solid fa-truck"></i> Delivery
+        </button>
+        <button type="button" class="switch-option" data-method="pickup">
+            <i class="fa-solid fa-store"></i> Pickup
+        </button>
+    </div>
 
-                <label for="fullname">Full name *</label>
-                <input type="text" id="fullname" required>
+    <label for="fullname">Full name *</label>
+    <input type="text" id="fullname">
 
-                <div class="two-fields">
-                    <div>
-                        <label for="phone">Phone number *</label>
-                        <input type="tel" id="phone" required>
-                    </div>
-                    <div>
-                        <label for="country">Country / Region *</label>
-                        <input type="text" id="country" value="Brunei Darussalam" required>
-                    </div>
-                </div>
+    <div class="two-fields">
+        <div>
+            <label for="phone">Phone number *</label>
+            <!-- Added placeholder -->
+            <input type="tel" id="phone" value="+673 " oninput="enforceBruneiPhone(this)" placeholder="123" required>
+        </div>
+        <div>
+            <label for="country">Country / Region *</label>
+            <select id="country" required>
+                <option value="Brunei Darussalam">Brunei Darussalam</option>
+            </select>
+        </div>
+    </div>
 
-                <!-- Delivery Address -->
-                <div id="addressFields">
-                    <label for="address">Address *</label>
-                    <input type="text" id="address" required>
+    <!-- Delivery Address -->
+    <div id="addressFields">
+        <label for="address">Address *</label>
+        <input type="text" id="address" placeholder="No.13, Spg 24-140, Jln Kota Batu, Kg Mentiri" required>
 
-                    <div class="two-fields">
-                        <div>
-                            <label for="city">City *</label>
-                            <input type="text" id="city" required>
-                        </div>
-                        <div>
-                            <label for="postcode">Postcode *</label>
-                            <input type="text" id="postcode" required>
-                        </div>
-                    </div>
-                </div>
+        <div class="two-fields">
+            <div>
 
-                <div class="section-rule"></div>
+                <!-- City Suggestion -->
+                <label for="city">City *</label>
+                <input type="text" id="city" list="bruneiCities" placeholder="andar Seri Begawan" required>
+                <datalist id="bruneiCities">
+                    <option value="Bandar Seri Begawan">
+                </datalist>
+            </div>
+            <div>
 
-                <h2>Shipping method</h2>
+                <!-- PostCode -->
+                <label for="postcode">Postcode *</label>
+                <input type="text" id="postcode" placeholder="BS1234" required>
+            </div>
+        </div>
+    </div>
 
-                <div class="shipping-options" id="shippingOptions">
-                    <label>
-                        <input type="radio" name="shipping" value="5" checked>
-                        <span>Delivery Brunei Muara</span>
-                        <strong>$5.00</strong>
-                    </label>
-                    <label>
-                        <input type="radio" name="shipping" value="7">
-                        <span>Delivery Tutong</span>
-                        <strong>$7.00</strong>
-                    </label>
-                    <label>
-                        <input type="radio" name="shipping" value="9">
-                        <span>Delivery Belait</span>
-                        <strong>$9.00</strong>
-                    </label>
-                    <label>
-                        <input type="radio" name="shipping" value="10">
-                        <span>Delivery Temburong</span>
-                        <strong>$10.00</strong>
-                    </label>
-                </div>
+    <!-- Shipping Method -->
+    <div id="shippingOptions">
+        <div class="section-rule"></div>
+        <h2>Shipping method</h2>
+        <div class="shipping-options">
+            <label>
+                <input type="radio" name="shipping" value="5" checked>
+                <span>Delivery Brunei Muara</span>
+                <strong>$5.00</strong>
+            </label>
+            <label>
+                <input type="radio" name="shipping" value="7">
+                <span>Delivery Tutong</span>
+                <strong>$7.00</strong>
+            </label>
+            <label>
+                <input type="radio" name="shipping" value="9">
+                <span>Delivery Belait</span>
+                <strong>$9.00</strong>
+            </label>
+            <label>
+                <input type="radio" name="shipping" value="10">
+                <span>Delivery Temburong</span>
+                <strong>$10.00</strong>
+            </label>
+        </div>
+    </div>
 
-                <div class="section-rule"></div>
+    <!-- Pickup Address (Hidden by default) -->
+    <div id="pickupAddressBox" style="display: none;">
+        <div class="section-rule"></div>
+        <h2>Address</h2>
+        <div class="pickup-address-details">
+            <p><strong>Box Of Cravings, Madang (B53)</strong></p>
+            <p>Unit 11, Ground Floor, Block D, Lot No. 79780, Jalan Madang, Bandar Seri Begawan</p>
+            <a href="https://maps.app.goo.gl/PafBMgeYysjBA9dr7" target="_blank" class="gps-link">
+                <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
+            </a>
+        </div>
+    </div>
 
-                <!-- Payment -->
-                <h2>Payment</h2>
-                <p class="small-note">All transactions are secure and encrypted.</p>
+    <div class="section-rule"></div>
 
-                <div class="payment-box">
-                    <div class="payment-heading">
-                        BIBD Bank Transfer
-                    </div>
-                    <div class="payment-details">
-                        <strong>SAADATUL DIY</strong><br>
-                        <strong>00-001-01-018364</strong>
-                        <p>Upload the successful bank transfer screenshot to confirm your order.</p>
+    <!-- Payment -->
+    <h2>Payment</h2>
+    <p class="small-note">All transactions are secure and encrypted.</p>
+    <div class="payment-box">
+        <div class="payment-heading">BIBD Bank Transfer</div>
+        <div class="payment-details">
+            <strong>SAADATUL DIY</strong><br>
+            <strong>00-001-01-018364</strong>
+            <p>Upload the successful bank transfer screenshot to confirm your order.</p>
+            <label class="upload-button" for="proof">Upload file</label>
+            <input type="file" id="proof" class="file-input" accept="image/*,.pdf">
+            <span id="fileName" class="file-name">No file selected</span>
+        </div>
+    </div>
 
-                        <label class="upload-button" for="proof">
-                            Upload file
-                        </label>
-                        <input type="file" id="proof" class="file-input" accept="image/*,.pdf">
-                        <span id="fileName" class="file-name">No file selected</span>
-                    </div>
-                </div>
-
-                <button class="place-order mobile-place" type="submit">
-                    <i class="fa-solid fa-lock"></i> Place Order
-                </button>
-
-            </form>
+    <button class="place-order mobile-place" type="submit">Place Order</button>
+</form>
         </section>
 
-        <!-- Order Summary -->
+        <!-- Your Order Summary -->
         <aside class="panel summary-panel">
-
             <h2 class="summary-title">Your Order</h2>
 
-            <div id="orderItems" class="order-items"></div>
+            <!-- Cart Items -->
+            <div class="product">
+                <div class="product-image">
+                    <img src="photos/product1.jpg" alt="Product 1">
+                </div>
+                <span class="quantity">1</span>
+                <div class="product-info">
+                    <p>Product<br>1</p>
+                    <span>BND 0.00</span>
+                </div>
+            </div>
 
-            <div id="emptyOrder" class="empty-order">
-                Your order is currently empty. Please add items from the Shop page.
+            <div class="product">
+                <div class="product-image">
+                    <img src="photos/product2.jpg" alt="Product 2">
+                </div>
+                <span class="quantity">1</span>
+                <div class="product-info">
+                    <p>Product<br>2</p>
+                    <span>BND 0.00</span>
+                </div>
             </div>
 
             <div class="summary-rule"></div>
@@ -165,10 +192,9 @@
                 <span>Subtotal</span>
                 <span>BND <b id="subtotal">0.00</b></span>
             </div>
-
             <div class="summary-line">
                 <span>Delivery</span>
-                <span>BND <b id="deliveryFee">0.00</b></span>
+                <span>BND <b id="deliveryFee">5.00</b></span>
             </div>
 
             <div class="total-line">
@@ -176,14 +202,8 @@
                 <strong>BND <span id="total">0.00</span></strong>
             </div>
 
-            <button class="place-order desktop-place" type="submit" form="checkoutForm">
-                <i class="fa-solid fa-lock"></i> Place Order
-            </button>
-
-            <a href="shop.html" class="back-button">
-                <i class="fa-solid fa-arrow-left"></i> Back to Cart
-            </a>
-
+            <button class="place-order desktop-place" type="submit" form="checkoutForm">Place Order</button>
+            <a href="cart.html" class="back-button">Back to Cart</a>
         </aside>
 
     </main>
@@ -201,15 +221,16 @@
             <span>(B53)</span>
         </div>
         <div class="footer-column reviews">
-            <strong>Reach us Out!</strong>
-            <a href="contact.html">Contact Us</a>
-            <a href="review.html">See Our Reviews</a>
+            <a href="#">Reach us Out!</a>
+            <a href="#">See Our Reviews</a>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
         </div>
-        <p class="copyright">©2026, Sa’adatulDIY. All rights Reserved.</p>
+        <p class="copyright">©2026, Sa’adatulDIY. All rights Reserved</p>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/global.js"></script>
     <script src="js/checkout.js"></script>
 </body>
 </html>
