@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Sa'adatul D.I.Y</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Delicious+Handrawn&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/signup.css">
+
+    <!-- JavaScript -->
+    <script src="js/signup.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <h1 class="signup-brand">
+                <span class="fancy-text">Sa'adatul</span>
+                <span class="cute-text">D.I.Y</span>
+            </h1>
+            <img src="photos/hook.png"
+                 alt="Crochet hook"
+                 class="logo-hook">
+        </div>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <div class="nav-bar">
+        <nav aria-label="Main navigation">
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+
+                <li class="has-dropdown">
+                    <a href="custom.html" class="dropdown-title">
+                        Custom
+                    </a>
+
+                    <ul class="dropdown">
+                        <li>
+                            <a href="custom.html">
+                                Custom Keychain
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Custom Figurine
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="review.html">Reviews</a></li>
+            </ul>
+
+            <div class="nav-icon">
+
+                <form class="searchbar"
+                      action="shop.html"
+                      method="get">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="search"
+                           class="search-input"
+                           name="search"
+                           placeholder="Search..."
+                           aria-label="Search products">
+                </form>
+
+                <div class="cart-icon">
+                    <a href="cart.html" aria-label="Shopping cart">
+                        <i class="fa-solid fa-bag-shopping fa-lg"></i>
+                    </a>
+                </div>
+
+                <div class="profile-icon">
+                    <a href="profile.html" aria-label="My account">
+                        <i class="fa-regular fa-user fa-lg"></i>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+
+    <!-- SIGNUP CONTENT -->
+    <main class="signup-page">
+
+        <div class="signup-container">
+
+            <div class="signup-heading">
+                <h2>Create an Account</h2>
+                <p>
+                    Join Sa'adatul D.I.Y and enjoy
+                    your crochet shopping experience!
+                </p>
+            </div>
+
+            <div class="signup-card">
+
+                <form id="signupForm" novalidate>
+
+                    <!-- FULL NAME -->
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="full_name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                maxlength="100"
+                                required>
+                        </div>
+
+                        <small class="error-message"
+                               id="nameError"></small>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                maxlength="254"
+                                required>
+                        </div>
+
+                        <small class="error-message"
+                               id="emailError"></small>
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a password"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required>
+
+                            <button type="button"
+                                    class="toggle-password"
+                                    data-target="password"
+                                    aria-label="Show password"
+                                    aria-pressed="false">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <small class="password-hint">
+                            Minimum 8 characters.
+                        </small>
+
+                        <small class="error-message"
+                               id="passwordError"></small>
+                    </div>
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="form-group">
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirm_password"
+                                placeholder="Re-enter your password"
+                                autocomplete="new-password"
+                                required>
+
+                            <button type="button"
+                                    class="toggle-password"
+                                    data-target="confirmPassword"
+                                    aria-label="Show confirm password"
+                                    aria-pressed="false">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <small class="error-message"
+                               id="confirmError"></small>
+                    </div>
+
+                    <!-- TERMS -->
+                    <div class="terms-group">
+                        <input type="checkbox"
+                               id="agreeTerms"
+                               required>
+
+                        <label for="agreeTerms">
+                            I agree to the
+                            <a href="terms.html">Terms & Conditions</a>
+                            and
+                            <a href="privacy.html">Privacy Policy</a>.
+                        </label>
+                    </div>
+
+                    <small class="error-message"
+                           id="termsError"></small>
+
+                    <!-- SUBMISSION MESSAGE -->
+                    <p id="formMessage"
+                       class="form-message"
+                       role="status"
+                       aria-live="polite"></p>
+
+                    <!-- SIGNUP BUTTON -->
+                    <button type="submit"
+                            class="signup-button">
+                        Sign Up
+                    </button>
+
+                    <!-- LOGIN LINK -->
+                    <p class="login-text">
+                        Already have an account?
+                        <a href="login.html">Log In</a>
+                    </p>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <div class="footer-content">
+                <h3>Sa'adatul D.I.Y</h3>
+                <p>Handmade with love, crafted just for you.</p>
+            </div>
+
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+
+                <ul class="List">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="custom.html">Custom</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-content">
+                <h3>Follow Us</h3>
+
+                <ul class="List">
+                    <li>
+                        <a href="https://www.instagram.com/"
+                           aria-label="Instagram">
+                            <i class="fa-brands fa-instagram fa-xl insta-icon"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.tiktok.com/"
+                           aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok fa-xl tiktok-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="bottom-bar">
+            <p>&copy; 2026 Sa'adatul D.I.Y. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
