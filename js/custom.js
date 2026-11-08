@@ -1,7 +1,7 @@
 const keychains = [
     {
         gender: "",
-        basePrice: "",
+        basePrice: 0,
         skin: "",
         hair: "",
         outfit: "",
@@ -415,20 +415,20 @@ function updateSummary() {
         return `
             <div class="summary-item">
 
-                <h3>Keychain #${index + 1} (${item.gender})</h3>
+                <h3>Keychain #${index + 1} (${item.gender || "Choose gender"})</h3>
 
                 <div class="summary-line">
-                    <span>Skin: ${item.skin}</span>
+                    <span>Skin: ${item.skin || "Not selected"}</span>
                     <span></span>
                 </div>
 
                 <div class="summary-line">
-                    <span>Hair: ${item.hair}</span>
+                    <span>Hair: ${item.hair || "Not selected"}</span>
                     <span>${hairPrice ? "+$" + hairPrice.toFixed(2) : ""}</span>
                 </div>
 
                 <div class="summary-line">
-                    <span>Outfit: ${item.outfit}</span>
+                    <span>Outfit: ${item.outfit || "Not selected"}</span>
                     <span>${outfitPrice ? "+$" + outfitPrice.toFixed(2) : ""}</span>
                 </div>
 
@@ -454,25 +454,101 @@ function updateSummary() {
 
 
 // CONFIRM CUSTOMISATION
+// Saves the custom order in the database, then opens WhatsApp with the
+// order details so the final price can be discussed with the customer.
 
-document.getElementById("confirmCustom").addEventListener("click", function() {
+const DRAFT_KEY = "sdiyCustomDraft";
+const confirmButton = document.getElementById("confirmCustom");
+const specialNotes = document.getElementById("specialNotes");
 
-    const order = {
+function findMissingChoice() {
+
+    for (let i = 0; i < keychains.length; i++) {
+        const item = keychains[i];
+        const label = "Keychain #" + (i + 1);
+
+        if (!item.gender) return label + ": please choose Male or Female.";
+        if (!item.skin) return label + ": please select a skin tone.";
+        if (!item.hair) return label + ": please choose a hairstyle.";
+        if (!item.outfit) return label + ": please choose an outfit.";
+    }
+
+    return "";
+}
+
+confirmButton.addEventListener("click", async function() {
+
+    const missing = findMissingChoice();
+
+    if (missing) {
+        alert(missing);
+        return;
+    }
+
+    // Keep the design so it is not lost if the customer needs to log in first.
+    sessionStorage.setItem(DRAFT_KEY, JSON.stringify({
         keychains: keychains,
-        specialNotes: document.getElementById("specialNotes").value,
-        estimatedTotal: totalPrice.textContent
-    };
+        specialNotes: specialNotes.value
+    }));
 
-    localStorage.setItem("customOrder", JSON.stringify(order));
+    const user = await SDIY.requireLogin("Please log in or sign up to submit your custom order.");
+    if (!user) return;
 
-    alert(
-        "Your customisation has been saved! Your estimated total is BND $" +
-        totalPrice.textContent
-    );
+    confirmButton.disabled = true;
+
+    try {
+        const result = await SDIY.api("custom_order.php", {
+            method: "POST",
+            body: {
+                keychains: keychains,
+                specialNotes: specialNotes.value
+            }
+        });
+
+        sessionStorage.removeItem(DRAFT_KEY);
+
+        alert(
+            "Your custom order #" + result.customOrderId + " has been saved!\n\n" +
+            "Estimated total: BND $" + result.estimatedTotal.toFixed(2) + "\n" +
+            "The final price depends on your requirements, so we will now open WhatsApp " +
+            "for you to discuss and confirm the final price with us."
+        );
+
+        window.location.href = result.whatsappUrl;
+
+    } catch (error) {
+        alert(error.message);
+        confirmButton.disabled = false;
+    }
 
 });
 
 
+// RESTORE A DESIGN SAVED BEFORE LOGGING IN
+
+function restoreDraft() {
+
+    try {
+        const draft = JSON.parse(sessionStorage.getItem(DRAFT_KEY) || "null");
+
+        if (!draft || !Array.isArray(draft.keychains) || !draft.keychains.length) return;
+
+        keychains.splice(0, keychains.length, ...draft.keychains.slice(0, 2).map(item => ({
+            ...item,
+            basePrice: Number(item.basePrice) || 0,
+            accessories: Array.isArray(item.accessories) ? item.accessories : []
+        })));
+
+        specialNotes.value = draft.specialNotes || "";
+        addButton.checked = keychains.length > 1;
+
+    } catch (error) {
+        sessionStorage.removeItem(DRAFT_KEY);
+    }
+}
+
+
 // INITIAL DISPLAY
 
+restoreDraft();
 renderKeychains();

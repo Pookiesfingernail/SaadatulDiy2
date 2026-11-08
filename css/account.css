@@ -1,0 +1,357 @@
+/* =========================================================
+   ACCOUNT PAGE - SA'ADATUL D.I.Y
+   (uses the panels and buttons from cart.css)
+   ========================================================= */
+
+.account-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.account-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 18px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee6f7;
+}
+
+.account-user > i {
+    font-size: 40px;
+    color: #B39BDC;
+}
+
+.account-user strong,
+.account-user span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 170px;
+}
+
+.account-user span {
+    font-size: 12px;
+    color: #7b849e;
+}
+
+.account-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.account-tab {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #263e78;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s;
+}
+
+.account-tab i {
+    width: 18px;
+    color: #B39BDC;
+    text-align: center;
+}
+
+.account-tab:hover,
+.account-tab.active {
+    background: #f5f0fb;
+    color: #9874bd;
+}
+
+.account-tab.active {
+    font-weight: 600;
+}
+
+.account-logout,
+.account-logout i {
+    color: #c0392b;
+}
+
+.account-section h2 {
+    margin-bottom: 6px;
+}
+
+.account-subheading {
+    margin-top: 34px;
+}
+
+.account-note {
+    margin: 0 0 20px;
+    color: #7b849e;
+    font-size: 14px;
+}
+
+.account-divider {
+    border-top: 1px solid #eee6f7;
+    margin: 30px 0 24px;
+}
+
+.account-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+    margin-top: 14px;
+}
+
+.account-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #465b8b;
+}
+
+.account-grid label small {
+    font-weight: 400;
+    color: #7b849e;
+}
+
+.account-grid label.wide {
+    grid-column: 1 / -1;
+}
+
+.account-grid input {
+    padding: 12px 14px;
+    border: 1px solid #d9dced;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #263e78;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.account-grid input:focus {
+    border-color: #B39BDC;
+    box-shadow: 0 0 0 3px #eee8f5;
+}
+
+.account-grid input.invalid {
+    border-color: #c74760;
+}
+
+.account-save {
+    display: inline-block;
+    padding: 12px 30px;
+}
+
+.account-message {
+    display: none;
+    margin: 16px 0 0;
+    padding: 11px 14px;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.account-message.success {
+    display: block;
+    background: #edf8f0;
+    color: #237a46;
+    border: 1px solid #b7dec4;
+}
+
+.account-message.error {
+    display: block;
+    background: #fff0f2;
+    color: #b33c53;
+    border: 1px solid #f1c1c9;
+}
+
+/* Favourite items */
+.favourite-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 20px;
+    margin-top: 18px;
+}
+
+.favourite-grid > .cart-empty {
+    grid-column: 1 / -1;
+}
+
+.favourite-card {
+    border: 1px solid #eee6f7;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.favourite-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(70, 91, 139, 0.12);
+}
+
+.favourite-card img {
+    display: block;
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    background: #f5f0fb;
+}
+
+.favourite-card-info {
+    padding: 14px;
+}
+
+.favourite-card-info h3 {
+    margin: 0 0 4px;
+    font-size: 15px;
+}
+
+.favourite-card-info h3 a {
+    color: #263e78;
+    text-decoration: none;
+}
+
+.favourite-card-info p {
+    margin: 0 0 12px;
+    color: #9874bd;
+    font-weight: 600;
+}
+
+.favourite-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.favourite-actions .cart-button {
+    flex: 1;
+    margin: 0;
+    padding: 9px;
+    font-size: 13px;
+}
+
+.favourite-remove {
+    width: 40px;
+    border: 1px solid #f1c1c9;
+    border-radius: 8px;
+    background: #fdecee;
+    color: #e74c3c;
+    cursor: pointer;
+}
+
+.favourite-remove:hover {
+    background: #e74c3c;
+    color: #ffffff;
+}
+
+/* Order history */
+.order-card {
+    margin-top: 18px;
+    border: 1px solid #eee6f7;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.order-card-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 14px 18px;
+    background: #f8f5fd;
+    font-size: 14px;
+}
+
+.order-card-head span {
+    color: #7b849e;
+}
+
+.order-card-body {
+    padding: 6px 18px 14px;
+}
+
+.order-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee6f7;
+    font-size: 14px;
+}
+
+.order-line:last-child {
+    border-bottom: none;
+}
+
+.order-line.total {
+    font-weight: 700;
+    color: #465b8b;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff6e0;
+    color: #a6761d;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.order-status.confirmed,
+.order-status.in_discussion { background: #e8f0ff; color: #3b5fae; }
+.order-status.shipped { background: #efe8fb; color: #7b55b5; }
+.order-status.completed { background: #edf8f0; color: #237a46; }
+.order-status.cancelled { background: #fdecee; color: #c0392b; }
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 9px 16px;
+    border-radius: 8px;
+    background: #25d366;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.whatsapp-link:hover {
+    background: #1ebe5a;
+}
+
+@media (max-width: 850px) {
+    .account-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .account-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .account-tab {
+        width: auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .account-grid {
+        grid-template-columns: 1fr;
+    }
+}

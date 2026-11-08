@@ -13,6 +13,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/account-menu.css">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
 
     <!-- Header and Navigation -->
     <header class="top-banner">
-        <a class="bag-icon" href="checkout.html" aria-label="Shopping bag">▢</a>
+        <a class="bag-icon" href="cart.html" aria-label="Shopping bag">▢</a>
     </header>
 
     <!-- Main Checkout -->
@@ -187,6 +188,8 @@
 
             <h2 class="summary-title">Your Order</h2>
 
+            <div id="orderItems" class="order-items"></div>
+
             <div id="emptyOrder" class="empty-order">
                 Your order is currently empty.
                 Please add items from the Shop page.
@@ -254,6 +257,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="js/global.js"></script>
     <script src="js/checkout.js"></script>
 
 </body>

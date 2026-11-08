@@ -1,0 +1,6 @@
+# Customer payment screenshots (private)
+uploads/payment-proofs/*
+!uploads/payment-proofs/.gitkeep
+
+# Computer-specific database settings
+config/database.local.php
