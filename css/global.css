@@ -250,15 +250,16 @@ nav > ul > li > a:hover::after {
     color: #B39BDC
 }
 .searchbar{
-    --padding: 10px;
+    --padding: 3px;
 
     width: max-content;
     display: flex;
     align-items: center;
     padding: var(--padding);
-    border-radius: 28px;
-    background: #f6f6f6;
+    border-radius: 23px;
+    border: solid #dfd4f0;
     transition: box-shadow 0.25s;
+    width: 260px;
 }
 
 .searchbar:focus-within {
