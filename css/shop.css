@@ -106,8 +106,9 @@
     margin-bottom: 25px;
 }
 
+/* Purple category title */
 .category-header h2 {
-    color: #a98ac5; /* Purple category title */
+    color: #a98ac5; 
     font-size: 20px;
     font-weight: 500;
     margin: 0;
@@ -133,73 +134,125 @@
 .product-card {
     border: 1px solid #c4c9e2;
     border-radius: 8px;
-    padding: 15px;
     background: white;
-    position: relative;
-    text-align: center;
+    overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
-
-.product-card img {
+/* Image Wrapper */
+.card-image-wrapper {
+    position: relative;
     width: 100%;
     height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #eee;
 }
 
-.product-card h3 {
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text Info Area */
+.card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.card-info h3 {
     font-size: 14px;
     font-weight: 500;
     color: #263e78;
-    margin-bottom: 8px;
-    text-align: left;
+    margin-bottom: 5px;
     line-height: 1.4;
 }
 
-.product-card .price {
+.card-info .price {
     font-weight: 600;
     color: #7b849e;
-    text-align: left;
     font-size: 15px;
-    margin-bottom: 0;
+    margin-bottom: 15px;
 }
 
-.add-to-cart-btn {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background: #b49bc9;
-    color: white;
-    border: none;
-    width: 38px;
-    height: 38px;
-    border-radius: 6px;
-    cursor: pointer;
+/* --- BUTTON ROW (Heart + View Detail) --- */
+/* We use flexbox here to put them side-by-side */
+.card-actions {
     display: flex;
-    align-items: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: auto; /* Pushes to the bottom */
+    width: 100%
+}
+
+/* The View Detail Button (Purple) */
+.view-detail-btn {
+    flex: 1; /* Takes up all remaining space */
+    display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: #b49bc9; /* PURPLE BACKGROUND */
+    color: #ffffff; /* WHITE TEXT */
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none; /* Removes the underline */
+    font-weight: 600;
+    font-size: 13px;
+    transition: 0.2s;
+    border: none;
+}
+
+.view-detail-btn:hover {
+    background: #9b7dba;
+}
+
+/* The Favourite (Heart) Button */
+.wishlist-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 1px solid #c4c9e2;
+    border-radius: 6px;
+    width: 42px;
+    height: 42px; /* Match height of View Detail button */
+    cursor: pointer;
+    color: #b49bc9;
     transition: 0.2s;
 }
 
-.add-to-cart-btn:hover {
-    background: #9b7dba;
-    transform: scale(1.05);
+.wishlist-btn:hover {
+    color: #e74c3c; 
+    border-color: #e74c3c;
+    background: #fff0f0;
 }
+
+/* JS Active state (when clicked) */
+.wishlist-btn.active {
+    color: #e74c3c;
+    border-color: #e74c3c;
+    background: #fff0f0;
+}
+
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 750px) {
     .shop-banner h1 { font-size: 26px; }
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .product-card { padding: 10px; }
-    .product-card img { height: 140px; }
-    .product-card h3 { font-size: 12px; }
-    .product-card .price { font-size: 13px; }
-    .add-to-cart-btn { width: 30px; height: 30px; bottom: 10px; right: 10px; font-size: 12px; }
+    
+    /* Card updates */
+    .card-image-wrapper { height: 140px; }
+    .card-info { padding: 10px; }
+    .card-info h3 { font-size: 12px; }
+    .card-info .price { font-size: 13px; margin-bottom: 10px;}
+    
+    /* Action Button updates */
+    .card-actions { gap: 5px; }
+    .view-detail-btn { padding: 8px; font-size: 11px; }
+    .wishlist-btn { width: 32px; height: 32px; font-size: 14px; }
 }

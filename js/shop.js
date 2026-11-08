@@ -1,54 +1,26 @@
-// ADD TO CART FUNCTIONALITY
-const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-const cartCountBadge = document.getElementById('cart-count');
+// --- FAVOURITES / HEART BUTTON FUNCTIONALITY ---
+const wishlistButtons = document.querySelectorAll('.wishlist-btn');
 
-// Load existing cart from localStorage, or start with an empty array
-let cart = JSON.parse(localStorage.getItem('saadatulCart')) || [];
-
-// Update the cart icon badge number on page load
-updateCartBadge();
-
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const productName = this.getAttribute('data-name');
-        const productPrice = parseFloat(this.getAttribute('data-price'));
-        const productImage = this.closest('.product-card').querySelector('img').src;
-
-        // Create a product object
-        const product = {
-            name: productName,
-            price: productPrice,
-            image: productImage
-        };
-
-        // Add to cart array
-        cart.push(product);
+wishlistButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevents the page from jumping or following a link
         
-        // Save to localStorage
-        localStorage.setItem('saadatulCart', JSON.stringify(cart));
-
-        // Update UI
-        updateCartBadge();
-
-        // Optional: Change button color briefly to show success
-        const originalColor = this.style.backgroundColor;
-        this.style.backgroundColor = '#69c27c'; // Green
-        setTimeout(() => {
-            this.style.backgroundColor = originalColor;
-        }, 500);
+        // Toggle the 'active' class
+        this.classList.toggle('active');
+        
+        // Swap the icon between outline (regular) and solid
+        const icon = this.querySelector('i');
+        if (this.classList.contains('active')) {
+            icon.classList.remove('fa-regular');
+            icon.classList.add('fa-solid'); // Filled heart
+        } else {
+            icon.classList.remove('fa-solid');
+            icon.classList.add('fa-regular'); // Outline heart
+        }
     });
 });
 
-function updateCartBadge() {
-    if (cart.length > 0) {
-        cartCountBadge.style.display = 'block';
-        cartCountBadge.textContent = cart.length;
-    } else {
-        cartCountBadge.style.display = 'none';
-    }
-}
-
-// 2. CATEGORY FILTERING
+// --- CATEGORY FILTERING ---
 const filterButtons = document.querySelectorAll('.filter-btn');
 const categorySections = document.querySelectorAll('.category-section');
 

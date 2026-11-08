@@ -77,17 +77,14 @@
         <!-- SHOP BANNER -->
         <section class="shop-banner">
             <h1>Shop</h1>
-            <p>Handmade with love</p>
-            <div class="search-wrapper">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" class="shop-search" placeholder="Search your favourite...">
-            </div>
+            <p>Handmade with love ♡</p>
         </section>
 
         <!-- FILTERS -->
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="keychain">Keychains</button>
+            <button class="filter-btn" data-filter="figurine">Figurine</button>
             <button class="filter-btn" data-filter="plushie">Plushies</button>
             <button class="filter-btn" data-filter="accessory">Accessories</button>
         </div>
@@ -95,68 +92,157 @@
         <!-- PRODUCT SECTIONS -->
         <div class="shop-container">
             
-            <!-- KEYCHAINS -->
-            <div class="category-section" id="section-keychain">
-                <div class="category-header">
-                    <h2>⌄ Keychains</h2>
-                    <a href="#" class="view-all">View all</a>
-                </div>
-                <div class="product-grid">
-                    
-                    <!-- Product 1 -->
-                    <div class="product-card">
-                        <img src="photos/nailong.jpg" alt="Nailong Flower Keychain">
-                        <h3>Nailong Flower Keychain</h3>
-                        <p class="price">$30.00</p>
-                        <button class="add-to-cart-btn" data-name="Nailong Flower Keychain" data-price="30.00">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                        </button>
-                    </div>
+<!-- KEYCHAINS -->
+<div class="category-section" id="section-keychain">
+    <div class="category-header">
+        <h2>Keychains</h2>
+        <a href="#" class="view-all">View all</a>
+    </div>
+    <div class="product-grid">
+        
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="card-image-wrapper">
+                <img src="photos/nailong.jpg" alt="Nailong Flower Keychain">
+            </div>
+            <div class="card-info">
+                <h3>Nailong Flower Keychain</h3>
+                <p class="price">BND 30.00</p>
 
-                    <!-- Product 2 -->
-                    <div class="product-card">
-                        <img src="photos/flowers.jpg" alt="Assorted Flowers Keychain">
-                        <h3>Assorted Flowers Keychain</h3>
-                        <p class="price">$15.00</p>
-                        <button class="add-to-cart-btn" data-name="Assorted Flowers Keychain" data-price="15.00">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                        </button>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="product-card">
-                        <img src="photos/bmo.jpg" alt="BMO Keychain">
-                        <h3>BMO Keychain</h3>
-                        <p class="price">$20.00</p>
-                        <button class="add-to-cart-btn" data-name="BMO Keychain" data-price="20.00">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                        </button>
-                    </div>
-
+                <div class="card-actions">
+                    <a href="product.html" class="view-detail-btn">View Detail</a>
+                    <button class="wishlist-btn" aria-label="Add to favourites">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
                 </div>
             </div>
-
-            <!-- PLUSHIES -->
-            <div class="category-section" id="section-plushie">
-                <div class="category-header">
-                    <h2>⌄ Plushies</h2>
-                    <a href="#" class="view-all">View all</a>
-                </div>
-                <div class="product-grid">
-                    
-                    <div class="product-card">
-                        <img src="photos/baby-elephant.jpg" alt="Baby Elephant Plushie">
-                        <h3>Baby Elephant Plushie</h3>
-                        <p class="price">$95.00</p>
-                        <button class="add-to-cart-btn" data-name="Baby Elephant Plushie" data-price="95.00">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
         </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="card-image-wrapper">
+                <img src="photos/flowers.jpg" alt="Assorted Flowers Keychain">
+            </div>
+            <div class="card-info">
+                <h3>Assorted Flowers Keychain</h3>
+                <p class="price">BND 15.00</p>
+
+                <div class="card-actions">
+                    <a href="product.html" class="view-detail-btn">View Detail</a>
+                    <button class="wishlist-btn" aria-label="Add to favourites">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="card-image-wrapper">
+                <img src="photos/bmo.jpg" alt="BMO Keychain">
+            </div>
+            <div class="card-info">
+                <h3>BMO Keychain</h3>
+                <p class="price">BND 20.00</p>
+
+                <div class="card-actions">
+                    <a href="product.html" class="view-detail-btn">View Detail</a>
+                    <button class="wishlist-btn" aria-label="Add to favourites">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- FIGURINE -->
+<div class="category-section" id="section-figurine">
+    <div class="category-header">
+        <h2>Figurine</h2>
+        <a href="#" class="view-all">View all</a>
+    </div>
+    <div class="product-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="card-image-wrapper">
+                <img src="photos/Teletubbies.jpg" alt="Teletubbies Figurines">
+            </div>
+            <div class="card-info">
+                <h3>Teletubbies Figurines</h3>
+                <p class="price">BND 30.00</p>
+
+                <div class="card-actions">
+                    <a href="product.html" class="view-detail-btn">View Detail</a>
+                    <button class="wishlist-btn" aria-label="Add to favourites">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- PLUSHIES -->
+<div class="category-section" id="section-plushie">
+    <div class="category-header">
+        <h2>Plushies</h2>
+        <a href="#" class="view-all">View all</a>
+    </div>
+    <div class="product-grid">
+        
+        <div class="product-card">
+            <div class="card-image-wrapper">
+                <img src="photos/baby-elephant.jpg" alt="Baby Elephant Plushie">
+            </div>
+            <div class="card-info">
+                <h3>Baby Elephant Plushie</h3>
+                <p class="price">BND 95.00</p>
+
+                <div class="card-actions">
+                    <a href="product.html" class="view-detail-btn">View Detail</a>
+                    <button class="wishlist-btn" aria-label="Add to favourites">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ACCESSORIES -->
+<div class="category-section" id="section-accessories">
+    <div class="category-header">
+        <h2>Accessories</h2>
+        <a href="#" class="view-all">View all</a>
+    </div>
+    <div class="product-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="card-image-wrapper">
+                 <img src="photos/Teletubbies.jpg" alt="Teletubbies Figurines">
+            </div>
+            <div class="card-info">
+                <h3>Teletubbies Figurines</h3>
+                <p class="price">BND 30.00</p>
+                
+                <div class="card-actions">
+                    <a href="product.html" class="view-detail-btn">View Detail</a>
+                    <button class="wishlist-btn" aria-label="Add to favourites">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
     </main>
 
     <!-- SHOP SPECIFIC JS -->
