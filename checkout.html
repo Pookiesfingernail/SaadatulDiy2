@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,29 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | Sa’adatulDIY</title>
 
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Delicious+Handrawn&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6971c1c2cd.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/checkout.css">
 </head>
 
 <body>
-    <!-- HEADER / LOGO -->
-<header>
-    <a href="index.html" class="logo-link" style="display: flex; justify-content: center; align-items: center; text-decoration: none;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-    <span class="fancy-text">Sa'adatul</span>
-    <span class="cute-text" style="color: #A8DCED;">D.I.Y</span>
-    <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">
-</div>
-</header> 
 
-    <!-- Header and Navigation -->
-    <header class="top-banner">
-        <a class="bag-icon" href="checkout.html" aria-label="Shopping bag">▢</a>
+    <!-- HEADER / LOGO -->
+    <header class="checkout-header">
+        <!-- Background Image applied in CSS -->
+        <div class="header-content">
+            
+            <!-- Logo centered -->
+            <a href="index.html" class="logo-link">
+                <div class="logo-container">
+                    <span class="fancy-text">Sa'adatul </span>
+                    <span class="cute-text"><span style="color: #A8DCED;">D.I.Y</span></span>
+                    <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">    
+                </div>    
+            </a>
+
+            <!-- Icons on the right -->
+            <div class="header-icons">
+                <a href="shop.html" aria-label="Back to Shop"><i class="fa-solid fa-store"></i></a>
+                <a href="profile.html" aria-label="Profile"><i class="fa-regular fa-circle-user"></i></a>
+            </div>
+        </div>
     </header>
 
     <!-- Main Checkout -->
@@ -49,16 +58,11 @@
                 <h2>Delivery / Pickup</h2>
 
                 <div class="choice-switch">
-                    <button type="button"
-                        class="switch-option active"
-                        data-method="delivery">
-                        Delivery
+                    <button type="button" class="switch-option active" data-method="delivery">
+                        <i class="fa-solid fa-truck"></i> Delivery
                     </button>
-
-                    <button type="button"
-                        class="switch-option"
-                        data-method="pickup">
-                        Pickup
+                    <button type="button" class="switch-option" data-method="pickup">
+                        <i class="fa-solid fa-store"></i> Pickup
                     </button>
                 </div>
 
@@ -70,17 +74,14 @@
                         <label for="phone">Phone number *</label>
                         <input type="tel" id="phone" required>
                     </div>
-
                     <div>
                         <label for="country">Country / Region *</label>
-                        <input type="text" id="country"
-                            value="Brunei Darussalam" required>
+                        <input type="text" id="country" value="Brunei Darussalam" required>
                     </div>
                 </div>
 
                 <!-- Delivery Address -->
                 <div id="addressFields">
-
                     <label for="address">Address *</label>
                     <input type="text" id="address" required>
 
@@ -89,13 +90,11 @@
                             <label for="city">City *</label>
                             <input type="text" id="city" required>
                         </div>
-
                         <div>
                             <label for="postcode">Postcode *</label>
                             <input type="text" id="postcode" required>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="section-rule"></div>
@@ -103,80 +102,53 @@
                 <h2>Shipping method</h2>
 
                 <div class="shipping-options" id="shippingOptions">
-
                     <label>
-                        <input type="radio" name="shipping"
-                            value="5" checked>
+                        <input type="radio" name="shipping" value="5" checked>
                         <span>Delivery Brunei Muara</span>
                         <strong>$5.00</strong>
                     </label>
-
                     <label>
-                        <input type="radio" name="shipping"
-                            value="7">
+                        <input type="radio" name="shipping" value="7">
                         <span>Delivery Tutong</span>
                         <strong>$7.00</strong>
                     </label>
-
                     <label>
-                        <input type="radio" name="shipping"
-                            value="9">
+                        <input type="radio" name="shipping" value="9">
                         <span>Delivery Belait</span>
                         <strong>$9.00</strong>
                     </label>
-
                     <label>
-                        <input type="radio" name="shipping"
-                            value="10">
+                        <input type="radio" name="shipping" value="10">
                         <span>Delivery Temburong</span>
                         <strong>$10.00</strong>
                     </label>
-
                 </div>
 
                 <div class="section-rule"></div>
 
                 <!-- Payment -->
                 <h2>Payment</h2>
-
-                <p class="small-note">
-                    All transactions are secure and encrypted.
-                </p>
+                <p class="small-note">All transactions are secure and encrypted.</p>
 
                 <div class="payment-box">
-
                     <div class="payment-heading">
                         BIBD Bank Transfer
                     </div>
-
                     <div class="payment-details">
-
                         <strong>SAADATUL DIY</strong><br>
                         <strong>00-001-01-018364</strong>
-
-                        <p>
-                            Upload the successful bank transfer
-                            screenshot to confirm your order.
-                        </p>
+                        <p>Upload the successful bank transfer screenshot to confirm your order.</p>
 
                         <label class="upload-button" for="proof">
                             Upload file
                         </label>
-
-                        <input type="file" id="proof"
-                            class="file-input"
-                            accept="image/*,.pdf">
-
-                        <span id="fileName" class="file-name">
-                            No file selected
-                        </span>
-
+                        <input type="file" id="proof" class="file-input" accept="image/*,.pdf">
+                        <span id="fileName" class="file-name">No file selected</span>
                     </div>
                 </div>
 
-                <button class="place-order mobile-place"
-                    type="submit">
-                    ▣ Place Order
+                <button class="place-order mobile-place" type="submit">
+                    <i class="fa-solid fa-lock"></i> Place Order
                 </button>
 
             </form>
@@ -188,8 +160,7 @@
             <h2 class="summary-title">Your Order</h2>
 
             <div id="emptyOrder" class="empty-order">
-                Your order is currently empty.
-                Please add items from the Shop page.
+                Your order is currently empty. Please add items from the Shop page.
             </div>
 
             <div class="summary-rule"></div>
@@ -206,18 +177,15 @@
 
             <div class="total-line">
                 <span>Total</span>
-                <strong>
-                    BND <span id="total">0.00</span>
-                </strong>
+                <strong>BND <span id="total">0.00</span></strong>
             </div>
 
-            <button class="place-order desktop-place"
-                type="submit" form="checkoutForm">
-                Place Order
+            <button class="place-order desktop-place" type="submit" form="checkoutForm">
+                <i class="fa-solid fa-lock"></i> Place Order
             </button>
 
             <a href="shop.html" class="back-button">
-                Back to Shop
+                <i class="fa-solid fa-arrow-left"></i> Back to Cart
             </a>
 
         </aside>
@@ -226,35 +194,25 @@
 
     <!-- Footer -->
     <footer class="footer">
-
         <div class="footer-column">
             <strong>Sa’adatulDIY</strong>
             <a href="tel:+6738282379">+673 828 2379</a>
-            <a href="mailto:Saadatul.Art@gmail.com">
-                Saadatul.Art@gmail.com
-            </a>
+            <a href="mailto:Saadatul.Art@gmail.com">Saadatul.Art@gmail.com</a>
         </div>
-
         <div class="footer-column">
             <strong>Our cube has Instocks:</strong>
             <span>Box of Cravings, Madang</span>
             <span>(B53)</span>
         </div>
-
         <div class="footer-column reviews">
             <strong>Reach us Out!</strong>
             <a href="contact.html">Contact Us</a>
             <a href="review.html">See Our Reviews</a>
         </div>
-
-        <p class="copyright">
-            ©2026, Sa’adatulDIY. All rights Reserved.
-        </p>
-
+        <p class="copyright">©2026, Sa’adatulDIY. All rights Reserved.</p>
     </footer>
 
     <!-- JavaScript -->
     <script src="js/checkout.js"></script>
-
 </body>
 </html>
