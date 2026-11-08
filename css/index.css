@@ -1,4 +1,17 @@
 /* ----------------Introduction-----------------*/
+
+body {
+    margin: 0;
+}
+
+.logo-link {
+    display: block;
+    text-decoration: none;
+}
+
+nav {
+    box-sizing: border-box;
+}
 .context{
     width: 60%;
     height: 250px;

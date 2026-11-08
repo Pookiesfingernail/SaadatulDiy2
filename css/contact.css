@@ -1,7 +1,20 @@
+body {
+    margin: 0;
+}
+
+.logo-link {
+    display: block;
+    text-decoration: none;
+}
+
+nav {
+    box-sizing: border-box;
+}
+
 .contact-context {
     background-image: url(../photos/ContactBanner.png);
     width: 60%;
-    background-position: center;
+    background-position: center 70%;
     background-size: cover;
     padding: 40px 20%;
     overflow: visible; 
