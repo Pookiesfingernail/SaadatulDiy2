@@ -62,6 +62,10 @@
     font-size: 32px;
 }
 
+.about-page .logo-link {
+    text-decoration: none;      
+}   
+
 .about-page .logo-hook {
     transform: translateY(0);
 }
