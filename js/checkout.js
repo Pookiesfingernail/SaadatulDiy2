@@ -56,32 +56,47 @@ document.querySelectorAll(".switch-option").forEach(button => {
     });
 });
 
-// --- FILE UPLOAD ---
+// --- FILE UPLOAD (Hides error when file is selected) ---
 document.getElementById("proof").addEventListener("change", event => {
     const file = event.target.files[0];
     document.getElementById("fileName").textContent = file ? file.name : "No file selected";
+    
+    // If a file is selected, remove the red error
+    if (file) {
+        document.getElementById("fileError").style.display = "none";
+        document.querySelector(".upload-button").classList.remove("error");
+    }
 });
 
-// --- SUBMIT ORDER (ONLY ONE SUBMIT EVENT) ---
+// --- SUBMIT ORDER ---
 document.getElementById("checkoutForm").addEventListener("submit", event => {
     event.preventDefault();
     const form = event.currentTarget;
 
-    // 1. Check if form is valid
+    // Check if all text boxes are filled out
     if (!form.reportValidity()) return;
 
-    // 2. Check if proof is uploaded
-    const proof = document.getElementById("proof").files[0];
+    // Check if proof is uploaded
+    const proofInput = document.getElementById("proof");
+    const proof = proofInput.files[0];
+    const fileError = document.getElementById("fileError");
+    const uploadBtn = document.querySelector(".upload-button");
+
     if (!proof) {
-        alert("Please upload your BIBD bank transfer screenshot before placing your order.");
-        return;
+        // Show the red error text and turn the button red
+        fileError.style.display = "block";
+        uploadBtn.classList.add("error");
+        
+        // Automatically scroll to the file upload section
+        document.querySelector('.payment-box').scrollIntoView({ behavior: 'smooth' });
+        return; // Stop the form from submitting
     }
 
-    // 3. Generate a random 3-digit Order ID (e.g., SD-001)
+    // Generate a random 3-digit Order ID (e.g., SD-001)
     const randomId = Math.floor(1 + Math.random() * 999).toString().padStart(3, '0');
     document.getElementById("randomId").textContent = randomId;
 
-    // 4. Show the Success Modal (No alerts!)
+    // Show the Success Modal
     document.getElementById("successModal").style.display = "flex";
 });
 
