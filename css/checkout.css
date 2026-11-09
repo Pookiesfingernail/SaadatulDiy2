@@ -186,6 +186,12 @@ label:has(+ div select:required)::after {
     font-weight: bold;
 }
 
+.upload-button.error {
+    border-color: #e53e3e;
+    color: #e53e3e;
+    background-color: #fff5f5;
+}
+
 /* --- SUMMARY ORDER --- */
 .summary-panel { padding: 30px; }
 .summary-title { margin: 0 0 30px; font-size: 24px; }
