@@ -62,8 +62,7 @@
     <div class="two-fields">
         <div>
             <label for="phone">Phone number *</label>
-            <!-- Added placeholder -->
-                <input type="tel" id="phone" value="+673 " oninput="enforceBruneiPhone(this)" pattern="^\+673\s[0-9]{7}$" maxlength="12" title="Please enter exactly 7 numbers after the +673" required>
+                <input type="tel" id="phone" value="+673 " oninput="enforceBruneiPhone(this)" pattern="^\+673\s[0-9]{7}$" maxlength="12" title="Please enter exactly 7 numbers" required>
         </div>
         <div>
             <label for="country">Country / Region *</label>
@@ -142,15 +141,20 @@
     <!-- Payment -->
     <h2>Payment</h2>
     <p class="small-note">All transactions are secure and encrypted.</p>
+
     <div class="payment-box">
         <div class="payment-heading">BIBD Bank Transfer</div>
         <div class="payment-details">
+
             <strong>SAADATUL DIY</strong><br>
             <strong>00-001-01-018364</strong>
             <p>Upload the successful bank transfer screenshot to confirm your order.</p>
+
             <label class="upload-button" for="proof">Upload file</label>
             <input type="file" id="proof" class="file-input" accept="image/*,.pdf">
             <span id="fileName" class="file-name">No file selected</span>
+
+            <span id="fileError" style="color: #e53e3e; font-size: 13px; font-weight: 600; display: none; margin-top: 5px;">Please upload your BIBD payment receipt to complete your order.</span>
         </div>
     </div>
 
