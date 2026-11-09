@@ -63,7 +63,7 @@
         <div>
             <label for="phone">Phone number *</label>
             <!-- Added placeholder -->
-            <input type="tel" id="phone" value="+673 " oninput="enforceBruneiPhone(this)" placeholder="123" required>
+                <input type="tel" id="phone" value="+673 " oninput="enforceBruneiPhone(this)" pattern="^\+673\s[0-9]{7}$" maxlength="12" title="Please enter exactly 7 numbers after the +673" required>
         </div>
         <div>
             <label for="country">Country / Region *</label>
