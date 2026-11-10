@@ -3,30 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Custom Keychain | Sa’adatulDIY</title>
 
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Delicious+Handrawn&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/6971c1c2cd.js" crossorigin="anonymous"></script>
 
-    <!-- CSS -->
+    <!-- CSS (Global First, then Page Specific) -->
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/account-menu.css">
-
 </head>
 
 <body>
 
-    <!-- HEADER / LOGO -->
-<header>
-    <a href="index.html" class="logo-link">
-
+    <!-- HEADER / LOGO (Matches Home Page) -->
+    <header>
+        <a href="index.html" class="logo-link">
             <div class="logo-container">
                 <span class="fancy-text">Sa'adatul </span>
                 <span class="cute-text">
@@ -35,12 +30,11 @@
                 <img src="photos/hook.png" alt="Crochet hook" class="logo-hook">
             </div>
         </a>
-</header>
+    </header>
 
-    <!-- NAVIGATION MENU -->
+    <!-- NAVIGATION MENU (Matches Home Page) -->
     <div class="nav-bar">
         <nav aria-label="Main navigation">
-
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -49,7 +43,6 @@
                     <span class="dropdown-title" tabindex="0">
                         Custom <span class="arrow">⮟</span>
                     </span>
-
                     <ul class="dropdown">
                         <li><a href="custom.html">Custom Keychain</a></li>
                         <li><a href="#">Custom Figurine</a></li>
@@ -63,136 +56,105 @@
 
             <!-- SEARCH, CART AND PROFILE -->
             <div class="nav-icon">
-
                 <div class="searchbar">
-                    <input
-                        class="search-input"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search products"
-                    >
-
+                    <input class="search-input" type="search" placeholder="Search" aria-label="Search products">
                     <i class="fa-solid fa-magnifying-glass fa-xl search-icon"></i>
                 </div>
-
                 <div class="cart-icon">
                     <a href="cart.html" aria-label="Shopping cart">
                         <i class="fa-solid fa-bag-shopping fa-xl"></i>
                     </a>
                 </div>
-
                 <div class="profile-icon">
                     <a href="profile.html" aria-label="Your profile">
                         <i class="fa-regular fa-circle-user fa-xl"></i>
                     </a>
                 </div>
-
             </div>
         </nav>
     </div>
 
     <main>
-
-
-    <!-- Banner -->
-    <section class="banner">
-        <div class="banner-content">
-            <h1>Create Your Custom<br>Keychain!</h1>
-            <p>
-                Every little detail makes it special. Create a crochet
-                keychain to capture someone's personality, a meaningful
-                memory, or a little piece of yourself.
-            </p>
-        </div>
-    </section>
-
-    <p class="notice">
-        <strong>Note:</strong> Orders must be placed 3–5 weeks in advance!
-    </p>
-
-
-    <!-- Main Customisation Area -->
-    <div class="custom-container">
-
-        <section class="custom-left">
-
-            <div class="section-heading">
-                <span class="number">#1</span>
-                <h2>Keychain Customisation</h2>
+        <!-- Banner -->
+        <section class="banner">
+            <div class="banner-content">
+                <h1>Create Your Custom<br>Keychain!</h1>
+                <p>Every little detail makes it special. Create a crochet keychain to capture someone's personality, a meaningful memory, or a little piece of yourself.</p>
             </div>
-
-            <div id="keychainForms"></div>
-
-
-
-            <!-- Additional Details -->
-            <section class="form-section additional-section">
-                <h3>Add Details</h3>
-                <label for="specialNotes">Special Note (Optional)</label>
-                <textarea id="specialNotes"
-                    placeholder="Write any additional requests or details here..."></textarea>
-            </section>
-
         </section>
 
-
-       <aside class="summary-panel">
-
-    <!-- Couple Order Checkbox -->
-    <label class="couple-option">
-        <input type="checkbox" id="addKeychain">
-        <span class="circle-check"></span>
-
-        <span class="couple-text">
-            <strong>Add Another Figurine (Couple Order)</strong>
-            <small>Check this box to customise 2nd figurine on the same page without starting over.</small>
-        </span>
-    </label>
-
-    <div class="couple-note">
-        Tick the circle to add a second keychain to your order.
-    </div>
-
-    <!-- Live Order Summary -->
-
-    <div class="summary-content">
-
-        <div class="summary-heading">
-            <h2>☰ Live Order Summary</h2>
-            <span class="live-label">LIVE</span>
-        </div>
-
-        <div id="summaryItems"></div>
-
-        <div class="summary-divider"></div>
-
-<div class="summary-total">
-    <span>ESTIMATED TOTAL</span>
-    <div style="text-align: right;">
-        <div style="font-size: 10px; color: #666; text-transform: uppercase;">Subject to confirmation</div>
-        <strong style="font-size: 22px; color: #465b8b;">BND $<span id="totalPrice">38.00</span></strong>
-    </div>
-</div>
-
-    <!--PDF FILE-->
-<div class="checkout-nav" style="margin-bottom: 15px; display: flex; flex-direction: column; align-items: flex-start; gap: 5px;">
-    <p style="font-size: 11px; margin: 0; color: #555; text-align: left;">CLICK TO SEE COLOUR CODE YARN OPTIONS</p>
-    <a href="#" style="background: #b49bc9; color: white; padding: 8px 20px; border-radius: 5px; font-size: 13px; text-decoration: none; font-weight: 600;">PDF FILE</a>
-</div>
-
-        <p class="summary-disclaimer">
-            *Final price may vary depending on the complexity of your design.
+        <p class="notice">
+            <strong>Note:</strong> Orders must be placed 3–5 weeks in advance!
         </p>
 
-        <button class="confirm-button" id="confirmCustom">
-            Confirm Customisation
-        </button>
+        <!-- Main Customisation Area -->
+        <div class="custom-container">
+            <section class="custom-left">
+                <div class="section-heading">
+                    <span class="number">#1</span>
+                    <h2>Keychain Customisation</h2>
+                </div>
 
-    </div>
+                <div id="keychainForms"></div>
 
-</aside>
+                <!-- Additional Details -->
+                <section class="form-section additional-section">
+                    <h3>Add Details</h3>
+                    <label for="specialNotes">Special Note (Optional)</label>
+                    <textarea id="specialNotes" placeholder="Write any additional requests or details here..."></textarea>
+                </section>
+            </section>
 
-</main>
+            <aside class="summary-panel">
+                <!-- Couple Order Checkbox -->
+                <label class="couple-option">
+                    <input type="checkbox" id="addKeychain">
+                    <span class="circle-check"></span>
+                    <span class="couple-text">
+                        <strong>Add Another Keychain (Couple Order)</strong>
+                        <small>Check this box to customise 2nd keychain on the same page without starting over.</small>
+                    </span>
+                </label>
+
+                <div class="couple-note">
+                    Tick the circle to add a second keychain to your order.
+                </div>
+
+                <!-- Live Order Summary -->
+                <div class="summary-content">
+                    <div class="summary-heading">
+                        <h2>☰ Live Order Summary</h2>
+                        <span class="live-label">LIVE</span>
+                    </div>
+
+                    <div id="summaryItems"></div>
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-total">
+                        <span>ESTIMATED TOTAL</span>
+                        <div style="text-align: right;">
+                            <div style="font-size: 10px; color: #666; text-transform: uppercase;">Subject to confirmation</div>
+                            <strong style="font-size: 22px; color: #465b8b;">BND $<span id="totalPrice">38.00</span></strong>
+                        </div>
+                    </div>
+
+                    <!--PDF FILE-->
+                    <div class="checkout-nav" style="margin-bottom: 15px; display: flex; flex-direction: column; align-items: flex-start; gap: 5px;">
+                        <p style="font-size: 11px; margin: 0; color: #555; text-align: left;">CLICK TO SEE COLOUR CODE YARN OPTIONS</p>
+                        <a href="#" style="background: #b49bc9; color: white; padding: 8px 20px; border-radius: 5px; font-size: 13px; text-decoration: none; font-weight: 600;">PDF FILE</a>
+                    </div>
+
+                    <p class="summary-disclaimer">
+                        *Final price may vary depending on the complexity of your design.
+                    </p>
+
+                    <button class="confirm-button" id="confirmCustom">
+                        Confirm Customisation
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -201,55 +163,51 @@
             <p>+673 828 2379</p>
             <p>SaadatulDIY@gmail.com</p>
         </div>
-
         <div>
             <strong>Our cube has Instocks:</strong>
             <p>Box of Cravings, Madang (BS3)</p>
         </div>
-
         <div>
             <strong>Reach us Out!</strong>
             <p>See Our Reviews</p>
         </div>
-
         <div class="copyright">
             ©2026, Sa’adatulDIY. All rights Reserved.
         </div>
     </footer>
 
+    <!-- CUSTOMIZATION MODAL -->
+    <div id="customModal" class="modal-overlay">
+        <div class="modal-content custom-modal">
+            <div class="modal-check-circle">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2 class="modal-title">Customize<br>Confirmed!</h2>
+            
+            <div class="modal-divider">
+                <span class="line"></span>
+                <span class="text">NOTE:</span>
+                <span class="line"></span>
+            </div>
+
+            <ol class="modal-rules">
+                <li>Additional Fee's may Apply</li>
+                <li>Pay the base product first to secure slot</li>
+                <li>Custom order takes 3-5 weeks.</li>
+                <li>Rush order will be charged additional $10 depending on design and schedule.</li>
+                <li>Payment will be finalize through Whatsapp after receiving and considering updates for your custom product.</li>
+                <li>Will send the pictures of products to ask for your opinion.</li>
+                <li>Product is not final until customer is fully okay with the custom product.</li>
+            </ol>
+
+            <div class="modal-actions">
+                <button class="btn-purple" onclick="addToCart()">ADD TO CART</button>
+                <button class="btn-purple" onclick="closeCustomModal()">KEEP EDITING</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/global.js"></script>
     <script src="js/custom.js"></script>
-
-    <!-- CUSTOMIZATION MODAL -->
-<div id="customModal" class="modal-overlay">
-    <div class="modal-content custom-modal">
-        <div class="modal-check-circle">
-            <i class="fa-solid fa-check"></i>
-        </div>
-        <h2 class="modal-title">Customize<br>Confirmed!</h2>
-        
-        <div class="modal-divider">
-            <span class="line"></span>
-            <span class="text">NOTE:</span>
-            <span class="line"></span>
-        </div>
-
-        <ol class="modal-rules">
-            <li>Additional Fee's may Apply</li>
-            <li>Pay the base product first to secure slot</li>
-            <li>Custom order takes 3-5 weeks.</li>
-            <li>Rush order will be charged additional $10 depending on design and schedule.</li>
-            <li>Payment will be finalize through Whatsapp after receiving and considering updates for your custom product.</li>
-            <li>Will send the pictures of products to ask for your opinion.</li>
-            <li>Product is not final until customer is fully okay with the custom product.</li>
-        </ol>
-
-        <div class="modal-actions">
-            <button class="btn-purple" onclick="addToCart()">ADD TO CART</button>
-            <button class="btn-purple" onclick="closeCustomModal()">KEEP EDITING</button>
-        </div>
-    </div>
-</div>
 </body>
 </html>

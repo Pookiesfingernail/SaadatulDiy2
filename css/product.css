@@ -1,6 +1,6 @@
 /* --- PRODUCT PAGE LAYOUT --- */
 .product-page-wrapper {
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff;
     padding: 40px 20px;
 }
 
@@ -10,7 +10,7 @@
     display: flex;
     gap: 50px;
     align-items: flex-start;
-    font-family: 'Inter', sans-serif; /* Force Inter font everywhere */
+    font-family: 'Inter', sans-serif;
 }
 
 /* --- LEFT SIDE: GALLERY --- */

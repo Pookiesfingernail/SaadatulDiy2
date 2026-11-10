@@ -1,93 +1,69 @@
+/* =========================================
+   REVIEW PAGE SPECIFIC STYLES
+   ========================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- 1. FORCE INTER FONT --- */
+body, 
+.review-banner, 
+.review-card, 
+#reviewForm, 
+.footer,
+button,
+input, 
+textarea {
+    font-family: 'Inter', sans-serif !important;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: #ffffff;
-    color: #24365d;
+/* --- 2. KILL THE LINES UNDER THE LOGO --- */
+header a::after,
+.logo-link::after,
+header .logo-container::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+    height: 0 !important;
 }
 
-/* Navigation */
-.navbar {
-    min-height: 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background: #fff;
-    gap: 12px;
+header a, 
+.logo-link {
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
-.logo {
-    font-family: 'Inter', sans-serif;
-    font-size: 21px;
-    font-style: italic;
-    color: #b29ad9;
-    text-decoration: none;
-    font-weight: 500;
+/* --- 3. THE PURPLE BANNER --- */
+.review-banner {
+    background: #ded3e9 !important; 
+    background-image: none !important; 
+    text-align: center !important;
+    padding: 60px 20px !important; 
+    margin: 30px 3% !important;
+    border-radius: 10px;
+    min-height: auto !important;
+    display: block !important;
 }
 
-.navbar nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 23px;
+.review-banner h1 {
+    color: #ffffff !important;
+    font-size: 42px !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+    margin-bottom: 10px !important;
 }
 
-.navbar nav a {
-    font-size: 14px;
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
+.review-banner p {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    margin: 0 !important;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-.navbar nav a:hover,
-.navbar nav a.active {
-    color: #a88bc9;
-    text-decoration: underline;
-}
-
-.nav-icons {
-    position: absolute;
-    right: 20px;
-    top: 43px;
-    color: #b49bd4;
-    font-size: 19px;
-}
-
-/* Banner */
-.banner {
-    background: #ded3e9;
-    padding: 42px 20px;
-    text-align: center;
-}
-
-.banner h1 {
-    color: white;
-    font-size: 38px;
-    font-weight: 600;
-    text-shadow: 0 2px 4px #a99ab8;
-}
-
-.banner p {
-    color: white;
-    font-size: 14px;
-    margin-top: 8px;
-}
-
-/* Main Container */
+/* --- 4. MAIN LAYOUT --- */
 .review-container {
     max-width: 1050px;
-    margin: 25px auto;
+    margin: 0 auto 60px;
     padding: 0 20px;
 }
 
-/* Review Cards */
 .review-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -100,19 +76,41 @@ body {
     border-radius: 13px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
     min-width: 0;
+    border: 1px solid #eaeaea;
 }
 
 .review-card h3 {
     font-size: 16px;
     font-weight: 700;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
+    color: #263e78;
 }
 
+/* --- 5. SOLID BLUE & YELLOW STARS --- */
 .stars {
-    color: #405b91;
-    font-size: 21px;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
+    display: flex;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+
+.star {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #1c3169;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    position: relative;
+}
+
+.star::after {
+    content: "";
+    position: absolute;
+    top: 2px;    
+    left: 2px;   
+    right: 2px;  
+    bottom: 2px; 
+    background-color: #ffeb3b;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 .review-content {
@@ -136,12 +134,14 @@ body {
     justify-content: center;
     background: #e8e2f1;
     font-size: 48px;
+    color: #999;
 }
 
 .review-content p {
     font-size: 14px;
     line-height: 1.55;
     color: #263b67;
+    margin: 0;
 }
 
 .product-name {
@@ -149,27 +149,30 @@ body {
     font-size: 12px;
     font-weight: 600;
     margin-top: 9px;
+    color: #7b849e;
 }
 
-/* Review Form */
+/* --- 6. THE REVIEW FORM --- */
 .review-form-section {
     margin-top: 35px;
     background: #f2f0fb;
     border: 1px solid #c8c9e8;
     border-radius: 9px;
-    padding: 22px;
+    padding: 25px;
 }
 
 .review-form-section h2 {
     font-size: 19px;
     font-weight: 700;
     margin-bottom: 6px;
+    color: #263e78;
 }
 
 .form-description {
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 18px;
+    color: #5e6e94;
 }
 
 #reviewForm {
@@ -182,11 +185,13 @@ body {
     font-size: 14px;
     font-weight: 700;
     margin-top: 7px;
+    color: #263e78;
 }
 
 #reviewForm > label span {
     font-size: 12px;
     font-weight: 400;
+    color: #7b849e;
 }
 
 #reviewForm input[type="text"],
@@ -197,7 +202,7 @@ body {
     border: 1px solid #c5cde1;
     border-radius: 5px;
     background: white;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif !important;
     font-size: 14px;
     color: #24365d;
 }
@@ -212,11 +217,12 @@ body {
     outline: 2px solid #b9a5d8;
 }
 
-/* Star Rating */
+/* --- 7. FORM STAR RATING --- */
 .rating-input {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
+    gap: 5px;
     width: fit-content;
 }
 
@@ -225,16 +231,44 @@ body {
 }
 
 .rating-input label {
-    font-size: 29px;
-    color: #aaa;
     cursor: pointer;
-    padding-right: 3px;
+    width: 32px;
+    height: 32px;
+    position: relative;
 }
 
-.rating-input label:hover,
-.rating-input label:hover ~ label,
-.rating-input input:checked ~ label {
-    color: #405b91;
+.form-star {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transition: 0.2s;
+}
+
+.rating-input label:hover .form-star,
+.rating-input label:hover ~ label .form-star,
+.rating-input input:checked ~ label .form-star {
+    background-color: #1c3169;
+}
+
+.rating-input label::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background-color: #ffeb3b;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.rating-input label:hover::after,
+.rating-input label:hover ~ label::after,
+.rating-input input:checked ~ label::after {
+    opacity: 1;
 }
 
 /* Image Preview */
@@ -256,144 +290,143 @@ body {
     border-radius: 8px;
     background: #b39bcf;
     color: white;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif !important;
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: 0.2s;
 }
 
 .submit-button:hover {
     background: #9c82bd;
 }
 
-/* Footer */
-.footer {
-    background: #91c5dc;
+/* =========================================
+   FOOTER (Matches Home Page)
+   ========================================= */
+footer {
+    background: #A6CCE0;
+    padding-top: 10px;
     color: white;
-    padding: 22px 25px 15px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    font-size: 13px;
-    line-height: 1.6;
+    width: 100%;
+    margin-top: 50px; 
 }
 
-.footer-column strong {
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.footer-content {
+    width: 33.3%;
+}
+
+.footer-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3em;
     font-weight: 700;
-}
-
-.footer a {
-    color: white;
-    font-weight: 700;
-}
-
-.copyright {
-    grid-column: 1 / -1;
+    margin-bottom: 8px;
     text-align: center;
-    margin-top: 10px;
-    font-size: 12px;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-    .navbar {
-        padding: 9px 8px;
-        gap: 10px;
-    }
+.footer-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    width: 190px;
+    margin: auto;
+    padding: 4px;
+}
 
-    .nav-icons {
-        display: none;
-    }
+.footer-content ul {
+    text-align: center;
+}
 
-    .navbar nav {
-        gap: 14px;
-    }
+.List {
+    padding: 0;
+    list-style: none;
+}
 
-    .navbar nav a {
-        font-size: 12px;
-    }
+.List li {
+    width: auto;
+    text-align: center;
+    padding: 7px;
+    position: relative;
+}
 
-    .banner {
-        padding: 35px 12px;
-    }
+.List li a {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-    .banner h1 {
-        font-size: 29px;
-    }
+.List li a:hover {
+    color: #1c3169;
+}
 
-    .review-container {
-        padding: 0 12px;
-        margin: 18px auto;
-    }
+.bottom-bar {
+    background: #90bfd8;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
 
-    .review-grid {
-        gap: 12px;
-    }
+.bottom-bar p {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+}
 
-    .review-card {
-        padding: 10px;
-        border-radius: 10px;
-    }
+.footer-content:last-child .List {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
 
-    .review-card h3 {
-        font-size: 12px;
-    }
+.footer-content:last-child .List li {
+    padding: 5px;
+}
 
-    .stars {
-        font-size: 16px;
-        letter-spacing: 0;
-    }
+.insta-icon,
+.tiktok-icon {
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
 
-    .review-content {
-        gap: 6px;
+.insta-icon:hover,
+.tiktok-icon:hover {
+    color: #1c3169;
+    transform: scale(1.2);
+}
+
+/* --- 8. MOBILE RESPONSIVE --- */
+@media (max-width: 750px) {
+    .review-banner { padding: 40px 15px !important; margin: 20px 15px !important; }
+    .review-banner h1 { font-size: 32px !important; }
+    .review-container { padding: 0 12px; margin: 18px auto; }
+    .review-grid { gap: 12px; grid-template-columns: 1fr; }
+    .review-card { padding: 15px; }
+    .review-content { flex-direction: column; gap: 10px; }
+    .review-photo { width: 100%; max-width: none; aspect-ratio: 16/9; }
+    .review-form-section { padding: 15px; }
+
+    /* Footer Mobile */
+    .container {
         flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
-
-    .review-photo {
+    
+    .footer-content {
         width: 100%;
-        max-width: none;
-    }
-
-    .review-content p {
-        font-size: 11px;
-        line-height: 1.4;
-    }
-
-    .product-name {
-        font-size: 10px;
-    }
-
-    .review-form-section {
-        padding: 13px;
-        margin-top: 25px;
-    }
-
-    .review-form-section h2 {
-        font-size: 15px;
-    }
-
-    .form-description {
-        font-size: 12px;
-    }
-
-    #reviewForm > label {
-        font-size: 13px;
-    }
-
-    #reviewForm input[type="text"],
-    #reviewForm textarea,
-    #reviewForm input[type="file"] {
-        font-size: 12px;
-    }
-
-    .footer {
-        grid-template-columns: 1fr 1fr;
-        padding: 18px 12px;
-        font-size: 11px;
-    }
-
-    .copyright {
-        font-size: 10px;
     }
 }

@@ -1,8 +1,32 @@
-/* SHOP PAGE SPECIFIC STYLES */
+.shop-banner h1, 
+.shop-banner p, 
+.filter-btn, 
+.category-header h2, 
+.view-all, 
+.card-info h3, 
+.card-info .price, 
+.view-detail-btn {
+    font-family: 'Inter', sans-serif;
+}
+
+header a::after,
+.logo-link::after,
+header .logo-container::after {
+    display: none;
+    content: none;
+    background: transparent;
+    height: 0;
+}
+
+header a, 
+.logo-link {
+    text-decoration: none;
+    border-bottom: none;
+}
 
 /* Shop Banner */
 .shop-banner {
-    background: #eef2fc; /* Light blue/grey from screenshot */
+    background: #eef2fc;
     text-align: center;
     padding: 40px 20px;
     border-radius: 10px;
@@ -23,37 +47,6 @@
     font-weight: 500;
 }
 
-/* Search Bar inside Banner */
-.search-wrapper {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    max-width: 400px;
-}
-
-.search-wrapper i {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #a98ac5;
-}
-
-.shop-search {
-    padding: 12px 20px 12px 45px; /* Padding for icon */
-    width: 100%;
-    border-radius: 30px;
-    border: 1px solid #c4c9e2;
-    outline: none;
-    font-family: 'Inter', sans-serif;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.shop-search:focus {
-    border-color: #a98ac5;
-    box-shadow: 0 0 8px rgba(169, 138, 197, 0.3);
-}
-
 /* Filter Buttons */
 .filter-buttons {
     display: flex;
@@ -71,7 +64,6 @@
     padding: 10px 35px;
     border-radius: 6px;
     font-weight: 600;
-    font-family: 'Inter', sans-serif;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: 0.2s;
@@ -106,7 +98,6 @@
     margin-bottom: 25px;
 }
 
-/* Purple category title */
 .category-header h2 {
     color: #a98ac5; 
     font-size: 20px;
@@ -145,6 +136,7 @@
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
+
 /* Image Wrapper */
 .card-image-wrapper {
     position: relative;
@@ -181,26 +173,25 @@
     margin-bottom: 15px;
 }
 
-/* --- BUTTON ROW (Heart + View Detail) --- */
-/* We use flexbox here to put them side-by-side */
+/* Button Row */
 .card-actions {
     display: flex;
-    gap: 10px; /* Space between buttons */
-    margin-top: auto; /* Pushes to the bottom */
-    width: 100%
+    gap: 10px;
+    margin-top: auto;
+    width: 100%;
 }
 
-/* The View Detail Button (Purple) */
+/* View Detail Button */
 .view-detail-btn {
-    flex: 1; /* Takes up all remaining space */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #b49bc9; /* PURPLE BACKGROUND */
-    color: #ffffff; /* WHITE TEXT */
+    background-color: #b49bc9;
+    color: #ffffff;
     padding: 10px;
     border-radius: 6px;
-    text-decoration: none; /* Removes the underline */
+    text-decoration: none;
     font-weight: 600;
     font-size: 13px;
     transition: 0.2s;
@@ -211,7 +202,7 @@
     background: #9b7dba;
 }
 
-/* The Favourite (Heart) Button */
+/* Favourite (Heart) Button */
 .wishlist-btn {
     display: flex;
     justify-content: center;
@@ -220,7 +211,7 @@
     border: 1px solid #c4c9e2;
     border-radius: 6px;
     width: 42px;
-    height: 42px; /* Match height of View Detail button */
+    height: 42px;
     cursor: pointer;
     color: #b49bc9;
     transition: 0.2s;
@@ -232,26 +223,20 @@
     background: #fff0f0;
 }
 
-/* JS Active state (when clicked) */
 .wishlist-btn.active {
     color: #e74c3c;
     border-color: #e74c3c;
     background: #fff0f0;
 }
 
-
 /* Mobile Responsive Adjustments */
 @media (max-width: 750px) {
     .shop-banner h1 { font-size: 26px; }
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    
-    /* Card updates */
     .card-image-wrapper { height: 140px; }
     .card-info { padding: 10px; }
     .card-info h3 { font-size: 12px; }
     .card-info .price { font-size: 13px; margin-bottom: 10px;}
-    
-    /* Action Button updates */
     .card-actions { gap: 5px; }
     .view-detail-btn { padding: 8px; font-size: 11px; }
     .wishlist-btn { width: 32px; height: 32px; font-size: 14px; }
