@@ -3,6 +3,11 @@
    Colours follow the rest of the site (#B39BDC, #465b8b)
    ========================================================= */
 
+.logo-link {
+    display: block;
+    text-decoration: none;
+}
+
 .cart-page {
     min-height: 600px;
     padding: 50px 6% 80px;
