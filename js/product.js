@@ -1,212 +1,433 @@
-/* PRODUCT DETAIL PAGE - SA'ADATUL D.I.Y
-   Open as product.html?id=2 - details are loaded from the database.
-   "Add to Cart" saves the item to the customer's cart (login required). */
+/*
+ * PRODUCT DETAIL PAGE - SA'ADATUL D.I.Y
+ *
+ * Product details are loaded from the database.
+ * Example: product.html?id=2
+ *
+ * Features:
+ * - Display product details
+ * - Display product image
+ * - Select other designs
+ * - Increase/decrease quantity
+ * - Add product to cart
+ *
+ * Slideshow, product information and
+ * recommendations have been removed.
+ */
 
-const CATEGORY_NAMES = {
-    keychain: "Keychains",
-    figurine: "Figurines",
-    plushie: "Plushies",
-    accessory: "Accessories"
-};
+// ==========================================
+// PRODUCT VARIABLES
+// ==========================================
 
-// IMAGE GALLERY LOGIC (filled from the database)
-let productImages = [document.getElementById("mainProductImage").getAttribute("src")];
 let currentProduct = null;
 
-let currentImageIndex = 0;
 const mainImage = document.getElementById("mainProductImage");
-const dotsContainer = document.getElementById("dotsContainer");
-let dots = document.querySelectorAll(".dot");
 
-mainImage.setAttribute("data-fallback", "");
-
-// Function to update the main image and active dot
-function updateGallery(index) {
-    if (index < 0) index = productImages.length - 1;
-    if (index >= productImages.length) index = 0;
-
-    currentImageIndex = index;
-    mainImage.src = productImages[index];
-
-    // Update dots
-    dots.forEach(dot => dot.classList.remove("active"));
-    if (dots[index]) dots[index].classList.add("active");
-}
-
-// Function for the Left/Right Arrows
-function changeImage(direction) {
-    updateGallery(currentImageIndex + direction);
-}
-
-// Function for clicking the dots
-function setImage(index) {
-    updateGallery(index);
-}
-
-// CLICKING "OTHER DESIGN" CARDS opens that product
-function selectDesign(element, imageSrc) {
-    document.querySelectorAll('.design-card').forEach(card => {
-        card.classList.remove('active');
-    });
-
-    element.classList.add('active');
-
-    if (element.dataset.productId) {
-        window.location.href = "product.html?id=" + element.dataset.productId;
-        return;
-    }
-
-    mainImage.src = imageSrc;
-    dots.forEach(dot => dot.classList.remove("active"));
-    if (dots[0]) dots[0].classList.add("active");
-}
-
-// QUANTITY PLUS/MINUS LOGIC
 const qtyInput = document.getElementById("qtyInput");
 const plusBtn = document.getElementById("plusBtn");
 const minusBtn = document.getElementById("minusBtn");
-const addToCartButton = document.querySelector(".add-to-cart-large");
+
+const addToCartButton = document.querySelector(
+    ".add-to-cart-large"
+);
+
+const productTitle = document.querySelector(".product-title");
+const productPrice = document.querySelector(".product-price");
+const productDescription = document.querySelector(".product-desc");
+
+const stockBadge = document.querySelector(
+    ".badges .badge"
+);
+
+const otherDesigns = document.querySelector(
+    ".other-designs"
+);
+
+// Image fallback support from global.js
+if (mainImage) {
+    mainImage.setAttribute("data-fallback", "");
+}
+
+
+// ==========================================
+// OTHER DESIGN SELECTION
+// ==========================================
+
+function selectDesign(element, imageSrc) {
+
+    document.querySelectorAll(".design-card").forEach(card => {
+        card.classList.remove("active");
+    });
+
+    element.classList.add("active");
+
+    // If the design is linked to another
+    // product in the database, open that product.
+
+    const productId = element.dataset.productId;
+
+    if (productId) {
+        window.location.href =
+            "product.html?id=" + encodeURIComponent(productId);
+        return;
+    }
+
+    // Otherwise, change the displayed image.
+    if (imageSrc && mainImage) {
+        mainImage.src = imageSrc;
+    }
+}
+
+
+// ==========================================
+// QUANTITY SELECTOR
+// ==========================================
 
 function maxQuantity() {
-    if (currentProduct && currentProduct.stock !== null) return currentProduct.stock;
+
+    if (
+        currentProduct &&
+        currentProduct.stock !== null &&
+        currentProduct.stock !== undefined
+    ) {
+        const stock = Number(currentProduct.stock);
+
+        if (Number.isFinite(stock)) {
+            return Math.max(0, stock);
+        }
+    }
+
     return 99;
 }
 
+
+// Increase quantity
+
 plusBtn.addEventListener("click", () => {
-    let currentQty = parseInt(qtyInput.value);
+
+    const currentQty = parseInt(qtyInput.value, 10) || 1;
+
     if (currentQty < maxQuantity()) {
         qtyInput.value = currentQty + 1;
     }
+
 });
 
+
+// Decrease quantity
+
 minusBtn.addEventListener("click", () => {
-    let currentQty = parseInt(qtyInput.value);
+
+    const currentQty = parseInt(qtyInput.value, 10) || 1;
+
     if (currentQty > 1) {
         qtyInput.value = currentQty - 1;
     }
+
 });
 
-// ADD TO CART (redirects to login if the customer is not logged in)
+
+// ==========================================
+// ADD TO CART
+// ==========================================
+
 addToCartButton.addEventListener("click", async () => {
-    if (!currentProduct) return;
+
+    // Product must be loaded first.
+    if (!currentProduct) {
+        SDIY.toast("Product is not available.", "error");
+        return;
+    }
+
+    const quantity = parseInt(qtyInput.value, 10) || 1;
+
+    // Prevent adding more than available stock.
+    if (quantity > maxQuantity()) {
+        SDIY.toast(
+            "Selected quantity exceeds available stock.",
+            "error"
+        );
+        return;
+    }
 
     addToCartButton.disabled = true;
     addToCartButton.textContent = "Adding...";
 
     try {
-        const result = await SDIY.addToCart(currentProduct.id, parseInt(qtyInput.value) || 1);
+
+        // Existing cart function from global.js.
+        // Login requirements remain handled there.
+
+        const result = await SDIY.addToCart(
+            currentProduct.id,
+            quantity
+        );
+
         if (result) {
-            SDIY.toast(result.message);
+
+            SDIY.toast(
+                result.message || "Product added to cart!"
+            );
+
+            // Reset quantity after successful addition.
             qtyInput.value = 1;
         }
+
     } catch (error) {
-        SDIY.toast(error.message, "error");
+
+        SDIY.toast(
+            error.message || "Unable to add product to cart.",
+            "error"
+        );
+
     } finally {
-        addToCartButton.disabled = false;
-        addToCartButton.textContent = "Add to Cart";
+
+        if (currentProduct && maxQuantity() === 0) {
+            addToCartButton.disabled = true;
+            addToCartButton.textContent = "Out of Stock";
+        } else {
+            addToCartButton.disabled = false;
+            addToCartButton.textContent = "Add to Cart";
+        }
+
     }
+
 });
 
+
+// ==========================================
 // DISPLAY PRODUCT FROM DATABASE
-function smallCard(product) {
-    const name = SDIY.escapeHtml(product.name);
-    return `
-        <div class="product-card">
-            <div class="card-image-wrapper">
-                <img src="${SDIY.escapeHtml(product.image)}" alt="${name}" data-fallback>
-            </div>
-            <div class="card-info">
-                <h3>${name}</h3>
-                <p class="price">BND ${SDIY.formatPrice(product.price)}</p>
-                <div class="card-actions">
-                    <a href="product.html?id=${product.id}" class="view-detail-btn">View Details</a>
-                </div>
-            </div>
-        </div>
-    `;
-}
+// ==========================================
 
 function renderProduct(data) {
+
+    if (!data || !data.product) {
+        throw new Error("Product data was not found.");
+    }
+
     const product = data.product;
+
     currentProduct = product;
-    document.title = product.name + " | Sa'adatul D.I.Y";
 
-    document.querySelector(".product-title").textContent = product.name;
-    document.querySelector(".product-price").textContent = "BND " + SDIY.formatPrice(product.price);
-    document.querySelector(".product-desc").textContent =
-        product.description || "Handmade crochet " + product.category + ", made with love just for you.";
+    // ======================================
+    // PRODUCT TITLE
+    // ======================================
 
-    // Stock badge
-    const stockBadge = document.querySelector(".badges .badge");
-    const outOfStock = product.stock === 0;
-    stockBadge.textContent = product.stock === null
-        ? "In Stock"
-        : outOfStock ? "Out of Stock" : `In Stock (${product.stock} available)`;
-    if (outOfStock) {
+    document.title =
+        product.name + " | Sa'adatul D.I.Y";
+
+    productTitle.textContent = product.name;
+
+
+    // ======================================
+    // PRODUCT PRICE
+    // ======================================
+
+    productPrice.textContent =
+        "BND " + SDIY.formatPrice(product.price);
+
+
+    // ======================================
+    // PRODUCT DESCRIPTION
+    // ======================================
+
+    productDescription.textContent =
+        product.description ||
+        "Handmade crochet " +
+        (product.category || "product") +
+        ", made with love just for you.";
+
+
+    // ======================================
+    // PRODUCT IMAGE
+    // ======================================
+
+    // Display one main image only.
+    // No slideshow arrows or dots.
+
+    const image =
+        product.image ||
+        (Array.isArray(product.images)
+            ? product.images[0]
+            : null);
+
+    if (image) {
+        mainImage.src = image;
+    }
+
+    mainImage.alt = product.name;
+
+
+    // ======================================
+    // STOCK AVAILABILITY
+    // ======================================
+
+    const stock =
+        product.stock === null ||
+        product.stock === undefined
+            ? null
+            : Number(product.stock);
+
+    const outOfStock = stock !== null && stock <= 0;
+
+    if (stock === null) {
+
+        stockBadge.textContent = "In Stock";
+
+        stockBadge.style.background = "#4caf50";
+        stockBadge.style.color = "#ffffff";
+
+    } else if (outOfStock) {
+
+        stockBadge.textContent = "Out of Stock";
+
         stockBadge.style.background = "#fdecee";
         stockBadge.style.color = "#c0392b";
-        addToCartButton.disabled = true;
-        addToCartButton.textContent = "Out of Stock";
-        addToCartButton.replaceWith(addToCartButton.cloneNode(true));
-    }
 
-    // Gallery
-    productImages = product.images.length ? product.images : [product.image];
-    dotsContainer.innerHTML = productImages.map((_, index) =>
-        `<span class="dot ${index === 0 ? "active" : ""}" onclick="setImage(${index})"></span>`
-    ).join("");
-    dots = dotsContainer.querySelectorAll(".dot");
-    mainImage.alt = product.name;
-    updateGallery(0);
-
-    const arrowsHidden = productImages.length < 2;
-    document.querySelectorAll(".nav-arrow").forEach(arrow => { arrow.hidden = arrowsHidden; });
-    dotsContainer.hidden = arrowsHidden;
-
-    // Other designs from the same category
-    const otherDesigns = document.querySelector(".other-designs");
-    if (data.otherDesigns.length) {
-        otherDesigns.querySelector(".design-options").innerHTML = data.otherDesigns.map(item => `
-            <div class="design-card" data-product-id="${item.id}" onclick="selectDesign(this, '')">
-                <img src="${SDIY.escapeHtml(item.image)}" alt="${SDIY.escapeHtml(item.name)}" data-fallback>
-                <p>${SDIY.escapeHtml(item.name)}</p>
-            </div>
-        `).join("");
     } else {
-        otherDesigns.hidden = true;
+
+        stockBadge.textContent =
+            `In Stock (${stock} available)`;
+
+        stockBadge.style.background = "#4caf50";
+        stockBadge.style.color = "#ffffff";
+
     }
 
-    // Product information
-    const meta = document.querySelectorAll(".product-meta p");
-    if (meta[0]) meta[0].innerHTML = "<strong>Category:</strong> " + (CATEGORY_NAMES[product.category] || product.category);
-    if (meta[1]) meta[1].innerHTML = "<strong>Availability:</strong> " + (outOfStock ? "Out of stock" : "Available");
+    // Disable Add to Cart if out of stock.
+    addToCartButton.disabled = outOfStock;
 
-    // You may also like
-    const youMayLike = document.querySelector(".you-may-like");
-    if (data.related.length) {
-        youMayLike.querySelector(".recommendation-grid").innerHTML = data.related.map(smallCard).join("");
+    addToCartButton.textContent =
+        outOfStock ? "Out of Stock" : "Add to Cart";
+
+    qtyInput.value = 1;
+
+
+    // ======================================
+    // OTHER DESIGNS
+    // ======================================
+
+    const designOptions = otherDesigns.querySelector(
+        ".design-options"
+    );
+
+    const designs = Array.isArray(data.otherDesigns)
+        ? data.otherDesigns
+        : [];
+
+    if (designs.length > 0) {
+
+        otherDesigns.hidden = false;
+
+        designOptions.innerHTML = designs.map(item => {
+
+            const name = SDIY.escapeHtml(item.name);
+            const image = SDIY.escapeHtml(item.image || "");
+
+            const id = encodeURIComponent(item.id);
+
+            return `
+                <div
+                    class="design-card"
+                    data-product-id="${id}"
+                    onclick="selectDesign(this, '')"
+                >
+                    <img
+                        src="${image}"
+                        alt="${name}"
+                        data-fallback
+                    >
+
+                    <p>${name}</p>
+                </div>
+            `;
+
+        }).join("");
+
     } else {
-        youMayLike.hidden = true;
+
+        // Keep the original HTML design cards
+        // when no database alternatives exist.
+
+        const existingCards = designOptions.querySelectorAll(
+            ".design-card"
+        );
+
+        otherDesigns.hidden = existingCards.length === 0;
+
     }
+
+    // Product Information removed.
+    // You May Also Like removed.
+    // Slideshow removed.
+
 }
 
+
+// ==========================================
+// LOAD PRODUCT FROM DATABASE
+// ==========================================
+
 async function loadProduct() {
+
     try {
-        let id = new URLSearchParams(window.location.search).get("id");
+
+        let id = new URLSearchParams(
+            window.location.search
+        ).get("id");
+
+        // If no product ID is provided,
+        // load the first available product.
 
         if (!id) {
-            const { products } = await SDIY.api("products.php");
-            if (!products.length) throw new Error("No products available yet.");
+
+            const response = await SDIY.api("products.php");
+
+            const products = response.products || [];
+
+            if (!products.length) {
+                throw new Error(
+                    "No products available yet."
+                );
+            }
+
             id = products[0].id;
         }
 
-        renderProduct(await SDIY.api("products.php?id=" + encodeURIComponent(id)));
+        // Retrieve the selected product.
+        const data = await SDIY.api(
+            "products.php?id=" + encodeURIComponent(id)
+        );
+
+        renderProduct(data);
+
     } catch (error) {
-        document.querySelector(".product-title").textContent = "Product not found";
-        document.querySelector(".product-price").textContent = "";
+
+        console.error("Product loading error:", error);
+
+        productTitle.textContent = "Product not found";
+
+        productPrice.textContent = "";
+
+        productDescription.textContent =
+            "Unable to load this product. Please try again.";
+
         addToCartButton.disabled = true;
-        SDIY.toast(error.message, "error");
+
+        addToCartButton.textContent = "Unavailable";
+
+        SDIY.toast(
+            error.message || "Unable to load product.",
+            "error"
+        );
+
     }
+
 }
+
+
+// ==========================================
+// INITIALIZE PRODUCT PAGE
+// ==========================================
 
 loadProduct();
