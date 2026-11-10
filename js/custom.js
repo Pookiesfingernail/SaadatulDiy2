@@ -85,13 +85,17 @@ function createKeychainForm(item, index) {
         <!-- HAIR STYLING -->
         <section class="form-section">
             <h3>Hair & Head Styling</h3>
-            <div class="reference-photo-box">
+            
+            <label class="reference-photo-box">
                 <i class="fa-regular fa-image"></i>
                 <div>
                     <strong>Reference Photo Customisation:</strong><br>
                     Upload your own picture or reference photo to help us understand your preferred hairstyle.
+                    <span class="file-upload-status" id="hairFile-${index}"></span>
                 </div>
-            </div>
+                <input type="file" class="hidden-file" accept="image/*" onchange="handleReferenceUpload(this, 'hairFile-${index}')">
+            </label>
+
             <label>HAIRSTYLE / LENGTH / HEADWEAR OPTIONS</label>
             <div class="option-grid">
                 ${hairChoices.map(option => `
@@ -108,13 +112,17 @@ function createKeychainForm(item, index) {
         <!-- OUTFIT -->
         <section class="form-section">
             <h3>Outfit / Apparel</h3>
-            <div class="reference-photo-box">
+            
+            <label class="reference-photo-box">
                 <i class="fa-regular fa-image"></i>
                 <div>
                     <strong>Reference Photo Customisation:</strong><br>
                     Upload your own picture or reference photo to help us understand your preferred outfit.
+                    <span class="file-upload-status" id="outfitFile-${index}"></span>
                 </div>
-            </div>
+                <input type="file" class="hidden-file" accept="image/*" onchange="handleReferenceUpload(this, 'outfitFile-${index}')">
+            </label>
+
             <label>SELECT OUTFIT / APPAREL CATEGORY</label>
             <div class="option-grid">
                 ${outfitOptions.map(option => `
@@ -131,13 +139,17 @@ function createKeychainForm(item, index) {
         <!-- ACCESSORIES -->
         <section class="form-section">
             <h3>Optional Accessories & Details</h3>
-            <div class="reference-photo-box">
+            
+            <label class="reference-photo-box">
                 <i class="fa-regular fa-image"></i>
                 <div>
                     <strong>Reference Photo Customisation:</strong><br>
                     Upload your own picture or reference photo to help us understand your preferred accessories.
+                    <span class="file-upload-status" id="accFile-${index}"></span>
                 </div>
-            </div>
+                <input type="file" class="hidden-file" accept="image/*" onchange="handleReferenceUpload(this, 'accFile-${index}')">
+            </label>
+
             <label>SELECT ACCESSORIES</label>
             <div class="accessory-list">
                 ${accessoryOptions.map(option => {
@@ -155,6 +167,16 @@ function createKeychainForm(item, index) {
             <textarea placeholder="Type in the colour number & accessories request..." data-index="${index}" data-note="accessoryNote">${item.accessoryNote}</textarea>
         </section>
     `;
+}
+
+// HANDLE FILE UPLOAD DISPLAY
+function handleReferenceUpload(input, spanId) {
+    const span = document.getElementById(spanId);
+    if (input.files && input.files.length > 0) {
+        span.textContent = "✓ " + input.files[0].name;
+    } else {
+        span.textContent = "";
+    }
 }
 
 // DISPLAY KEYCHAIN FORMS
@@ -270,66 +292,83 @@ function updateSummary() {
     totalPrice.textContent = total.toFixed(2);
 }
 
-//  MODAL LOGIC
-const DRAFT_KEY = "sdiyCustomDraft";
+//  MODAL & VALIDATION LOGIC
+const DRAFT_KEY = "sdiyCustomDraftKeychain";
 const confirmButton = document.getElementById("confirmCustom");
 const specialNotes = document.getElementById("specialNotes");
 
-function findMissingChoice() {
-    for (let i = 0; i < keychains.length; i++) {
-        const item = keychains[i];
-        const label = "Keychain #" + (i + 1);
-        if (!item.gender) return label + ": please choose Male or Female.";
-        if (!item.skin) return label + ": please select a skin tone.";
-        if (!item.hair) return label + ": please choose a hairstyle.";
-        if (!item.outfit) return label + ": please choose an outfit.";
-    }
-    return "";
-}
-
-// Show Modal on Confirm Click
 confirmButton.addEventListener("click", function() {
-    const missing = findMissingChoice();
+    // 1. Clear previous errors
+    document.querySelectorAll('.missing-error').forEach(el => el.classList.remove('missing-error'));
+    document.querySelectorAll('.form-section').forEach(el => el.classList.remove('has-error'));
 
-    if (missing) {
-        alert(missing);
-        return;
+    let hasError = false;
+    let firstErrorElement = null;
+
+    // 2. Check every keychain for missing fields
+    keychains.forEach((item, index) => {
+        if (!item.gender) {
+            document.querySelectorAll(`.choice[data-index="${index}"][data-field="gender"]`).forEach(el => el.classList.add('missing-error'));
+            if (!firstErrorElement) firstErrorElement = document.querySelector(`.choice[data-index="${index}"][data-field="gender"]`);
+            hasError = true;
+        }
+        if (!item.skin) {
+            document.querySelectorAll(`.skin-choice[data-index="${index}"][data-field="skin"]`).forEach(el => el.classList.add('missing-error'));
+            if (!firstErrorElement) firstErrorElement = document.querySelector(`.skin-choice[data-index="${index}"][data-field="skin"]`);
+            hasError = true;
+        }
+        if (!item.hair) {
+            document.querySelectorAll(`.option-button[data-index="${index}"][data-field="hair"]`).forEach(el => el.classList.add('missing-error'));
+            if (!firstErrorElement) firstErrorElement = document.querySelector(`.option-button[data-index="${index}"][data-field="hair"]`);
+            hasError = true;
+        }
+        if (!item.outfit) {
+            document.querySelectorAll(`.option-button[data-index="${index}"][data-field="outfit"]`).forEach(el => el.classList.add('missing-error'));
+            if (!firstErrorElement) firstErrorElement = document.querySelector(`.option-button[data-index="${index}"][data-field="outfit"]`);
+            hasError = true;
+        }
+    });
+
+    // 3. If there's an error, highlight the whole section and scroll to it
+    if (hasError) {
+        document.querySelectorAll('.missing-error').forEach(el => {
+            el.closest('.form-section').classList.add('has-error');
+        });
+
+        if (firstErrorElement) {
+            firstErrorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return; // Stop! Don't show the modal.
     }
 
-    // Save draft just in case
+    // 4. If everything is perfect, save draft and show modal
     sessionStorage.setItem(DRAFT_KEY, JSON.stringify({
         keychains: keychains,
         specialNotes: specialNotes.value
     }));
 
-    // Show the Pop-up Modal
     document.getElementById("customModal").style.display = "flex";
 });
 
-// Close Modal (Keep Editing)
 function closeCustomModal() {
     document.getElementById("customModal").style.display = "none";
 }
 
-// Proceed to Add to Cart (Logs in and sends to Database)
 async function addToCart() {
-    // Close the modal first
     document.getElementById("customModal").style.display = "none";
     
-    // Require login
     const user = await SDIY.requireLogin("Please log in or sign up to submit your custom order.");
     if (!user) return;
 
     confirmButton.disabled = true;
 
     try {
-
-        // Send data to server
         const result = await SDIY.api("custom_order.php", {
             method: "POST",
             body: {
                 keychains: keychains,
-                specialNotes: specialNotes.value
+                specialNotes: specialNotes.value,
+                orderType: "keychain"
             }
         });
 
@@ -350,7 +389,6 @@ async function addToCart() {
     }
 }
 
-// RESTORE A DESIGN SAVED BEFORE LOGGING IN
 function restoreDraft() {
     try {
         const draft = JSON.parse(sessionStorage.getItem(DRAFT_KEY) || "null");
