@@ -70,6 +70,27 @@
     font-size: 14px;
 }
 
+.cart-column-heading {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) auto auto;
+    gap: 18px;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee6f7;
+    color: #465b8b;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.cart-column-heading span:nth-child(2) {
+    text-align: left;
+}
+
+.cart-column-heading span:nth-child(3),
+.cart-column-heading span:nth-child(4) {
+    text-align: right;
+}
+
 .cart-empty {
     padding: 50px 10px;
     text-align: center;
