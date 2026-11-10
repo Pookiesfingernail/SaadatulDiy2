@@ -1,34 +1,34 @@
 body, main, section, div, p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, label {
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Inter', sans-serif;
 }
 
 .fancy-text, 
 .fancy-text * {
-    font-family: 'Dancing Script', cursive !important;
+    font-family: 'Dancing Script', cursive;
 }
 
 .cute-text, 
 .cute-text * {
-    font-family: 'Delicious Handrawn', cursive !important;
+    font-family: 'Delicious Handrawn', cursive;
 }
 
 .fa-solid, .fa-regular, .fa-brands {
-    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
 }
 
 header a::after,
 .logo-link::after,
 header .logo-container::after {
-    display: none !important;
-    content: none !important;
-    background: transparent !important;
-    height: 0 !important;
+    display: none;
+    content: none;
+    background: transparent;
+    height: 0;
 }
 
 header a, 
 .logo-link {
-    text-decoration: none !important;
-    border-bottom: none !important;
+    text-decoration: none;
+    border-bottom: none;
 }
 
 /* --- CUSTOMISATION BANNER --- */
