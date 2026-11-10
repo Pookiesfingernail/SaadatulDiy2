@@ -1,27 +1,37 @@
-/* =========================================
-   FORCE INTER FONT EVERYWHERE
-   ========================================= */
-body,
-main,
-section,
-div,
-p,
-h1, h2, h3, h4, h5, h6,
-span:not(.fancy-text):not(.cute-text):not(.fa-solid):not(.fa-regular):not(.fa-brands),
-a,
-button,
-input,
-textarea,
-select,
-label {
+body, main, section, div, p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, select, label {
     font-family: 'Inter', sans-serif !important;
 }
 
-/* =========================================
-   CUSTOM PAGE SPECIFIC STYLES
-   ========================================= */
+.fancy-text, 
+.fancy-text * {
+    font-family: 'Dancing Script', cursive !important;
+}
 
-/* --- 1. CUSTOMISATION BANNER --- */
+.cute-text, 
+.cute-text * {
+    font-family: 'Delicious Handrawn', cursive !important;
+}
+
+.fa-solid, .fa-regular, .fa-brands {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+header a::after,
+.logo-link::after,
+header .logo-container::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+    height: 0 !important;
+}
+
+header a, 
+.logo-link {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* --- CUSTOMISATION BANNER --- */
 .banner {
     min-height: 300px;
     margin: 40px 3% 0 3%;
@@ -62,7 +72,7 @@ label {
     color: #465b8b;
 }
 
-/* --- 2. MAIN LAYOUT --- */
+/* --- MAIN LAYOUT --- */
 .custom-container {
     display: grid;
     grid-template-columns: minmax(0, 1.65fr) minmax(350px, 0.85fr);
@@ -88,7 +98,7 @@ label {
 .section-heading h2 { font-size: 22px; font-weight: 500; margin: 0; }
 .number { background: #b49bc9; color: white; padding: 5px 9px; border-radius: 4px; font-weight: 600; }
 
-/* --- 3. FORM SECTIONS --- */
+/* --- FORM SECTIONS --- */
 .form-section {
     background: #f0effb;
     border: 1px solid #c8c9e5;
@@ -108,7 +118,7 @@ label {
 .form-section label { display: block; font-size: 15px; color: #77809c; margin-bottom: 9px; }
 .small-instruction { font-size: 14px; line-height: 1.7; color: #737d9a; margin: 12px 0; }
 
-/* --- 4. CHOICES & OPTIONS --- */
+/* --- CHOICES & OPTIONS --- */
 .gender-options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
 .choice {
@@ -145,7 +155,7 @@ label {
 .reference-photo-box { background: #f4f5f9; border: 1px solid #d0d5e8; border-radius: 6px; padding: 15px; font-size: 13px; color: #5e6e94; display: flex; gap: 15px; align-items: center; margin-bottom: 20px; line-height: 1.5; }
 .reference-photo-box i { font-size: 28px; color: #7b849e; }
 
-/* --- 5. SUMMARY PANEL --- */
+/* --- SUMMARY PANEL --- */
 .couple-option { display: flex; align-items: center; gap: 14px; padding: 17px; background: #f0effb; border: 1px solid #c8c9e5; border-radius: 7px; cursor: pointer; margin-bottom: 8px; }
 .couple-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .circle-check { width: 28px; height: 28px; min-width: 25px; border: 2px solid #a98ac5; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; }
@@ -172,14 +182,14 @@ label {
 .confirm-button { width: 100%; padding: 18px; background: #69c27c; border: none; border-radius: 6px; color: white; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 10px; transition: 0.2s; }
 .confirm-button:hover { background: #52aa67; }
 
-/* --- 6. CUSTOM FOOTER --- */
+/* --- CUSTOM FOOTER --- */
 .footer { background: #a7d1df; color: white; padding: 45px 7% 25px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; font-size: 15px; width: 100%; margin: 0; }
 .footer strong { display: block; margin-bottom: 7px; font-size: 18px; }
 .footer p { margin-bottom: 4px; font-size: 16px; line-height: 1.7; }
 .footer a { color: white; text-decoration: none; }
 .copyright { grid-column: 1 / -1; width: 100%; text-align: center; border-top: 1px solid #ffffff55; padding-top: 12px; margin-top: 20px; font-size: 14px; }
 
-/* --- 7. MODAL --- */
+/* --- MODAL --- */
 .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center; }
 .custom-modal { background: #fae9ec; width: 90%; max-width: 450px; border-radius: 10px; padding: 40px 30px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 .modal-check-circle { background: white; color: #8bc34a; font-size: 35px; width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: -75px auto 15px; border: 3px solid #8bc34a; }
@@ -192,7 +202,7 @@ label {
 .btn-purple { flex: 1; background: #b49bc9; color: white; padding: 14px; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; box-shadow: 0 3px 5px rgba(0,0,0,0.2); transition: 0.2s; }
 .btn-purple:hover { background: #9b7dba; }
 
-/* --- 8. RESPONSIVE --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 1000px) {
     .custom-container { width: 96%; grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.9fr); gap: 20px; }
 }
