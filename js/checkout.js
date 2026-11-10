@@ -15,7 +15,6 @@ const totalText = document.getElementById("total");
 const addressFields = document.getElementById("addressFields");
 const addressInputs = addressFields.querySelectorAll("input");
 
-// Get the new elements
 const shippingOptionsBox = document.getElementById("shippingOptions");
 const pickupAddressBox = document.getElementById("pickupAddressBox");
 
@@ -37,61 +36,68 @@ document.querySelectorAll(".switch-option").forEach(button => {
             item.classList.remove("active");
         });
 
-        // Highlight selected button
         button.classList.add("active");
-
         const isDelivery = button.dataset.method === "delivery";
 
         if (isDelivery) {
-
-            // Show delivery fields, hide pickup box
             addressFields.style.display = "block";
             shippingOptionsBox.style.display = "block";
             pickupAddressBox.style.display = "none";
-            
-            // Set address fields as required
             addressInputs.forEach(input => input.required = true);
-            
-            // Update totals
             updateTotals();
         } else {
-            // Hide delivery fields, show pickup box
             addressFields.style.display = "none";
             shippingOptionsBox.style.display = "none";
             pickupAddressBox.style.display = "block";
-            
-            // Remove required from address fields
             addressInputs.forEach(input => input.required = false);
-            
-            // Update totals (0 delivery fee)
             deliveryFeeText.textContent = "0.00";
             totalText.textContent = subtotal.toFixed(2);
         }
     });
 });
 
-
-// --- FILE UPLOAD ---
+// --- FILE UPLOAD (Hides error when file is selected) ---
 document.getElementById("proof").addEventListener("change", event => {
     const file = event.target.files[0];
     document.getElementById("fileName").textContent = file ? file.name : "No file selected";
+    
+    // If a file is selected, remove the red error
+    if (file) {
+        document.getElementById("fileError").style.display = "none";
+        document.querySelector(".upload-button").classList.remove("error");
+    }
 });
-
 
 // --- SUBMIT ORDER ---
 document.getElementById("checkoutForm").addEventListener("submit", event => {
     event.preventDefault();
     const form = event.currentTarget;
 
+    // Check if all text boxes are filled out
     if (!form.reportValidity()) return;
 
-    const proof = document.getElementById("proof").files[0];
+    // Check if proof is uploaded
+    const proofInput = document.getElementById("proof");
+    const proof = proofInput.files[0];
+    const fileError = document.getElementById("fileError");
+    const uploadBtn = document.querySelector(".upload-button");
+
     if (!proof) {
-        alert("Please upload your BIBD bank transfer screenshot before placing your order.");
-        return;
+        // Show the red error text and turn the button red
+        fileError.style.display = "block";
+        uploadBtn.classList.add("error");
+        
+        // Automatically scroll to the file upload section
+        document.querySelector('.payment-box').scrollIntoView({ behavior: 'smooth' });
+        return; // Stop the form from submitting
     }
 
-    alert("Thank you for your order! Your checkout details are ready.");
+    // Generate a random 3-digit Order ID (e.g., SD-001)
+    const randomId = Math.floor(1 + Math.random() * 999).toString().padStart(3, '0');
+    document.getElementById("randomId").textContent = randomId;
+
+    // Show the Success Modal
+    document.getElementById("successModal").style.display = "flex";
 });
 
 // Calculate initial total on page load

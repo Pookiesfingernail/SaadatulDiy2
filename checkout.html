@@ -62,8 +62,7 @@
     <div class="two-fields">
         <div>
             <label for="phone">Phone number *</label>
-            <!-- Added placeholder -->
-            <input type="tel" id="phone" value="+673 " oninput="enforceBruneiPhone(this)" placeholder="123" required>
+                <input type="tel" id="phone" value="+673 " oninput="enforceBruneiPhone(this)" pattern="^\+673\s[0-9]{7}$" maxlength="12" title="Please enter exactly 7 numbers" required>
         </div>
         <div>
             <label for="country">Country / Region *</label>
@@ -130,9 +129,8 @@
         <div class="section-rule"></div>
         <h2>Address</h2>
         <div class="pickup-address-details">
-            <p><strong>Box Of Cravings, Madang (B53)</strong></p>
-            <p>Unit 11, Ground Floor, Block D, Lot No. 79780, Jalan Madang, Bandar Seri Begawan</p>
-            <a href="https://maps.app.goo.gl/PafBMgeYysjBA9dr7" target="_blank" class="gps-link">
+            <p>No. 26, Simpang 46-4-57, Jalan Lugu, STKRJ Kampung Lugu, Bandar Seri Begawan, Brunei Darussalam</p>
+            <a href="https://maps.app.goo.gl/d1i8csAMCK1W9fNP9" target="_blank" class="gps-link">
                 <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
             </a>
         </div>
@@ -143,15 +141,20 @@
     <!-- Payment -->
     <h2>Payment</h2>
     <p class="small-note">All transactions are secure and encrypted.</p>
+
     <div class="payment-box">
         <div class="payment-heading">BIBD Bank Transfer</div>
         <div class="payment-details">
+
             <strong>SAADATUL DIY</strong><br>
             <strong>00-001-01-018364</strong>
             <p>Upload the successful bank transfer screenshot to confirm your order.</p>
+
             <label class="upload-button" for="proof">Upload file</label>
             <input type="file" id="proof" class="file-input" accept="image/*,.pdf">
             <span id="fileName" class="file-name">No file selected</span>
+
+            <span id="fileError" style="color: #e53e3e; font-size: 13px; font-weight: 600; display: none; margin-top: 5px;">Please upload your BIBD payment receipt to complete your order.</span>
         </div>
     </div>
 
@@ -232,5 +235,31 @@
     </footer>
 
     <script src="js/checkout.js"></script>
+
+    <!-- CHECKOUT SUCCESS MODAL -->
+<div id="successModal" class="modal-overlay">
+    <div class="modal-content success-modal">
+        <div class="success-check-circle">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        
+        <h2 class="order-id">ORDER ID: #SD-<span id="randomId">84920</span></h2>
+        <h3 class="success-title">ORDER SUCCESSFULLY<br>RECEIVED!</h3>
+        <p class="success-sub">Updates on your order will be<br>sent through WhatsApp</p>
+
+        <div class="whatsapp-note">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+                <strong>NOTE:</strong><br>
+                Custom order will receive final payment update through WhatsApp.
+            </div>
+        </div>
+
+        <a href="index.html" class="btn-home">
+            <i class="fa-solid fa-house"></i> Back To Home
+        </a>
+    </div>
+</div>
+
 </body>
 </html>

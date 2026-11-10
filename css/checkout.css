@@ -15,13 +15,12 @@ body {
     color: var(--ink);
     background: #ffffff;
     font-family: 'Inter', sans-serif; 
-    /* INCREASED FONT SIZE FOR LAPTOP */
     font-size: 16px; 
 }
 
 /* --- HEADER --- */
 .top-banner {
-    height: 130px; /* Taller header */
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +31,7 @@ body {
 .brand { text-decoration: none; display: flex; justify-content: center; align-items: center; }
 
 .header-logo-small {
-    height: 75px; /* Slightly larger logo to match bigger header */
+    height: 75px;
     width: auto;
     object-fit: contain;
 }
@@ -41,13 +40,12 @@ body {
 .header-icons a { color: #a88dc6; transition: 0.2s; }
 .header-icons a:hover { color: #8b6ea8; }
 
-/* --- MAIN LAYOUT (Wider for Laptop) --- */
+/* --- MAIN LAYOUT --- */
 .checkout-layout {
     /* INCREASED max-width to 1300px to fill the laptop screen */
     width: min(100% - 60px, 1300px); 
     margin: 40px auto 60px;
     display: grid;
-    /* Adjusted ratio so form is wider */
     grid-template-columns: minmax(0, 1.6fr) minmax(350px, 1fr); 
     gap: 35px;
     align-items: start;
@@ -56,7 +54,7 @@ body {
 .panel {
     border: 1px solid var(--blue-line);
     border-radius: 6px;
-    padding: 30px; /* More padding inside the boxes */
+    padding: 30px;
     background: #ffffff;
 }
 
@@ -70,14 +68,14 @@ h2 { font-size: 20px; }
 /* --- FORM FIELDS --- */
 label.field-label, .order-info form > label:not(.upload-button) {
     display: block; 
-    font-size: 14px; /* Bigger labels */
+    font-size: 14px;
     font-weight: 500;
     margin: 0 0 8px 2px;
 }
 
 input[type="text"], input[type="email"], input[type="tel"], select {
     width: 100%; 
-    height: 50px; /* Taller input boxes */
+    height: 50px;
     border: 1px solid var(--blue-line);
     border-radius: 5px; 
     padding: 12px; 
@@ -164,7 +162,37 @@ input:focus, select:focus { border-color: var(--purple); box-shadow: 0 0 0 3px #
 .file-name { margin-left: 10px; color: var(--muted); font-size: 13px; }
 
 
-/* --- SUMMARY (Right Box) --- */
+/* --- FORM VALIDATION STYLES --- */
+
+/* When the user leaves the input empty and clicks submit, it turns red */
+input:invalid:not(:placeholder-shown),
+select:invalid:not(:placeholder-shown) {
+    border-color: #e53e3e;
+    background-color: #fff5f5;
+    outline: none;
+}
+
+/* If the user clicks into the box but hasn't typed yet */
+input:invalid:focus {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
+}
+
+label:has(+ input:required)::after,
+label:has(+ div input:required)::after,
+label:has(+ div select:required)::after {
+    content: " *";
+    color: #e53e3e;
+    font-weight: bold;
+}
+
+.upload-button.error {
+    border-color: #e53e3e;
+    color: #e53e3e;
+    background-color: #fff5f5;
+}
+
+/* --- SUMMARY ORDER --- */
 .summary-panel { padding: 30px; }
 .summary-title { margin: 0 0 30px; font-size: 24px; }
 
@@ -194,7 +222,7 @@ input:focus, select:focus { border-color: var(--purple); box-shadow: 0 0 0 3px #
 
 /* Modal Overlay */
 .modal-overlay {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.5);
@@ -205,7 +233,7 @@ input:focus, select:focus { border-color: var(--purple); box-shadow: 0 0 0 3px #
 
 /* Pink Modal */
 .custom-modal {
-    background: #fae9ec; /* Light pink */
+    background: #fae9ec;
     width: 90%;
     max-width: 450px;
     border-radius: 10px;
@@ -296,3 +324,73 @@ input:focus, select:focus { border-color: var(--purple); box-shadow: 0 0 0 3px #
     .socials { justify-content: center; }
     .two-fields { grid-template-columns: 1fr; gap: 0;}
 }
+
+/* Success Modal */
+.success-modal {
+    background: white;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.success-check-circle {
+    background: #a9d1e0;
+    color: white;
+    font-size: 40px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    margin: 0 auto 20px;
+}
+
+.order-id {
+    color: #1e3a8a;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.success-title {
+    color: #1e3a8a;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.success-sub {
+    color: #1e3a8a;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.whatsapp-note {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 15px;
+    border: 2px solid #a9d1e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+.whatsapp-note i { font-size: 35px; color: #1e3a8a; }
+.whatsapp-note strong { color: #1e3a8a; font-size: 16px; }
+.whatsapp-note div { font-size: 13px; color: #333; line-height: 1.4; }
+
+.btn-home {
+    display: inline-block;
+    background: white;
+    color: #1e3a8a;
+    border: 1px solid #ccc;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.btn-home:hover { background: #f0f0f0; }
