@@ -115,11 +115,32 @@ header a,
     text-decoration: underline;
 }
 
-/* Product Cards */
+/* Product Grid - 5 PRODUCTS PER ROW */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(5, minmax(0px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1100px) {
+    .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 750px) {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .product-card {
@@ -227,17 +248,4 @@ header a,
     color: #e74c3c;
     border-color: #e74c3c;
     background: #fff0f0;
-}
-
-/* Mobile Responsive Adjustments */
-@media (max-width: 750px) {
-    .shop-banner h1 { font-size: 26px; }
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .card-image-wrapper { height: 140px; }
-    .card-info { padding: 10px; }
-    .card-info h3 { font-size: 12px; }
-    .card-info .price { font-size: 13px; margin-bottom: 10px;}
-    .card-actions { gap: 5px; }
-    .view-detail-btn { padding: 8px; font-size: 11px; }
-    .wishlist-btn { width: 32px; height: 32px; font-size: 14px; }
 }
