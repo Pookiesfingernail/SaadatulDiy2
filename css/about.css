@@ -117,8 +117,9 @@
 .intro-text p {
     margin-bottom: 28px;
     color: var(--3C569A);
+    font-family: 'inter', sans-serif;
     font-size: 20px;
-    font-weight: 1000;
+    font-weight: 700;
     line-height: 1.6;
     letter-spacing: 0.5px;
 }
